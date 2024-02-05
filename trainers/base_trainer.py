@@ -6,9 +6,9 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 from supar import Parser
 import string
 import random
-import utils.nat_inst_gpt3 as gpt3
-import utils.nat_inst_gpt2 as gpt2
-from utils.expanded_encode_instruction import *
+#import utils.nat_inst_gpt3 as gpt3
+#import utils.nat_inst_gpt2 as gpt2
+#from utils.expanded_encode_instruction import *
 from sklearn.metrics import balanced_accuracy_score
 import json
 import os
@@ -63,14 +63,14 @@ class SimpleTrainer(TrainerBase):
 
     """A simple class based on GrIPS."""
 
-    def __init__(self, maxiter, patience, train_seed, data_seed, num_compose, num_candidates, backbone):
+    def __init__(self, maxiter, patience, train_seed, data_seed, num_compose, num_candidates):
         super(SimpleTrainer, self).__init__(maxiter, patience, train_seed, data_seed, num_compose, num_candidates)
-        if backbone == "gpt3":
-            self.run = gpt3.run
-            self.get_prediction = gpt3.get_prediction
-        if backbone == "gpt2":
-            self.run = gpt2.run
-            self.get_prediction = gpt2.get_prediction
+        # if backbone == "gpt3":
+        #     self.run = gpt3.run
+        #     self.get_prediction = gpt3.get_prediction
+        # if backbone == "gpt2":
+        #     self.run = gpt2.run
+        #     self.get_prediction = gpt2.get_prediction
         self.patience_counter = 1
         self.W_candidates = []
         self.W_scores = []
@@ -86,10 +86,10 @@ class SimpleTrainer(TrainerBase):
     def detokenize(self, tokens):
         return TreebankWordDetokenizer().detokenize(tokens)
 
-    def word_tokenize(slef, instruction):
+    def word_tokenize(self, instruction):
         return word_tokenize(instruction)
     
-    def sent_tokenize(slef, instruction):
+    def sent_tokenize(self, instruction):
         return sent_tokenize(instruction)
 
     def traverse_tree(self, parsed_tree):
@@ -141,8 +141,8 @@ class SimpleTrainer(TrainerBase):
         if 'sub' in edit_operations:
             para_model_name = 'tuner007/pegasus_paraphrase'
             torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
-            self.para_tokenizer = PegasusTokenizer.from_pretrained(para_model_name)
-            self.para_model = PegasusForConditionalGeneration.from_pretrained(para_model_name).to(torch_device).eval()
+            self.para_tokenizer = PegasusTokenizer.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--tuner007--pegasus_paraphrase")
+            self.para_model = PegasusForConditionalGeneration.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--tuner007--pegasus_paraphrase").to(torch_device).eval()
 
     def get_response(self, input_text, num_return_sequences, num_beams):
         torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
