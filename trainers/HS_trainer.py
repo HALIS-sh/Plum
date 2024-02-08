@@ -12,11 +12,14 @@ import random
 from pathlib import Path
 import math
 import heapq
+from transformers import AutoProcessor, AutoModel
+from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
+from PIL import Image
 
 class HS_trainer(SimpleTrainer):
 
-    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone):
-        super(HS_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone)
+    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type):
+        super(HS_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type)
         self.patience_counter = 1
         self.W_candidates = []
         self.W_scores = []
@@ -62,13 +65,13 @@ class HS_trainer(SimpleTrainer):
     def containenglish(self, str0):
         return bool(re.search('[a-z A-Z]', str0))
 
-    def mutated(self, base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args):
+    def mutated(self, base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration):
 
         deleted = {}
         added = {}
         
-        if base_candidate == self.original_candidate:
-            for p in phrase_lookup.values(): print(p)
+        # if base_candidate == self.original_candidate:
+        #     for p in phrase_lookup.values(): print(p)
         if use_add: 
             if len(delete_tracker): 
                 if 'add' not in edit_operations: edit_operations.append('add')
@@ -89,10 +92,11 @@ class HS_trainer(SimpleTrainer):
             candidates = []
             for edit in edits:
                 if isinstance(edit, str): 
+                    # print("Base Candidate: ", base_candidate)
                     candidate, indices = self.perform_edit(edit, base_candidate, phrase_lookup, delete_tracker)
                     empty = not self.containenglish(candidate)
                     if not empty:
-                        print(candidate)
+                        # print(candidate)
                         candidates.append(candidate)
                         if edit  == 'del': deleted[candidate] = [phrase_lookup[indices[0]]]
                         if edit == 'add': 
@@ -108,7 +112,7 @@ class HS_trainer(SimpleTrainer):
                         new_candidate, indices = self.perform_edit(op, old_candidate, phrase_lookup, delete_tracker)
                         empty = not self.containenglish(new_candidate)
                         if not empty:
-                            print(new_candidate)
+                            # print(new_candidate)
                             if op  == 'del':  composed_deletes.append(phrase_lookup[indices[0]])
                             if op == 'add': 
                                 if len(indices): composed_adds.append(indices[0])
@@ -123,7 +127,10 @@ class HS_trainer(SimpleTrainer):
 
         return candidates, deleted, added 
     
-    def generate_candidate(self, ks, HMCR, PAR, edit_opertions_small, use_add, delete_tracker, edit_operations, args):
+    def gpt_adjuster(self, sentence, current_iteration):
+        raise NotImplementedError("Subclasses must implement call_child_method")
+
+    def generate_candidate(self, ks, HMCR, PAR, edit_opertions_small, use_add, delete_tracker, edit_operations, args, current_iteration):
     
         w_m=[]
         w_m_words = []
@@ -136,36 +143,46 @@ class HS_trainer(SimpleTrainer):
             L = len(w_phrases)
             start = math.ceil(j/ks*L)
             end = math.ceil((j+1)/ks*L) - 1
-            w_segement = w_phrases[start:end]
+            if(start!=end):
+                w_segement = w_phrases[start:end]
+            else:
+                w_segement = [w_phrases[start]]
             w_segement_words = []
-
-            for phrase in w_segement:
+            print(w_segement)
+            for phrase in w_segement:   
                 w_segement_words = w_segement_words + self.word_tokenize(phrase)
             w_segement = self.detokenize(w_segement_words)
 
             if HMCR >= np.random.random():
                 if PAR >= np.random.random():
                     try:
-                        phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                        candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                        if bool(args.use_LLM):
+                            candidate = self.gpt_adjuster(w_segement, current_iteration)
+                        else:
+                            phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                            candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
                         w_segement = candidate
-                        print(w_segement)
+                        # print(w_segement)
                     except:
-                        print('Error occurs (parser) and skip this mutation')
+                        print('Error occurs (parser) and skip this mutation 1')
                         continue
                 deleted = {}
                 added = {}
                    
             else:
+                deleted = {}
+                added = {}
                 try:
-                    phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                    candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                    if bool(args.use_LLM):
+                        candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration)
+                    else:
+                        phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                        candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration)
                     w_segement = candidates[0] # multipule edit operations can be implemented if necessary
-                    print(w_segement)
+                    # print(w_segement)
                 except:
-                    print('Error occurs (parser) and skip this mutation')
+                    print('Error occurs (parser) and skip this mutation 2')
                     continue
-                
             w_m.append(w_segement)
         for segement in w_m:
             w_m_words.extend(self.word_tokenize(segement))
@@ -175,14 +192,14 @@ class HS_trainer(SimpleTrainer):
 
     def train(self, instruction, chosen_task_name, args):
         
-        ks = 5
+        ks = 1
         HMCR = 0.4
         PAR = 0.5
         edit_opertions_small = 'sub'
         N_H = 10
 
         meta_path = os.path.join(args.meta_dir, args.meta_name)
-        meta_file = open(meta_path, 'w+')
+        # meta_file = open(meta_path, 'w+')
         edit_operations = args.edits
         use_add = 'add' in edit_operations
 
@@ -191,9 +208,12 @@ class HS_trainer(SimpleTrainer):
 
         self.init_population(instruction, args)
 
-        meta_file.write("Original Candidate:\t "+ self.original_candidate + '\n')
-        meta_file.write("Original Score:\t "+ str(self.original_score) + '\n')
-        meta_file.write("\n")
+        # meta_file.write("Original Candidate:\t "+ self.original_candidate + '\n')
+        # meta_file.write("Original Score:\t "+ str(self.original_score) + '\n')
+        # meta_file.write("\n")
+        print("Original Candidate:\t ", self.original_candidate)
+        print("Original Score:\t ", self.original_score)
+        print("")
         wandb.log({"original_score": self.original_score})
         current_iteration = 0 
         delete_tracker = []
@@ -205,12 +225,15 @@ class HS_trainer(SimpleTrainer):
             
         while current_iteration < self.maxiter:
             current_iteration += 1
+            print("Current Iteration: ", current_iteration)
             #Base_candidate after battled in the tournament
             base_candidate = self.result_candidate
             base_score = self.result_score
 
-            meta_file.write("Base Candidate:\t "+ base_candidate + '\n')
-            meta_file.write("Base Score:\t "+ str(base_score) + '\n')
+            # meta_file.write("Base Candidate:\t "+ base_candidate + '\n')
+            # meta_file.write("Base Score:\t "+ str(base_score) + '\n')
+            print("Base Candidate: ", base_candidate)
+            print("Base Score: ", base_score)
             
             wandb.log({"step": current_iteration, "base_score": base_score})
             
@@ -220,8 +243,10 @@ class HS_trainer(SimpleTrainer):
             self.W_scores_m = []
             for c in range(args.num_candidates):
                 
-                w_m, deleted, added = self.generate_candidate(ks, HMCR, PAR, edit_opertions_small, use_add, delete_tracker, edit_operations, args)
-                w_m_score = self.score(w_m, args=args)
+                w_m, deleted, added = self.generate_candidate(ks, HMCR, PAR, edit_opertions_small, use_add, delete_tracker, edit_operations, args, current_iteration)
+                print("Candidate: ", w_m)
+                w_m_score = self.score(w_m, c+1, args=args)
+                print("Candidate Score: ", w_m_score)
                 self.W_candidates_m.append(w_m)
                 self.W_scores_m.append(w_m_score)
                 deleted_list = []
@@ -239,7 +264,7 @@ class HS_trainer(SimpleTrainer):
             
             if self.patience_counter > args.patience:
                 print('Ran out of patience')
-                meta_file.write('Ran out of patience \n')
+                # meta_file.write('Ran out of patience \n')
                 break
             
             self.W_candidates = self.W_candidates + self.W_candidates_m
@@ -247,6 +272,7 @@ class HS_trainer(SimpleTrainer):
             
             top_N_H_idx_list = heapq.nlargest(N_H, range(len(self.W_scores)), self.W_scores.__getitem__)
             W_candidates_top_N_H = [self.W_candidates[i] for i in top_N_H_idx_list]
+            print("Top N Candidates of Current Iteration: ", W_candidates_top_N_H)
             W_scores_top_N_H = [self.W_scores[i] for i in top_N_H_idx_list]
             self.W_candidates = W_candidates_top_N_H
             self.W_scores = W_scores_top_N_H
@@ -265,8 +291,13 @@ class HS_trainer(SimpleTrainer):
 
                 if candidate in deleted_candidate.keys():
                     delete_tracker.extend(deleted_candidate[candidate])
-
+            
+            if args.task_type == "text2text":
                 self.result_candidate = self.detokenize(self.word_tokenize(self.result_candidate))
+            elif args.task_type == "text2image":
+                self.result_candidate = str(self.result_candidate)
+                print("Result Candidate: ", self.result_candidate)
+                print("Result Score: ", self.result_score)
 
             if current_iteration % args.checkpoint_freq == 0:
                 self.get_state(current_iteration, delete_tracker)
@@ -275,16 +306,17 @@ class HS_trainer(SimpleTrainer):
                 filename = "task{}_step{}.pickle".format(args.task_idx, current_iteration-1)
                 ckpt_path = ckpt_dir / filename
                 self.save(ckpt_path)
-                
-            if args.backbone == "gpt3":
-                count = gpt3.complete_gpt3.count
-        
-            if args.backbone == "gpt2":
-                count = gpt2.complete_gpt2.count
-                
-            if count >= args.budget:
-                print('Ran out of budget')
-                break
+
+            if args.task_type == "text2text":  
+                if args.backbone == "gpt3":
+                    count = gpt3.complete_gpt3.count
+            
+                if args.backbone == "gpt2":
+                    count = gpt2.complete_gpt2.count
+                    
+                if count >= args.budget:
+                    print('Ran out of budget')
+                    break
 
             # if self.patience_counter > args.patience:
             #     print('Ran out of patience')
@@ -297,46 +329,48 @@ class HS_trainer(SimpleTrainer):
             #     continue
 
         wandb.log({"result_score": self.result_score})
-
-        if args.backbone == "gpt3":
-            count = gpt3.complete_gpt3.count
-        
-        if args.backbone == "gpt2":
-            count = gpt2.complete_gpt2.count
+        print('Final_Result Candidate: ', self.result_candidate)
+        print('Final_Result Score: ', self.result_score)
+        if args.task_type == "text2text":
+            if args.backbone == "gpt3":
+                count = gpt3.complete_gpt3.count
             
-        print('APICalls for search:\t', count)
+            if args.backbone == "gpt2":
+                count = gpt2.complete_gpt2.count
+                
+            print('APICalls for search:\t', count)
 
-        wandb.log({"apicalls_search": count})
+            wandb.log({"apicalls_search": count})
 
-        meta_file.write('\n')
+            # meta_file.write('\n')
 
-        searched_score = self.test(self.result_candidate, args)
+            searched_score = self.test(self.result_candidate, args)
 
-        meta_file.write('Testing .... \n')
-        if args.print_orig:
-            print('Task:\t', chosen_task_name)
-            print('Original Instruction:\t', self.original_candidate)
-            orig_score = self.score(self.original_candidate, 'test', args=args)
-            print('Original Accuracy:\t', str(orig_score))
-            meta_file.write('Original Accuracy:\t'+ str(orig_score)+ '\n')
+            # meta_file.write('Testing .... \n')
+            if args.print_orig:
+                print('Task:\t', chosen_task_name)
+                print('Original Instruction:\t', self.original_candidate)
+                orig_score = self.score(self.original_candidate, 'test', args=args)
+                print('Original Accuracy:\t', str(orig_score))
+                # meta_file.write('Original Accuracy:\t'+ str(orig_score)+ '\n')
 
-        if self.result_candidate == self.original_candidate: 
-            print('No viable candidate found!')
-            meta_file.write('No viable candidate found!\n')
+            if self.result_candidate == self.original_candidate: 
+                print('No viable candidate found!')
+                # meta_file.write('No viable candidate found!\n')
+                print('APICalls:\t', count)
+                # meta_file.write('APICalls:\t'+ str(count) + '\n')
+                wandb.log({"Original Accuracy": orig_score})
+                exit()
+
+            wandb.log({"searched_accuracy": searched_score})
+            wandb.log({"apicalls_total": count})
+
+            print('Accuracy after search:\t', str(searched_score))
+            print('Instruction after search:\t', self.result_candidate)
+            # meta_file.write('Instruction after search:\t'+ self.result_candidate+ '\n')
+            # meta_file.write('Accuracy after search:\t'+ str(searched_score)+ '\n')
             print('APICalls:\t', count)
-            meta_file.write('APICalls:\t'+ str(count) + '\n')
-            wandb.log({"Original Accuracy": orig_score})
-            exit()
-
-        wandb.log({"searched_accuracy": searched_score})
-        wandb.log({"apicalls_total": count})
-
-        print('Accuracy after search:\t', str(searched_score))
-        print('Instruction after search:\t', self.result_candidate)
-        meta_file.write('Instruction after search:\t'+ self.result_candidate+ '\n')
-        meta_file.write('Accuracy after search:\t'+ str(searched_score)+ '\n')
-        print('APICalls:\t', count)
-        meta_file.write('APICalls:\t'+ str(count) + '\n')
+            # meta_file.write('APICalls:\t'+ str(count) + '\n')
 
         wandb.save(meta_path)
 
@@ -345,7 +379,7 @@ class HS_trainer(SimpleTrainer):
         print('\nTesting .... ')
 
         searched_score = self.score(instruction, 'test', write=args.write_preds, args=args)
-
+        
         return searched_score
 
 
