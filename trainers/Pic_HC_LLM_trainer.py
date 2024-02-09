@@ -50,10 +50,7 @@ class Pic_HC_LLM_trainer(Pic_HC_trainer.Pic_HC_trainer):
         'http': 'http://localhost:7890',
         'https': 'http://localhost:7890'
         }
-        api_keys = ['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', 
-                    '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',
-                    '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', 
-                    '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']
+        api_keys = []
         openai.proxy = proxy
         # Set up your OpenAI API credentials
         openai.api_key = api_keys[current_iteration%len(api_keys)]
