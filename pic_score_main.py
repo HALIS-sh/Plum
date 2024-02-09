@@ -1,6 +1,6 @@
 import argparse
 import json
-from trainers import Pic_HC_trainer, Pic_GA_trainer, Pic_HS_trainer
+from trainers import Pic_HC_trainer, Pic_GA_trainer, Pic_HS_trainer, Pic_HC_LLM_trainer, Pic_HS_LLM_trainer
 import wandb
 
 def main(args):
@@ -10,12 +10,17 @@ def main(args):
     patience = args.patience
     num_steps = args.num_iter
     data_seed = args.data_seed
+    task_type = args.task_type
 
-    # trainer = Pic_HC_trainer.Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates)
+    # trainer = Pic_HC_trainer.Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
     # trainer = Pic_GA_trainer.Pic_GA_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates)
-    trainer = Pic_HS_trainer.Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates)
+    trainer = Pic_HS_trainer.Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
+    # trainer = Pic_HC_LLM_trainer.Pic_HC_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
+    # trainer = Pic_HS_LLM_trainer.Pic_HS_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
     trainer.initialize_prompt_0()
-    trainer.train(args)
+    instruction = trainer.original_candidate
+    trainer.train(instruction, chosen_task_name="pic_score", args = args)
+    # trainer.test_gpt_rephraser(args)
 
 
 if __name__ == "__main__":
@@ -61,9 +66,11 @@ if __name__ == "__main__":
     parser.add_argument("opts", default=None, nargs=argparse.REMAINDER, help="modify config options using the command-line")
     parser.add_argument('--budget', default=1000, type=int, help='number of the budget of api calls for searching')
     parser.add_argument('--api-idx', type=int, default=0)
+    parser.add_argument('--task_type', default="text2image", help='task type')
+    parser.add_argument('--use_LLM', type=int, default=0, help='use LLM to generate prompt')
     args = parser.parse_args()
     
-    # Initialize wandb
+    # # Initialize wandb
     wandb.login(key="88bd7de7f3b87f2354afdc42c30ae6cacba5ff0b")
     wandb.init(project=args.project_name, name=args.meta_name)
     wandb.config.update(args)

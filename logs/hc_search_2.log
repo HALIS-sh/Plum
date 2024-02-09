@@ -1,0 +1,275 @@
+Original Candidate:	  a photo of an astronaut riding a horse on mars
+Original Score:	  0.0
+
+Current Iteration:  1
+Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Score:  0.0
+['sub' 'sub' 'sub' 'del' 'sub' 'del' 'sub' 'del' 'del' 'swap']
+Candidate:  a photo of an astronaut riding a horse on mars
+Ave_Score:  44.31294575333595
+Candidate:  There is a photo of an astronaut riding a horse on mars
+Ave_Score:  36.14409826695919
+Candidate:  a photo An astronauts is riding a horse
+Ave_Score:  39.35843035578728
+Candidate:  a photo 
+Ave_Score:  0.26259138830937445
+Candidate:  a photo An astronauts rides a horse
+Ave_Score:  27.884502708911896
+Candidate:  a photo 
+Ave_Score:  0.473199354019016
+Candidate:  a photo A person is riding a horse
+Ave_Score:  9.966492839157581
+Candidate:  a photo 
+Ave_Score:  0.38672328228130937
+Candidate:  a photo 
+Ave_Score:  0.46102038177195936
+Candidate:  of an astronaut riding a horse on mars a photo
+Ave_Score:  33.00422132015228
+Per_curr_iteration_best_candidate:  a photo of an astronaut riding a horse on mars
+Per_curr_iteration_best_score:  44.31294575333595
+Result_candidate:  a photo of an astronaut riding a horse on mars
+Result_score:  44.31294575333595
+Current Iteration:  2
+Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Score:  44.31294575333595
+['sub' 'sub' 'swap' 'del' 'sub' 'sub' 'swap' 'del' 'sub' 'del']
+Candidate:  a photo An astronauts rides a horse
+Ave_Score:  22.325140982866287
+Candidate:  a photo There is a person riding a horse
+Ave_Score:  13.560231029987335
+Candidate:  of an astronaut riding a horse on mars a photo
+Ave_Score:  21.629040502011776
+Candidate:   of an astronaut riding a horse on mars
+Ave_Score:  53.27651798725128
+Candidate:  a photo An astronauts riding a horse
+Ave_Score:  15.244792774319649
+Candidate:  a photo An astronauts rides a horse
+Ave_Score:  38.461510837078094
+Candidate:  of an astronaut riding a horse on mars a photo
+Ave_Score:  36.26296818256378
+Candidate:   of an astronaut riding a horse on mars
+Ave_Score:  30.349533259868622
+Candidate:  A photo of an astronaut riding a horse on mars
+Ave_Score:  23.733291029930115
+Candidate:   of an astronaut riding a horse on mars
+Ave_Score:  36.809541285037994
+Per_curr_iteration_best_candidate:   of an astronaut riding a horse on mars
+Per_curr_iteration_best_score:  53.27651798725128
+Result_candidate:   of an astronaut riding a horse on mars
+Result_score:  53.27651798725128
+Current Iteration:  3
+Base Candidate:   of an astronaut riding a horse on mars
+Base Score:  53.27651798725128
+['swap' 'sub' 'swap' 'sub' 'swap' 'swap' 'add' 'add' 'sub' 'swap']
+Candidate:   of riding an astronaut a horse on mars
+Ave_Score:  21.59936875104904
+Candidate:   of an astronaut There is a person on a riding a horse on mars
+Ave_Score:  37.670086324214935
+Candidate:   of a horse riding an astronaut on mars
+Ave_Score:  16.883070021867752
+Candidate:   of an astronaut riding a horse There is on mars
+Ave_Score:  36.21232779696584
+Candidate:   of an astronaut riding on mars a horse
+Ave_Score:  38.81770074367523
+Candidate:   of an astronaut on mars a horse riding
+Ave_Score:  36.93627864122391
+Candidate:   of an astronaut riding a photo a horse on mars
+Ave_Score:  26.86878964304924
+Candidate:   of a photo an astronaut riding a horse on mars
+Ave_Score:  22.077150270342827
+Candidate:   of An individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual riding a horse on mars
+Ave_Score:  13.406978221610188
+Candidate:   on mars an astronaut riding a horse of
+Ave_Score:  12.223772332072258
+Per_curr_iteration_best_candidate:   of an astronaut riding on mars a horse
+Per_curr_iteration_best_score:  38.81770074367523
+Current Iteration:  4
+Base Candidate:   of an astronaut riding a horse on mars
+Base Score:  53.27651798725128
+['sub' 'swap' 'sub' 'swap' 'swap' 'add' 'add' 'swap' 'del' 'swap']
+Candidate:   of An individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an Individual riding a horse on mars
+Ave_Score:  22.14254066348076
+Candidate:   of riding an astronaut a horse on mars
+Ave_Score:  21.098177880048752
+Candidate:   of an astronaut riding a horse on mars
+Ave_Score:  49.78705793619156
+Candidate:   of an astronaut riding on mars a horse
+Ave_Score:  36.03826463222504
+Candidate:   on mars an astronaut riding a horse of
+Ave_Score:  37.08754777908325
+Candidate:   of an astronaut riding a photo a horse on mars
+Ave_Score:  37.82402649521828
+Candidate:  a photo  of an astronaut riding a horse on mars
+Ave_Score:  17.49126836657524
+Candidate:   on mars an astronaut riding a horse of
+Ave_Score:  36.11033633351326
+Candidate:   of  riding a horse on mars
+Ave_Score:  26.786601357162
+Candidate:   riding an astronaut of a horse on mars
+Ave_Score:  9.455886855721474
+Per_curr_iteration_best_candidate:   of an astronaut riding a horse on mars
+Per_curr_iteration_best_score:  49.78705793619156
+Current Iteration:  5
+Base Candidate:   of an astronaut riding a horse on mars
+Base Score:  53.27651798725128
+['del' 'add' 'add' 'swap' 'add' 'sub' 'del' 'add' 'sub' 'sub']
+Candidate:   of  riding a horse on mars
+Ave_Score:  18.374794721603394
+Candidate:   of a photo an astronaut riding a horse on mars
+Ave_Score:  36.48080974817276
+Candidate:   of an astronaut riding a horse on mars a photo
+Ave_Score:  43.93860697746277
+Candidate:   on mars an astronaut riding a horse of
+Ave_Score:  24.048281461000443
+Candidate:  a photo  of an astronaut riding a horse on mars
+Ave_Score:  14.267462491989136
+Candidate:   That's about it an astronaut riding a horse on mars
+Ave_Score:  13.341425731778145
+Candidate:    an astronaut riding a horse on mars
+Ave_Score:  35.353997349739075
+Candidate:   of an astronaut riding a horse on mars a photo
+Ave_Score:  53.743553161621094
+Candidate:   of an astronaut riding a horse on mars
+Ave_Score:  28.610046580433846
+Candidate:   It was of an astronaut riding a horse on mars
+Ave_Score:  29.973870515823364
+Per_curr_iteration_best_candidate:   of an astronaut riding a horse on mars a photo
+Per_curr_iteration_best_score:  53.743553161621094
+Notice! Prev tracker:  ['a photo']
+Notice! New tracker:  []
+Result_candidate:   of an astronaut riding a horse on mars a photo
+Result_score:  53.743553161621094
+Current Iteration:  6
+Base Candidate:   of an astronaut riding a horse on mars a photo
+Base Score:  53.743553161621094
+['sub' 'del' 'del' 'del' 'sub' 'sub' 'del' 'sub' 'sub' 'swap']
+Candidate:   of an astronaut riding A horse on mars a photo
+Ave_Score:  23.550267331302166
+Candidate:   of an astronaut riding a horse on mars 
+Ave_Score:  33.48124846816063
+Candidate:   of  riding a horse on mars a photo
+Ave_Score:  24.590060114860535
+Candidate:   of an astronaut riding a horse  a photo
+Ave_Score:  33.411528915166855
+Candidate:   of An individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual who is an individual that is an individual who is an individual riding a horse on mars a photo
+Ave_Score:  26.962515711784363
+Candidate:   of an astronaut The rider is riding a horse on mars a photo
+Ave_Score:  31.982524693012238
+Candidate:   of an astronaut riding a horse on mars 
+Ave_Score:  32.672109454870224
+Candidate:   of an astronaut riding a horse on mars A picture
+Ave_Score:  31.520001590251923
+Candidate:   It was of an astronaut riding a horse on mars a photo
+Ave_Score:  24.553681910037994
+Candidate:   of on mars riding a horse an astronaut a photo
+Ave_Score:  22.577310353517532
+Per_curr_iteration_best_candidate:   of an astronaut riding a horse on mars 
+Per_curr_iteration_best_score:  33.48124846816063
+Current Iteration:  7
+Base Candidate:   of an astronaut riding a horse on mars a photo
+Base Score:  53.743553161621094
+['sub' 'del' 'del' 'del' 'sub' 'sub' 'sub' 'swap' 'del' 'swap']
+Candidate:   of an astronaut riding a horse on mars There is a photo
+Ave_Score:  56.203898787498474
+Candidate:   of an astronaut riding a horse on mars 
+Ave_Score:  15.459316596388817
+Candidate:   of an astronaut riding  on mars a photo
+Ave_Score:  17.521487921476364
+Candidate:   of an astronaut riding a horse  a photo
+Ave_Score:  35.59756353497505
+Candidate:   of an astronaut riding a horse On mars, on mars a photo
+Ave_Score:  38.78960162401199
+Candidate:   of an astronaut riding a horse on mars a picture
+Ave_Score:  28.916054591536522
+Candidate:   of An individual who is an individual who is a person who is a person who is a person who is a person who is a person who is a person who is a person who is a person who is a person who is a person who is a person who is a person who is a person riding a horse on mars a photo
+Ave_Score:  52.32517421245575
+Candidate:   a horse an astronaut riding of on mars a photo
+Ave_Score:  39.17854726314545
+Candidate:   of an astronaut riding a horse  a photo
+Ave_Score:  34.38629508018494
+Candidate:   of an astronaut riding on mars a horse a photo
+Ave_Score:  19.139471650123596
+Per_curr_iteration_best_candidate:   of an astronaut riding a horse on mars There is a photo
+Per_curr_iteration_best_score:  56.203898787498474
+Result_candidate:   of an astronaut riding a horse on mars There is a photo
+Result_score:  56.203898787498474
+Current Iteration:  8
+Base Candidate:   of an astronaut riding a horse on mars There is a photo
+Base Score:  56.203898787498474
+['swap' 'swap' 'sub' 'swap' 'swap' 'sub' 'sub' 'swap' 'sub' 'del']
+Candidate:   of an astronaut riding a horse on mars is a photo There
+Ave_Score:  35.97099930047989
+Candidate:   There of an astronaut riding a horse on mars is a photo
+Ave_Score:  31.90666288137436
+Candidate:   of an astronaut riding a horse on mars There It is a photo
+Ave_Score:  44.698966294527054
+Candidate:   of an astronaut riding a horse on mars is a photo There
+Ave_Score:  44.948938488960266
+Candidate:   is a photo There of an astronaut riding a horse on mars
+Ave_Score:  26.021800190210342
+Candidate:   of an astronaut riding a horse on mars There Is that a photo?
+Ave_Score:  40.990425646305084
+Candidate:   An astronauts riding a horse There is a photo
+Ave_Score:  6.501737982034683
+Candidate:   is a photo There of an astronaut riding a horse on mars
+Ave_Score:  28.159741312265396
+Candidate:   of an astronaut riding a horse on mars There's something there is a photo
+Ave_Score:  45.55392414331436
+Candidate:   of an astronaut riding a horse on mars  is a photo
+Ave_Score:  39.750418066978455
+Per_curr_iteration_best_candidate:   of an astronaut riding a horse on mars There's something there is a photo
+Per_curr_iteration_best_score:  45.55392414331436
+Current Iteration:  9
+Base Candidate:   of an astronaut riding a horse on mars There is a photo
+Base Score:  56.203898787498474
+['swap' 'swap' 'sub' 'swap' 'del' 'swap' 'del' 'swap' 'sub' 'sub']
+Candidate:   of an astronaut riding a horse on mars is a photo There
+Ave_Score:  48.23415204882622
+Candidate:   There of an astronaut riding a horse on mars is a photo
+Ave_Score:  11.453462392091751
+Candidate:   An astronauts rides a horse There is a photo
+Ave_Score:  30.83127699792385
+Candidate:   There of an astronaut riding a horse on mars is a photo
+Ave_Score:  15.431792289018631
+Candidate:    There is a photo
+Ave_Score:  0.27037012041546404
+Candidate:   There of an astronaut riding a horse on mars is a photo
+Ave_Score:  29.688046872615814
+Candidate:   of an astronaut riding a horse on mars  is a photo
+Ave_Score:  33.694855123758316
+Candidate:   of an astronaut riding a horse on mars is a photo There
+Ave_Score:  35.91611981391907
+Candidate:   A person is riding a horse There is a photo
+Ave_Score:  7.577331829816103
+Candidate:   of an astronaut riding a horse on mars There Is this a picture?
+Ave_Score:  35.308102518320084
+Per_curr_iteration_best_candidate:   of an astronaut riding a horse on mars is a photo There
+Per_curr_iteration_best_score:  48.23415204882622
+Current Iteration:  10
+Base Candidate:   of an astronaut riding a horse on mars There is a photo
+Base Score:  56.203898787498474
+['del' 'sub' 'sub' 'swap' 'sub' 'sub' 'del' 'sub' 'del' 'del']
+Candidate:   of an astronaut riding a horse on mars There 
+Ave_Score:  36.54583841562271
+Candidate:   of an astronaut riding a horse on mars There is that a picture?
+Ave_Score:  35.332879424095154
+Candidate:   of an astronaut riding a horse on mars There is it is a photo
+Ave_Score:  15.940813720226288
+Candidate:   is a photo There of an astronaut riding a horse on mars
+Ave_Score:  34.605688601732254
+Candidate:   of an astronaut riding a horse on mars There Is it a picture?
+Ave_Score:  28.114329278469086
+Candidate:   An astronauts rides a horse on mars There is a photo
+Ave_Score:  36.51489168405533
+Candidate:    There is a photo
+Ave_Score:  0.23283687187358737
+Candidate:   of an astronaut riding a horse on mars There is it a picture?
+Ave_Score:  35.54813265800476
+Candidate:   of an astronaut riding a horse on mars There 
+Ave_Score:  44.97740603983402
+Candidate:    There is a photo
+Ave_Score:  0.4354903707280755
+Per_curr_iteration_best_candidate:   of an astronaut riding a horse on mars There 
+Per_curr_iteration_best_score:  44.97740603983402
+Final_Result Candidate:   of an astronaut riding a horse on mars There is a photo
+Final_Result Score:  56.203898787498474

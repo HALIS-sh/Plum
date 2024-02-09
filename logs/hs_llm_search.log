@@ -1,0 +1,54 @@
+Original Candidate:	  a photo of an astronaut riding a horse on mars
+Original Score:	  50.0
+
+Current Iteration:  1
+Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Score:  50.0
+['a photo']
+Running LLM mutation
+Error occurs (parser) and skip this mutation 2
+Candidate:  
+Candidate Score:  1.0551683604717255
+['a photo']
+Candidate:  a photo
+Candidate Score:  0.6373393116518855
+['a photo']
+Candidate:  a photo
+Candidate Score:  1.4739631675183773
+['a photo']
+Candidate:  a photo
+Candidate Score:  1.8505345098674297
+['a photo']
+Candidate:  a A photo
+Candidate Score:  1.0418361285701394
+['a photo']
+Candidate:  a photo
+Candidate Score:  1.8957797437906265
+['a photo']
+Running LLM mutation
+Error occurs (parser) and skip this mutation 2
+Candidate:  
+Candidate Score:  0.9216010570526123
+['a photo']
+Candidate:  a photo
+Candidate Score:  0.956998742185533
+['a photo']
+Running LLM mutation
+Error occurs (parser) and skip this mutation 2
+Candidate:  
+Candidate Score:  3.6909079179167747
+['a photo']
+Running LLM mutation
+Error occurs (parser) and skip this mutation 2
+Candidate:  
+Candidate Score:  1.8937590532004833
+Top N Candidates of Current Iteration:  ['a photo of an astronaut riding a horse on mars', '', 'a photo', '', 'a photo', 'a photo', '', 'a A photo', 'a photo', '']
+Result Candidate:  a photo of an astronaut riding a horse on mars
+Result Score:  50.0
+Current Iteration:  2
+Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Score:  50.0
+['a']
+Running LLM mutation
+Error occurs (parser) and skip this mutation 2
+Candidate:  

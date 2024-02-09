@@ -1,0 +1,262 @@
+Original Candidate:	  a photo of an astronaut riding a horse on mars
+Original Score:	  0.0
+
+Current Iteration:  1
+Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Score:  0.0
+Candidate:  'a picture of a horseback-riding astronaut on the planet Mars'
+Ave_Score:  29.02809977531433
+Candidate:  An image of an astronaut riding a horse on the surface of Mars.
+Ave_Score:  43.85664016008377
+Candidate:  An astronaut on horseback trotting on the surface of Mars.
+Ave_Score:  43.671874701976776
+Candidate:  An astronaut riding a horse while trotting on the surface of Mars.
+Ave_Score:  47.31859490275383
+Candidate:  An astronaut on horseback trotting across the surface of Mars.
+Ave_Score:  47.74940311908722
+Candidate:  A space explorer riding a horse, trotting on the terrain of Mars.
+Ave_Score:  47.64564633369446
+Candidate:  A space traveler on horseback, trotting across the surface of Mars.
+Ave_Score:  26.346241682767868
+Candidate:  A horse-mounted space explorer, galloping on the terrain of Mars.
+Ave_Score:  25.344538688659668
+Candidate:  A space explorer riding a horse, galloping across the terrain of Mars.
+Ave_Score:  53.6749541759491
+Candidate:  A horse-mounted space explorer galloping through Mars' terrain.
+Ave_Score:  32.714664936065674
+Per_curr_iteration_best_candidate:  A space explorer riding a horse, galloping across the terrain of Mars.
+Per_curr_iteration_best_score:  53.6749541759491
+Result_candidate:  A space explorer riding a horse, galloping across the terrain of Mars.
+Result_score:  53.6749541759491
+Current Iteration:  2
+Base Candidate:  A space explorer riding a horse, galloping across the terrain of Mars.
+Base Score:  53.6749541759491
+Candidate:  A horseback-riding space explorer gallops across the Martian terrain.
+Ave_Score:  23.813577741384506
+Candidate:  A space explorer on horseback gallops through the Martian landscape.
+Ave_Score:  56.51623010635376
+Candidate:  A horseback space explorer races across the terrain of Mars.
+Ave_Score:  47.543151676654816
+Candidate:  On Mars, a space explorer on horseback races across the terrain.
+Ave_Score:  15.834321826696396
+Candidate:  A space explorer rides a horse through the terrain on Mars.
+Ave_Score:  36.982227861881256
+Candidate:  A horse carries a space explorer across the Martian terrain.
+Ave_Score:  27.207200601696968
+Candidate:  A space explorer is taken across the Martian terrain by a horse.
+Ave_Score:  22.89605289697647
+Candidate:  A horse carries a space explorer across the Martian terrain.
+Ave_Score:  17.116543650627136
+Candidate:  A horse transports a space explorer through the Martian landscape.
+Ave_Score:  33.82771909236908
+Candidate:  A space explorer is carried through the Martian landscape by a horse.
+Ave_Score:  38.439370691776276
+Per_curr_iteration_best_candidate:  A space explorer on horseback gallops through the Martian landscape.
+Per_curr_iteration_best_score:  56.51623010635376
+Result_candidate:  A space explorer on horseback gallops through the Martian landscape.
+Result_score:  56.51623010635376
+Current Iteration:  3
+Base Candidate:  A space explorer on horseback gallops through the Martian landscape.
+Base Score:  56.51623010635376
+Candidate:  A horse-mounted space explorer races across the terrain of Mars.
+Ave_Score:  51.32502168416977
+Candidate:  A space explorer on horseback speeds across the Martian terrain.
+Ave_Score:  50.74456185102463
+Candidate:  A horseback riding space explorer races across the surface of Mars.
+Ave_Score:  30.290191620588303
+Candidate:  A space explorer on horseback races across the Martian terrain.
+Ave_Score:  45.02634331583977
+Candidate:  A horse-mounted space explorer gallops through the Martian landscape.
+Ave_Score:  48.91705513000488
+Candidate:  A space explorer on horseback rides swiftly across the terrain of Mars.
+Ave_Score:  42.86360442638397
+Candidate:  A horseback-riding space explorer swiftly traverses the terrain of Mars.
+Ave_Score:  18.086769431829453
+Candidate:  A space explorer on horseback swiftly crosses the surface of Mars.
+Ave_Score:  44.52344365417957
+Candidate:  Riding a horse, a space explorer gallops across the vast expanse of Mars.
+Ave_Score:  37.94146180152893
+Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Ave_Score:  66.98927879333496
+Per_curr_iteration_best_candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Per_curr_iteration_best_score:  66.98927879333496
+Result_candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Result_score:  66.98927879333496
+Current Iteration:  4
+Base Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Base Score:  66.98927879333496
+Candidate:  The person, who is exploring space, gallops on a horse through the vast landscape of Mars.
+Ave_Score:  65.95670282840729
+Candidate:  The individual, who is venturing through space, rides on a horse across the expansive terrain of Mars.
+Ave_Score:  46.87384068965912
+Candidate:  The person exploring space traverses Mars on horseback, crossing its vast landscape.
+Ave_Score:  49.75242018699646
+Candidate:  The individual who is embarking on a journey through space travels across the expansive terrain of Mars while riding on horseback.
+Ave_Score:  20.953059569001198
+Candidate:  While on horseback, the person embarks on a journey through the vast terrain of Mars.
+Ave_Score:  17.313653603196144
+Candidate:  The individual sets out on a voyage through the expansive landscape of Mars while riding on horseback.
+Ave_Score:  56.81800693273544
+Candidate:  Riding on horseback, the person embarks on a journey through the vast terrain of Mars.
+Ave_Score:  32.99376554787159
+Candidate:  Mounting a horse, the individual sets out on an expedition across the expansive landscape of Mars.
+Ave_Score:  18.378867954015732
+Candidate:  The individual embarks on an expedition across the vast Martian landscape while riding a horse.
+Ave_Score:  47.8077307343483
+Candidate:  Riding on a horse, the person sets off on a journey through the expansive landscape of Mars.
+Ave_Score:  34.29785221815109
+Per_curr_iteration_best_candidate:  The person, who is exploring space, gallops on a horse through the vast landscape of Mars.
+Per_curr_iteration_best_score:  65.95670282840729
+Current Iteration:  5
+Base Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Base Score:  66.98927879333496
+Candidate:  The space explorer traverses the vast terrain of Mars on horseback, galloping along the way.
+Ave_Score:  48.63898009061813
+Candidate:  The astronaut rides on horseback across the expansive landscape of Mars, galloping as they go.
+Ave_Score:  46.70320451259613
+Candidate:  The astronaut gallops on horseback across the vast terrain of Mars, riding with speed.
+Ave_Score:  66.36443734169006
+Candidate:  With great velocity, the astronaut races on horseback through the expansive landscape of Mars.
+Ave_Score:  52.572064101696014
+Candidate:  The astronaut speeds through the vast terrain of Mars on horseback with incredible speed.
+Ave_Score:  44.49853003025055
+Candidate:  At incredible speed, the astronaut gallops on horseback across the expansive landscape of Mars.
+Ave_Score:  16.06525667011738
+Candidate:  The astronaut gallops on horseback at an incredible speed, traversing the vast landscape of Mars.
+Ave_Score:  51.32961869239807
+Candidate:  At an astonishing pace, the astronaut rides on horseback across the expansive terrain of Mars.
+Ave_Score:  42.45949536561966
+Candidate:  With remarkable speed, the astronaut gallops on horseback through the vast landscape of Mars.
+Ave_Score:  53.98859232664108
+Candidate:  At an impressive pace, the astronaut rides on horseback across the expansive terrain of Mars.
+Ave_Score:  49.81762319803238
+Per_curr_iteration_best_candidate:  The astronaut gallops on horseback across the vast terrain of Mars, riding with speed.
+Per_curr_iteration_best_score:  66.36443734169006
+Current Iteration:  6
+Base Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Base Score:  66.98927879333496
+Candidate:  While traversing the vast landscape of Mars, the space explorer gallops atop a horse.
+Ave_Score:  48.455896228551865
+Candidate:  As the space explorer journeys across the expansive terrain of Mars, they ride a horse with swift strides.
+Ave_Score:  30.055617913603783
+Candidate:  While exploring the vast landscape of Mars, the space explorer gallops on a horse with quick movements.
+Ave_Score:  54.02356684207916
+Candidate:  As the space explorer traverses the expansive terrain of Mars, they ride a horse with swift, agile motions.
+Ave_Score:  53.07578146457672
+Candidate:  The space explorer expertly maneuvers their horse across the vast landscape of Mars.
+Ave_Score:  19.376973807811737
+Candidate:  The expert space explorer skillfully guides their steed through the expansive terrain of Mars.
+Ave_Score:  12.11834941059351
+Candidate:  The skilled space explorer expertly maneuvers their steed through the vast landscape of Mars.
+Ave_Score:  23.133297637104988
+Candidate:  The skilled astronaut deftly navigates their spacecraft through the expansive terrain of Mars.
+Ave_Score:  29.538673162460327
+Candidate:  The expert astronaut expertly maneuvers their spacecraft across the vast landscape of Mars.
+Ave_Score:  20.273216627538204
+Candidate:  The skilled astronaut adeptly navigates their spacecraft through the expansive terrain of Mars.
+Ave_Score:  34.34486538171768
+Per_curr_iteration_best_candidate:  While exploring the vast landscape of Mars, the space explorer gallops on a horse with quick movements.
+Per_curr_iteration_best_score:  54.02356684207916
+Current Iteration:  7
+Base Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Base Score:  66.98927879333496
+Candidate:  While exploring space, the individual traverses the vast terrain of Mars on horseback at a galloping pace.
+Ave_Score:  44.76497396826744
+Candidate:  As the individual explores space, they ride on horseback at a galloping pace across the vast terrain of Mars.
+Ave_Score:  45.50424516201019
+Candidate:  While exploring space, the individual traverses the vast terrain of Mars on horseback, galloping at a rapid pace.
+Ave_Score:  55.353234708309174
+Candidate:  As the individual explores space, they ride on horseback across the expansive landscape of Mars, moving swiftly at a quick speed.
+Ave_Score:  19.76347304880619
+Candidate:  While exploring space, the individual gallops on horseback through the vast Martian landscape, traveling at a rapid pace.
+Ave_Score:  34.458278864622116
+Candidate:  As the person journeys through space, they gallop on horseback across the expansive Martian terrain, moving quickly.
+Ave_Score:  35.78743487596512
+Candidate:  While traversing through space, the individual races on horseback across the vast expanse of the Martian landscape, making swift progress.
+Ave_Score:  33.285148441791534
+Candidate:  As the person journeys through space, they ride on horseback across the expansive Martian terrain, making quick headway.
+Ave_Score:  38.94669711589813
+Candidate:  While traveling through space, the individual traverses the vast Martian landscape on horseback, making rapid progress.
+Ave_Score:  56.66910856962204
+Candidate:  As the person journeys through outer space, they ride on horseback across the expansive terrain of Mars, making swift advancements.
+Ave_Score:  45.866650342941284
+Per_curr_iteration_best_candidate:  While traveling through space, the individual traverses the vast Martian landscape on horseback, making rapid progress.
+Per_curr_iteration_best_score:  56.66910856962204
+Current Iteration:  8
+Base Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Base Score:  66.98927879333496
+Candidate:  While exploring space, the individual gallops across the vast terrain of Mars on horseback.
+Ave_Score:  43.35729479789734
+Candidate:  As the person journeys through space, they traverse the expansive landscape of Mars while riding on horseback.
+Ave_Score:  22.625037282705307
+Candidate:  While traveling through space, the individual rides on horseback across the vast terrain of Mars.
+Ave_Score:  31.981099396944046
+Candidate:  As the person journeys through space, they traverse the expansive landscape of Mars on horseback.
+Ave_Score:  48.48027527332306
+Candidate:  Riding on horseback, the person traverses the vast Martian landscape during their journey through space.
+Ave_Score:  46.953558921813965
+Candidate:  As they journey through space, the individual travels across the expansive Martian terrain on horseback.
+Ave_Score:  29.42510023713112
+Candidate:  While traveling through space, the person rides on horseback across the vast terrain of Mars.
+Ave_Score:  54.52864170074463
+Candidate:  While journeying through the expanse of space, the individual traverses the vast landscape of Mars on horseback.
+Ave_Score:  30.47225847840309
+Candidate:  Riding on horseback, the person travels across the vast terrain of Mars during their journey through space.
+Ave_Score:  53.51319909095764
+Candidate:  While journeying through space, the person rides on horseback across the expansive terrain of Mars.
+Ave_Score:  38.178664445877075
+Per_curr_iteration_best_candidate:  While traveling through space, the person rides on horseback across the vast terrain of Mars.
+Per_curr_iteration_best_score:  54.52864170074463
+Current Iteration:  9
+Base Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Base Score:  66.98927879333496
+Candidate:  While traversing the vast terrain of Mars, the space explorer gallops on a horse.
+Ave_Score:  52.121490240097046
+Candidate:  As the space explorer traverses the expansive terrain of Mars, they ride a horse at a galloping pace.
+Ave_Score:  45.14347463846207
+Candidate:  While exploring the vast terrain of Mars, the space explorer gallops on a horse.
+Ave_Score:  48.97526949644089
+Candidate:  While riding on a horse, the space explorer traverses the expansive landscape of Mars.
+Ave_Score:  23.145002126693726
+Candidate:  Riding on a horse, the space explorer journeys through the vast terrain of Mars.
+Ave_Score:  40.62436893582344
+Candidate:  The space explorer embarks on a journey through the expansive terrain of Mars, riding atop a horse.
+Ave_Score:  45.1404944062233
+Candidate:  The astronaut begins a voyage across the vast landscape of Mars, riding on a horse.
+Ave_Score:  59.21050161123276
+Candidate:  The astronaut embarks on a journey through the expansive terrain of Mars, mounted on a horse.
+Ave_Score:  60.46604961156845
+Candidate:  The astronaut sets out on a voyage, riding a horse across the vast landscape of Mars.
+Ave_Score:  52.45949402451515
+Candidate:  Riding a horse across the vast landscape of Mars, the astronaut embarks on a daring voyage.
+Ave_Score:  21.570830792188644
+Per_curr_iteration_best_candidate:  The astronaut embarks on a journey through the expansive terrain of Mars, mounted on a horse.
+Per_curr_iteration_best_score:  60.46604961156845
+Current Iteration:  10
+Base Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Base Score:  66.98927879333496
+Candidate:  While exploring the vast terrain of Mars, the individual traverses on horseback at a galloping pace.
+Ave_Score:  57.24549442529678
+Candidate:  As the person explores the expansive landscape of Mars, they ride on horseback at a rapid gallop.
+Ave_Score:  39.412713050842285
+Candidate:  While traversing the vast terrain of Mars, the individual races on horseback at a swift pace.
+Ave_Score:  45.10128274559975
+Candidate:  As they journey across the expansive landscape of Mars, the person rides on horseback with great speed.
+Ave_Score:  57.15563893318176
+Candidate:  While traveling through the vast terrain of Mars, the individual gallops on horseback at a rapid pace.
+Ave_Score:  35.87229698896408
+Candidate:  As the individual traverses the expansive landscape of Mars, they ride swiftly on horseback.
+Ave_Score:  50.960637629032135
+Candidate:  While journeying through the vast terrain of Mars, the person gallops swiftly on horseback.
+Ave_Score:  37.516795098781586
+Candidate:  As the person rides through the expansive landscape of Mars, they gallop on horseback with great speed.
+Ave_Score:  31.034379452466965
+Candidate:  Riding through the vast expanse of Mars, the person swiftly gallops on horseback.
+Ave_Score:  29.472091794013977
+Candidate:  The person swiftly gallops on horseback through the vast expanse of Mars.
+Ave_Score:  28.044787049293518
+Per_curr_iteration_best_candidate:  While exploring the vast terrain of Mars, the individual traverses on horseback at a galloping pace.
+Per_curr_iteration_best_score:  57.24549442529678
+Ran out of patience
+Final_Result Candidate:  As a space explorer, the person rides a horse while galloping across the expansive terrain of Mars.
+Final_Result Score:  66.98927879333496

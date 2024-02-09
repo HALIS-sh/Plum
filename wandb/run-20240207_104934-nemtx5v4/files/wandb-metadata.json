@@ -1,0 +1,39 @@
+{
+    "os": "Linux-5.4.0-169-generic-x86_64-with-glibc2.31",
+    "python": "3.9.12",
+    "heartbeatAt": "2024-02-07T10:49:39.859592",
+    "startedAt": "2024-02-07T10:49:34.528077",
+    "docker": null,
+    "gpu": "NVIDIA A40",
+    "gpu_count": 8,
+    "cpu_count": 128,
+    "cuda": null,
+    "args": [
+        "--train-seed",
+        "0",
+        "--num-compose",
+        "1",
+        "--num-candidates",
+        "10",
+        "--num-iter",
+        "10",
+        "--patience",
+        "7",
+        "--task_type",
+        "text2image",
+        "--meta-name",
+        "hs_search.txt"
+    ],
+    "state": "running",
+    "program": "/home/wenhesun/Plum/pic_score_main.py",
+    "codePath": "pic_score_main.py",
+    "git": {
+        "remote": "https://github.com/HALIS-sh/Plum.git",
+        "commit": "6ee09e11580e2b7dd4f50c2ad2a4d21e1e407c1e"
+    },
+    "email": "412929301@qq.com",
+    "root": "/home/wenhesun/Plum",
+    "host": "A40-36-111-143-5",
+    "username": "wenhesun",
+    "executable": "/home/wenhesun/anaconda3/envs/stable-diffusion/bin/python"
+}

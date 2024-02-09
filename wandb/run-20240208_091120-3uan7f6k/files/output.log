@@ -1,0 +1,753 @@
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["bos_token_id"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["eos_token_id"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["bos_token_id"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["eos_token_id"]` will be overriden.
+
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.83it/s]
+Some weights of PegasusForConditionalGeneration were not initialized from the model checkpoint at /home/wenhesun/.cache/huggingface/hub/models--tuner007--pegasus_paraphrase and are newly initialized: ['model.decoder.embed_positions.weight', 'model.encoder.embed_positions.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Original Candidate:	  Show the boundary between night and day.
+Original Score:	  50.0
+Current Iteration: 1
+Base Candidate: Show the boundary between night and day.
+Base Score: 50.0
+
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.94it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.35it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.51it/s]
+Candidate:  "Visually demonstrate the precise demarcation between the transition of darkness into light, commonly referred to as the boundary between night and day."
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:02<00:00,  2.51it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.51it/s]
+Candidate:  "Using visual aids, effectively depict the clear and distinct demarcation between the gradual shift from darkness to light, commonly known as the boundary that separates night and day."
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.82it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 92%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 46/50 [00:12<00:01,  3.50it/s]
+Candidate:  Through the utilization of various visual aids, skillfully portray the clear and well-defined separation between the gradual transition from darkness to light, which is universally recognized as the definitive boundary that divides night and day.
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.37it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.50it/s]
+Candidate:  By strategically incorporating a diverse range of visual aids, effectively convey the distinct and precise demarcation between the gradual shift from darkness to light. This universally acknowledged and definitive boundary serves as the clear division between the period of night and the period of day
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.67it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate:  By thoughtfully and intentionally incorporating a diverse array of visual aids, such as contrasting colors, lighting, and imagery, one can effectively convey the distinct and precise demarcation between the gradual transition from darkness to light. This universally recognized and definitive boundary
+Ave_Score:  40.74382185935974
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.81it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.50it/s]
+Candidate:  By thoughtfully and intentionally incorporating a diverse array of visual aids, such as contrasting colors, strategic lighting techniques, and powerful imagery, one can effectively convey the distinct and precise demarcation between the gradual transition from darkness to light. This universally recognized
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.39it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate:  One can effectively and clearly convey the gradual transition from darkness to light by thoughtfully and intentionally incorporating a diverse array of visual aids. These visual aids can include contrasting colors, such as using a dark color to represent darkness and a bright color to represent
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.67it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.50it/s]
+Candidate:  One can effectively and clearly convey the gradual transition from darkness to light by thoughtfully and intentionally incorporating a diverse array of visual aids. These visual aids can include using contrasting colors, such as using a dark color to represent darkness and a bright color to
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.19it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 92%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 46/50 [00:12<00:01,  3.50it/s]
+Candidate:  One can effectively and clearly convey the gradual transition from darkness to light by thoughtfully and intentionally incorporating a diverse array of visual aids. These visual aids, which can be utilized in a variety of ways, are essential in creating a powerful and impactful visual
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.76it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate:  To effectively and clearly convey the gradual transition from darkness to light in a visual representation, one can thoughtfully and intentionally incorporate a diverse array of visual aids. These visual aids, which can range from lighting techniques and color gradients to symbolic imagery and contrast
+Ave_Score:  40.695205330848694
+Per_curr_iteration_best_candidate: "Visually demonstrate the precise demarcation between the transition of darkness into light, commonly referred to as the boundary between night and day."
+Per_curr_iteration_best_score: 73.17126393318176
+Result_candidate: "Visually demonstrate the precise demarcation between the transition of darkness into light, commonly referred to as the boundary between night and day."
+Result_score: 73.17126393318176
+Current Iteration: 2
+Base Candidate: "Visually demonstrate the precise demarcation between the transition of darkness into light, commonly referred to as the boundary between night and day."
+Base Score: 73.17126393318176
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.58it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate:  Show a clear visual representation of the exact point where darkness fades into light, a commonly recognized boundary known as the transition between night and day. This visual should clearly depict the gradual change in lighting, with distinct differences between the dark and light areas,
+Ave_Score:  48.53147566318512
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.01it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+Candidate:  "Present a visually striking and precise illustration that captures the subtle yet distinct boundary between the darkness of night and the brightness of day known as the twilight zone. This visual should effectively convey the gradual transition of light, showcasing a clear contrast between the dark
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.90it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate:  "Create an exceptionally captivating and meticulously detailed illustration capturing the elusive boundary between the deep darkness of night and the radiant light of day, known as the mesmerizing twilight zone. This visual should masterfully depict the gradual and subtle shift of light, highlighting
+
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.76it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate:  "Craft a stunning and intricately crafted illustration that captures the elusive line between the deep darkness of night and the radiant light of day, known as the mesmerizing twilight zone. The visual should be able to captivate viewers with its exceptional detail and
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  3.28it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...:  17%|█████████████████▌                                                                                       | 1/6 [00:00<00:04,  1.24it/s]
+Candidate:  "Create a visually striking and meticulously detailed illustration that masterfully captures the ethereal and elusive essence of the twilight zone, where the dark of night meets the shimmering light of day. This illustration should be crafted with utmost precision and skill, captivating viewers
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  3.69it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.50it/s]
+Candidate:  imaginations."
+"Craft a visually stunning and intricately detailed illustration that expertly captures the elusive and ethereal atmosphere of the twilight zone, where the inky darkness of night seamlessly melds with the shimmering light of day. This illustration should
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.67it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...:  17%|█████████████████▌                                                                                       | 1/6 [00:00<00:01,  2.52it/s]
+Candidate:  transport viewers into a world where their imaginations are free to roam and explore the endless possibilities of this mysterious and alluring realm."
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.67it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.06it/s]
+  0%|                                                                                                                                                | 0/50 [00:00<?, ?it/s]
+Candidate:  The sentence can be rephrased and refined as: "Our goal is to transport viewers into a captivating world, where their imaginations can roam freely and delve into the endless possibilities of this enigmatic and enticing realm. With our mesmerizing
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.51it/s]
+Candidate:  "Our ultimate objective is to transport viewers into a captivating and immersive world, where their imaginations are free to roam and explore the infinite possibilities of this mysterious and alluring realm. Through our mesmerizing visuals and compelling storytelling, we aim to create an
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.09it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate:  "Our ultimate goal is to transport our viewers into a breathtaking and fully immersive world, where their imaginations are unbound and able to freely roam and discover the endless possibilities of this enigmatic and captivating realm. Utilizing mesmerizing visuals and gripping storytelling
+Ave_Score:  43.036651611328125
+Per_curr_iteration_best_candidate: "Create a visually striking and meticulously detailed illustration that masterfully captures the ethereal and elusive essence of the twilight zone, where the dark of night meets the shimmering light of day. This illustration should be crafted with utmost precision and skill, captivating viewers
+Per_curr_iteration_best_score: 60.865721106529236
+Current Iteration: 3
+Base Candidate: "Visually demonstrate the precise demarcation between the transition of darkness into light, commonly referred to as the boundary between night and day."
+Base Score: 73.17126393318176
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.27it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.37it/s]
+
+
+
+
+
+
+ 94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉        | 47/50 [00:13<00:00,  3.51it/s]
+Candidate:  I would like to visually demonstrate the precise demarcation between the transition of darkness into light, which is commonly referred to as the boundary between night and day. This demarcation is a gradual and continuous process, marked by the gradual fading of
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.78it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.50it/s]
+Candidate:  I am interested in visually depicting the precise and gradual transition from darkness to light, known as the boundary between night and day. This boundary is commonly referred to as the demarcation line and it is a gradual and continuous process, characterized by the
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.10it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...:  17%|█████████████████▌                                                                                       | 1/6 [00:00<00:02,  2.48it/s]
+Candidate:  gradual and continuous transition from darkness to light
+I am fascinated by the process of visually capturing the intricate and gradual shift from a state of darkness to one of light, which is commonly known as the boundary between night and day. This transition, often referred
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.35it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate:  to as dawn or sunrise, is a continuous and ever-changing phenomenon that occurs gradually as the sun rises above the horizon, slowly illuminating the surroundings and revealing the world in a new light. It is a gradual and steady progression where the darkness slowly gives
+Ave_Score:  58.33256244659424
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.48it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate:  "As the sun rises above the horizon, the transition from night to day, known as dawn or sunrise, is a mesmerizing and constantly evolving process. The gradual appearance of the sun's rays slowly illuminates the surroundings, casting a new light on
+Ave_Score:  62.60869801044464
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.85it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.50it/s]
+Candidate:  As the sun slowly rises above the horizon, the transition from the dark of night to the brightness of day begins. This magical and ever-changing process, known as dawn or sunrise, is a captivating sight to behold. The gradual emergence of the sun
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.68it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate:  As the Earth rotates and the sun slowly ascends above the horizon, the transition from the darkness of night to the radiant light of day commences. This awe-inspiring and constantly evolving phenomenon, also referred to as dawn or sunrise, is a
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.57it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 49/50 [00:13<00:00,  3.50it/s]
+Candidate:  As the Earth rotates on its axis, the light of the sun gradually begins to illuminate the horizon, marking the start of a new day. This process, known as sunrise or dawn, is a breathtaking and ever-changing event that never fails to capt
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.04it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate:  As the Earth rotates on its axis, the light of the sun slowly creeps over the horizon, signaling the beginning of a new day. This spectacular phenomenon, commonly referred to as sunrise or dawn, is a constant source of awe and wonder.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.02it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate:  The Earth, our home planet, is constantly rotating on its axis, causing the sun's light to gradually spread over the horizon. This gradual emergence of light is commonly known as sunrise or dawn, and it marks the start of a new day.
+Ave_Score:  67.0110434293747
+Per_curr_iteration_best_candidate: As the Earth rotates on its axis, the light of the sun gradually begins to illuminate the horizon, marking the start of a new day. This process, known as sunrise or dawn, is a breathtaking and ever-changing event that never fails to capt
+Per_curr_iteration_best_score: 70.14612853527069
+Current Iteration: 4
+Base Candidate: "Visually demonstrate the precise demarcation between the transition of darkness into light, commonly referred to as the boundary between night and day."
+Base Score: 73.17126393318176
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.52it/s]
+ 10%|█████████████▌                                                                                                                          | 5/50 [00:01<00:11,  3.80it/s]
+ 26%|███████████████████████████████████                                                                                                    | 13/50 [00:03<00:10,  3.52it/s]
+ 40%|██████████████████████████████████████████████████████                                                                                 | 20/50 [00:05<00:08,  3.51it/s]
+ 54%|████████████████████████████████████████████████████████████████████████▉                                                              | 27/50 [00:07<00:06,  3.51it/s]
+ 68%|███████████████████████████████████████████████████████████████████████████████████████████▊                                           | 34/50 [00:09<00:04,  3.51it/s]
+ 82%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                        | 41/50 [00:11<00:02,  3.51it/s]
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.51it/s]
+  8%|██████████▉                                                                                                                             | 4/50 [00:00<00:11,  3.99it/s]
+ 22%|█████████████████████████████▋                                                                                                         | 11/50 [00:02<00:11,  3.54it/s]
+ 36%|████████████████████████████████████████████████▌                                                                                      | 18/50 [00:04<00:09,  3.51it/s]
+ 50%|███████████████████████████████████████████████████████████████████▌                                                                   | 25/50 [00:06<00:07,  3.51it/s]
+ 64%|██████████████████████████████████████████████████████████████████████████████████████▍                                                | 32/50 [00:08<00:05,  3.51it/s]
+ 78%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▎                             | 39/50 [00:10<00:03,  3.51it/s]
+ 92%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 46/50 [00:12<00:01,  3.51it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate:  "Through a visual representation, clearly illustrate the distinct and exact separation between the gradual shift from darkness to light, often referred to as the definitive line between night and day."
+  6%|████████▏                                                                                                                               | 3/50 [00:00<00:10,  4.37it/s]
+ 20%|███████████████████████████                                                                                                            | 10/50 [00:02<00:11,  3.54it/s]
+ 34%|█████████████████████████████████████████████▉                                                                                         | 17/50 [00:04<00:09,  3.51it/s]
+ 48%|████████████████████████████████████████████████████████████████▊                                                                      | 24/50 [00:06<00:07,  3.51it/s]
+ 62%|███████████████████████████████████████████████████████████████████████████████████▋                                                   | 31/50 [00:08<00:05,  3.50it/s]
+ 76%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌                                | 38/50 [00:10<00:03,  3.50it/s]
+ 90%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌             | 45/50 [00:12<00:01,  3.51it/s]
+  0%|                                                                                                                                                | 0/50 [00:00<?, ?it/s]
+ 16%|█████████████████████▊                                                                                                                  | 8/50 [00:02<00:11,  3.59it/s]
+ 30%|████████████████████████████████████████▌                                                                                              | 15/50 [00:04<00:09,  3.51it/s]
+ 44%|███████████████████████████████████████████████████████████▍                                                                           | 22/50 [00:06<00:07,  3.50it/s]
+ 58%|██████████████████████████████████████████████████████████████████████████████▎                                                        | 29/50 [00:08<00:05,  3.50it/s]
+ 72%|█████████████████████████████████████████████████████████████████████████████████████████████████▏                                     | 36/50 [00:10<00:03,  3.51it/s]
+ 86%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                   | 43/50 [00:12<00:01,  3.51it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate:  "Using a visual representation, skillfully depict the precise and discernible transition from darkness to light that marks the distinct boundary between night and day."
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.96it/s]
+ 12%|████████████████▎                                                                                                                       | 6/50 [00:01<00:11,  3.69it/s]
+ 26%|███████████████████████████████████                                                                                                    | 13/50 [00:03<00:10,  3.52it/s]
+ 40%|██████████████████████████████████████████████████████                                                                                 | 20/50 [00:05<00:08,  3.51it/s]
+ 54%|████████████████████████████████████████████████████████████████████████▉                                                              | 27/50 [00:07<00:06,  3.51it/s]
+ 68%|███████████████████████████████████████████████████████████████████████████████████████████▊                                           | 34/50 [00:09<00:04,  3.50it/s]
+ 82%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                        | 41/50 [00:11<00:02,  3.51it/s]
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+  8%|██████████▉                                                                                                                             | 4/50 [00:00<00:11,  3.97it/s]
+ 22%|█████████████████████████████▋                                                                                                         | 11/50 [00:02<00:11,  3.53it/s]
+ 36%|████████████████████████████████████████████████▌                                                                                      | 18/50 [00:04<00:09,  3.51it/s]
+ 50%|███████████████████████████████████████████████████████████████████▌                                                                   | 25/50 [00:06<00:07,  3.50it/s]
+ 64%|██████████████████████████████████████████████████████████████████████████████████████▍                                                | 32/50 [00:08<00:05,  3.50it/s]
+ 78%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▎                             | 39/50 [00:10<00:03,  3.50it/s]
+ 94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉        | 47/50 [00:13<00:00,  3.50it/s]
+ 94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉        | 47/50 [00:13<00:00,  3.50it/s]
+Candidate:  "Crafting a visually stunning representation, expertly portray the exact and noticeable shift from darkness to light that distinctly separates the transition between night and day."
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+  6%|████████▏                                                                                                                               | 3/50 [00:00<00:10,  4.36it/s]
+ 20%|███████████████████████████                                                                                                            | 10/50 [00:02<00:11,  3.54it/s]
+ 34%|█████████████████████████████████████████████▉                                                                                         | 17/50 [00:04<00:09,  3.50it/s]
+ 48%|████████████████████████████████████████████████████████████████▊                                                                      | 24/50 [00:06<00:07,  3.50it/s]
+ 62%|███████████████████████████████████████████████████████████████████████████████████▋                                                   | 31/50 [00:08<00:05,  3.50it/s]
+ 78%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▎                             | 39/50 [00:10<00:03,  3.50it/s]
+ 92%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 46/50 [00:12<00:01,  3.50it/s]
+  2%|██▋                                                                                                                                     | 1/50 [00:00<00:13,  3.50it/s]
+ 16%|█████████████████████▊                                                                                                                  | 8/50 [00:02<00:11,  3.59it/s]
+ 30%|████████████████████████████████████████▌                                                                                              | 15/50 [00:04<00:09,  3.51it/s]
+ 44%|███████████████████████████████████████████████████████████▍                                                                           | 22/50 [00:06<00:07,  3.50it/s]
+ 58%|██████████████████████████████████████████████████████████████████████████████▎                                                        | 29/50 [00:08<00:05,  3.50it/s]
+ 72%|█████████████████████████████████████████████████████████████████████████████████████████████████▏                                     | 36/50 [00:10<00:03,  3.50it/s]
+ 86%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                   | 43/50 [00:12<00:01,  3.50it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate:  By skillfully creating a visually striking depiction, the artist is able to effectively capture the dramatic and unmistakable change from darkness to light that clearly distinguishes the transition from night to day.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.76it/s]
+ 10%|█████████████▌                                                                                                                          | 5/50 [00:01<00:11,  3.79it/s]
+ 24%|████████████████████████████████▍                                                                                                      | 12/50 [00:03<00:10,  3.52it/s]
+ 38%|███████████████████████████████████████████████████▎                                                                                   | 19/50 [00:05<00:08,  3.50it/s]
+ 52%|██████████████████████████████████████████████████████████████████████▏                                                                | 26/50 [00:07<00:06,  3.50it/s]
+ 66%|█████████████████████████████████████████████████████████████████████████████████████████                                              | 33/50 [00:09<00:04,  3.50it/s]
+ 80%|████████████████████████████████████████████████████████████████████████████████████████████████████████████                           | 40/50 [00:11<00:02,  3.50it/s]
+ 94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉        | 47/50 [00:13<00:00,  3.50it/s]
+  6%|████████▏                                                                                                                               | 3/50 [00:00<00:10,  4.36it/s]
+ 20%|███████████████████████████                                                                                                            | 10/50 [00:02<00:11,  3.54it/s]
+ 34%|█████████████████████████████████████████████▉                                                                                         | 17/50 [00:04<00:09,  3.51it/s]
+ 48%|████████████████████████████████████████████████████████████████▊                                                                      | 24/50 [00:06<00:07,  3.50it/s]
+ 62%|███████████████████████████████████████████████████████████████████████████████████▋                                                   | 31/50 [00:08<00:05,  3.50it/s]
+ 76%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌                                | 38/50 [00:10<00:03,  3.50it/s]
+ 90%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌             | 45/50 [00:12<00:01,  3.50it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate:  Through the use of advanced techniques and careful attention to detail, the artist expertly crafts a visually stunning representation that masterfully depicts the powerful and unmistakable transformation from darkness to light, effectively conveying the distinct shift from nighttime to daytime.
+  0%|                                                                                                                                                | 0/50 [00:00<?, ?it/s]
+ 16%|█████████████████████▊                                                                                                                  | 8/50 [00:02<00:11,  3.59it/s]
+ 30%|████████████████████████████████████████▌                                                                                              | 15/50 [00:04<00:09,  3.51it/s]
+ 44%|███████████████████████████████████████████████████████████▍                                                                           | 22/50 [00:06<00:07,  3.50it/s]
+ 58%|██████████████████████████████████████████████████████████████████████████████▎                                                        | 29/50 [00:08<00:05,  3.50it/s]
+ 72%|█████████████████████████████████████████████████████████████████████████████████████████████████▏                                     | 36/50 [00:10<00:03,  3.50it/s]
+ 86%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                   | 43/50 [00:12<00:02,  3.50it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+ 12%|████████████████▎                                                                                                                       | 6/50 [00:01<00:11,  3.69it/s]
+ 26%|███████████████████████████████████                                                                                                    | 13/50 [00:03<00:10,  3.51it/s]
+ 40%|██████████████████████████████████████████████████████                                                                                 | 20/50 [00:05<00:08,  3.50it/s]
+ 54%|████████████████████████████████████████████████████████████████████████▉                                                              | 27/50 [00:07<00:06,  3.50it/s]
+ 68%|███████████████████████████████████████████████████████████████████████████████████████████▊                                           | 34/50 [00:09<00:04,  3.50it/s]
+ 82%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                        | 41/50 [00:11<00:02,  3.50it/s]
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+Loading pipeline components...:  17%|█████████████████▌                                                                                       | 1/6 [00:00<00:03,  1.37it/s]
+Loading pipeline components...:  17%|█████████████████▌                                                                                       | 1/6 [00:00<00:03,  1.37it/s]
+Candidate:  The artist utilizes a combination of advanced techniques, such as shading, layering, and color blending, in order to achieve a visually striking representation. With meticulous attention to detail, every aspect of the artwork is carefully crafted to convey the powerful and unmistak
+  8%|██████████▉                                                                                                                             | 4/50 [00:00<00:11,  3.97it/s]
+ 22%|█████████████████████████████▋                                                                                                         | 11/50 [00:02<00:11,  3.53it/s]
+ 38%|███████████████████████████████████████████████████▎                                                                                   | 19/50 [00:05<00:08,  3.50it/s]
+ 52%|██████████████████████████████████████████████████████████████████████▏                                                                | 26/50 [00:07<00:06,  3.50it/s]
+ 66%|█████████████████████████████████████████████████████████████████████████████████████████                                              | 33/50 [00:09<00:04,  3.50it/s]
+ 80%|████████████████████████████████████████████████████████████████████████████████████████████████████████████                           | 40/50 [00:11<00:02,  3.50it/s]
+ 94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉        | 47/50 [00:13<00:00,  3.50it/s]
+  6%|████████▏                                                                                                                               | 3/50 [00:00<00:10,  4.36it/s]
+ 20%|███████████████████████████                                                                                                            | 10/50 [00:02<00:11,  3.54it/s]
+ 34%|█████████████████████████████████████████████▉                                                                                         | 17/50 [00:04<00:09,  3.50it/s]
+ 48%|████████████████████████████████████████████████████████████████▊                                                                      | 24/50 [00:06<00:07,  3.50it/s]
+ 62%|███████████████████████████████████████████████████████████████████████████████████▋                                                   | 31/50 [00:08<00:05,  3.50it/s]
+ 76%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌                                | 38/50 [00:10<00:03,  3.50it/s]
+ 90%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌             | 45/50 [00:12<00:01,  3.50it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate:  The artist skillfully employs a variety of advanced techniques, including shading, layering, and color blending, to create a visually captivating representation. Through meticulous attention to detail, every aspect of the artwork is thoughtfully crafted to effectively convey its powerful and
+  0%|                                                                                                                                                | 0/50 [00:00<?, ?it/s]
+ 16%|█████████████████████▊                                                                                                                  | 8/50 [00:02<00:11,  3.58it/s]
+ 30%|████████████████████████████████████████▌                                                                                              | 15/50 [00:04<00:09,  3.51it/s]
+ 44%|███████████████████████████████████████████████████████████▍                                                                           | 22/50 [00:06<00:07,  3.50it/s]
+ 58%|██████████████████████████████████████████████████████████████████████████████▎                                                        | 29/50 [00:08<00:05,  3.50it/s]
+ 72%|█████████████████████████████████████████████████████████████████████████████████████████████████▏                                     | 36/50 [00:10<00:03,  3.50it/s]
+ 86%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                   | 43/50 [00:12<00:02,  3.50it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+ 12%|████████████████▎                                                                                                                       | 6/50 [00:01<00:11,  3.69it/s]
+ 26%|███████████████████████████████████                                                                                                    | 13/50 [00:03<00:10,  3.51it/s]
+ 40%|██████████████████████████████████████████████████████                                                                                 | 20/50 [00:05<00:08,  3.50it/s]
+ 54%|████████████████████████████████████████████████████████████████████████▉                                                              | 27/50 [00:07<00:06,  3.50it/s]
+ 68%|███████████████████████████████████████████████████████████████████████████████████████████▊                                           | 34/50 [00:09<00:04,  3.50it/s]
+ 82%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                        | 41/50 [00:11<00:02,  3.50it/s]
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+Loading pipeline components...:  17%|█████████████████▌                                                                                       | 1/6 [00:00<00:03,  1.64it/s]
+Loading pipeline components...:  17%|█████████████████▌                                                                                       | 1/6 [00:00<00:03,  1.64it/s]
+Candidate:  The artist's exceptional ability is demonstrated through the masterful use of a multitude of advanced techniques, such as shading, layering, and color blending, in order to produce a visually stunning representation. With meticulous attention to detail, every aspect of the
+  8%|██████████▉                                                                                                                             | 4/50 [00:00<00:11,  3.98it/s]
+ 22%|█████████████████████████████▋                                                                                                         | 11/50 [00:02<00:11,  3.53it/s]
+ 36%|████████████████████████████████████████████████▌                                                                                      | 18/50 [00:04<00:09,  3.51it/s]
+ 50%|███████████████████████████████████████████████████████████████████▌                                                                   | 25/50 [00:06<00:07,  3.50it/s]
+ 64%|██████████████████████████████████████████████████████████████████████████████████████▍                                                | 32/50 [00:08<00:05,  3.50it/s]
+ 78%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▎                             | 39/50 [00:10<00:03,  3.50it/s]
+ 92%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏          | 46/50 [00:12<00:01,  3.50it/s]
+  4%|█████▍                                                                                                                                  | 2/50 [00:00<00:08,  5.50it/s]
+ 18%|████████████████████████▍                                                                                                               | 9/50 [00:02<00:11,  3.56it/s]
+ 32%|███████████████████████████████████████████▏                                                                                           | 16/50 [00:04<00:09,  3.51it/s]
+ 46%|██████████████████████████████████████████████████████████████                                                                         | 23/50 [00:06<00:07,  3.50it/s]
+ 60%|█████████████████████████████████████████████████████████████████████████████████                                                      | 30/50 [00:08<00:05,  3.50it/s]
+ 74%|███████████████████████████████████████████████████████████████████████████████████████████████████▉                                   | 37/50 [00:10<00:03,  3.50it/s]
+ 88%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                | 44/50 [00:12<00:01,  3.50it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate:  The artist's exceptional ability is clearly showcased through the masterful and skillful utilization of a diverse range of advanced techniques. These techniques, such as shading, layering, and color blending, are expertly employed in order to produce a truly magnificent
+  0%|                                                                                                                                                | 0/50 [00:00<?, ?it/s]
+ 16%|█████████████████████▊                                                                                                                  | 8/50 [00:02<00:11,  3.59it/s]
+ 30%|████████████████████████████████████████▌                                                                                              | 15/50 [00:04<00:09,  3.51it/s]
+ 44%|███████████████████████████████████████████████████████████▍                                                                           | 22/50 [00:06<00:07,  3.51it/s]
+ 58%|██████████████████████████████████████████████████████████████████████████████▎                                                        | 29/50 [00:08<00:06,  3.50it/s]
+ 72%|█████████████████████████████████████████████████████████████████████████████████████████████████▏                                     | 36/50 [00:10<00:03,  3.50it/s]
+ 86%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                   | 43/50 [00:12<00:01,  3.50it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+ 12%|████████████████▎                                                                                                                       | 6/50 [00:01<00:11,  3.68it/s]
+ 26%|███████████████████████████████████                                                                                                    | 13/50 [00:03<00:10,  3.52it/s]
+ 40%|██████████████████████████████████████████████████████                                                                                 | 20/50 [00:05<00:08,  3.50it/s]
+ 54%|████████████████████████████████████████████████████████████████████████▉                                                              | 27/50 [00:07<00:06,  3.50it/s]
+ 68%|███████████████████████████████████████████████████████████████████████████████████████████▊                                           | 34/50 [00:09<00:04,  3.50it/s]
+ 82%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                        | 41/50 [00:11<00:02,  3.50it/s]
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+tenacity.RetryError: RetryError[<Future at 0x7fd9461089a0 state=finished raised RateLimitError>]it__.py", line 326, in iterll__frgs, current_iteration) 1. Please try again in 7m12s. Visit https://platform.openai.com/account/rate-limits to learn more. You can increase your rate limit by adding a payment method to your account at https://platform.openai.com/account/billing.
+tenacity.RetryError: RetryError[<Future at 0x7fd9461089a0 state=finished raised RateLimitError>]it__.py", line 326, in iterll__frgs, current_iteration) 1. Please try again in 7m12s. Visit https://platform.openai.com/account/rate-limits to learn more. You can increase your rate limit by adding a payment method to your account at https://platform.openai.com/account/billing.
+Candidate:  Through the masterful and skillful utilization of a diverse range of advanced techniques, the artist's exceptional ability is clearly showcased. These techniques, including shading, layering, and color blending, are expertly employed by the artist to produce a truly
+Ave_Score:  41.060930490493774
+Per_curr_iteration_best_candidate: "Through a visual representation, clearly illustrate the distinct and exact separation between the gradual shift from darkness to light, often referred to as the definitive line between night and day."
+Per_curr_iteration_best_score: 68.66066753864288
+Current Iteration: 5
+Base Candidate: "Visually demonstrate the precise demarcation between the transition of darkness into light, commonly referred to as the boundary between night and day."
+Base Score: 73.17126393318176
+tenacity.RetryError: RetryError[<Future at 0x7fd9461089a0 state=finished raised RateLimitError>]it__.py", line 326, in iterll__frgs, current_iteration) 1. Please try again in 7m12s. Visit https://platform.openai.com/account/rate-limits to learn more. You can increase your rate limit by adding a payment method to your account at https://platform.openai.com/account/billing.

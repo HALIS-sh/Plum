@@ -1,0 +1,362 @@
+Current Iteration:  1
+Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Score:  0.0
+['swap' 'swap' 'swap' 'sub' 'del' 'swap' 'swap' 'del' 'del' 'swap']
+of an astronaut riding a horse on mars a photo
+of an astronaut riding a horse on mars a photo
+of an astronaut riding a horse on mars a photo
+a photo An astronauts riding a horse
+a photo 
+of an astronaut riding a horse on mars a photo
+of an astronaut riding a horse on mars a photo
+a photo 
+ of an astronaut riding a horse on mars
+of an astronaut riding a horse on mars a photo
+ave_score: 41.582392156124115
+41.582392156124115
+ave_score: 48.012687265872955
+48.012687265872955
+ave_score: 50.630366802215576
+50.630366802215576
+ave_score: 65.74170887470245
+65.74170887470245
+ave_score: 0.9250318398699164
+0.9250318398699164
+ave_score: 49.820877611637115
+49.820877611637115
+ave_score: 53.45764756202698
+53.45764756202698
+ave_score: 0.39046001620590687
+0.39046001620590687
+ave_score: 43.1331105530262
+43.1331105530262
+ave_score: 45.766572654247284
+45.766572654247284
+Per_curr_iteration_best_candidate:  a photo An astronauts riding a horse
+Result_candidate:  a photo An astronauts riding a horse Result_score:  65.74170887470245
+Current Iteration:  2
+Base Candidate:  a photo An astronauts riding a horse
+Base Score:  65.74170887470245
+['del' 'del' 'sub' 'swap' 'del' 'swap' 'del' 'sub' 'sub' 'del']
+a photo An astronauts 
+a photo An astronauts 
+a photo A group of astronauts riding a horse
+An astronauts a photo riding a horse
+a photo An astronauts 
+An astronauts a photo riding a horse
+ An astronauts riding a horse
+a picture An astronauts riding a horse
+A photo An astronauts riding a horse
+ An astronauts riding a horse
+ave_score: 3.1878662295639515
+3.1878662295639515
+ave_score: 15.689632669091225
+15.689632669091225
+ave_score: 28.598403185606003
+28.598403185606003
+ave_score: 44.093357026576996
+44.093357026576996
+ave_score: 3.784296289086342
+3.784296289086342
+ave_score: 30.493106693029404
+30.493106693029404
+ave_score: 62.47095167636871
+62.47095167636871
+ave_score: 26.068294793367386
+26.068294793367386
+ave_score: 36.113300919532776
+36.113300919532776
+ave_score: 33.06300640106201
+33.06300640106201
+Per_curr_iteration_best_candidate:   An astronauts riding a horse
+Result_candidate:  a photo An astronauts riding a horse Result_score:  65.74170887470245
+Current Iteration:  3
+Base Candidate:  a photo An astronauts riding a horse
+Base Score:  65.74170887470245
+['del' 'del' 'swap' 'del' 'sub' 'sub' 'sub' 'swap' 'del' 'del']
+ An astronauts riding a horse
+a photo An astronauts 
+An astronauts a photo riding a horse
+a photo  riding a horse
+There is a photo An astronauts riding a horse
+a photo An astronomer riding a horse
+a photo An astronauts A person is on a horse
+riding a horse An astronauts a photo
+a photo An astronauts 
+ An astronauts riding a horse
+ave_score: 67.14985370635986
+67.14985370635986
+ave_score: 4.162461310625076
+4.162461310625076
+ave_score: 39.97812271118164
+39.97812271118164
+ave_score: 6.177725829184055
+6.177725829184055
+ave_score: 38.446374237537384
+38.446374237537384
+ave_score: 16.379295475780964
+16.379295475780964
+ave_score: 55.21054267883301
+55.21054267883301
+ave_score: 20.661085844039917
+20.661085844039917
+ave_score: 4.567037522792816
+4.567037522792816
+ave_score: 48.345847427845
+48.345847427845
+Per_curr_iteration_best_candidate:   An astronauts riding a horse
+Result_candidate:   An astronauts riding a horse Result_score:  67.14985370635986
+Current Iteration:  4
+Base Candidate:   An astronauts riding a horse
+Base Score:  67.14985370635986
+['add' 'del' 'sub' 'swap' 'del' 'add' 'sub' 'swap' 'swap' 'add']
+ An astronauts riding a horse a photo
+ An astronauts 
+ A group of people riding a horse
+ riding a horse An astronauts
+  riding a horse
+ An astronauts riding a horse a photo
+ There are astronauts riding a horse
+ riding a horse An astronauts
+ riding a horse An astronauts
+a photo  An astronauts riding a horse
+ave_score: 50.14153569936752
+50.14153569936752
+ave_score: 16.833096090704203
+16.833096090704203
+ave_score: 3.8154066540300846
+3.8154066540300846
+ave_score: 42.12556928396225
+42.12556928396225
+ave_score: 10.021558217704296
+10.021558217704296
+ave_score: 37.97629773616791
+37.97629773616791
+ave_score: 36.32064908742905
+36.32064908742905
+ave_score: 26.66292991489172
+26.66292991489172
+ave_score: 18.647892028093338
+18.647892028093338
+ave_score: 39.91424739360809
+39.91424739360809
+Per_curr_iteration_best_candidate:   An astronauts riding a horse a photo
+Result_candidate:   An astronauts riding a horse Result_score:  67.14985370635986
+Current Iteration:  5
+Base Candidate:   An astronauts riding a horse
+Base Score:  67.14985370635986
+['add' 'add' 'swap' 'del' 'add' 'swap' 'add' 'del' 'add' 'sub']
+a photo  An astronauts riding a horse
+ An astronauts a photo riding a horse
+ riding a horse An astronauts
+  riding a horse
+ An astronauts riding a horse a photo
+ riding a horse An astronauts
+ An astronauts a photo riding a horse
+  riding a horse
+ An astronauts a photo riding a horse
+ An astronauts The horse is being ridden
+ave_score: 50.082530081272125
+50.082530081272125
+ave_score: 29.414252936840057
+29.414252936840057
+ave_score: 20.4449949786067
+20.4449949786067
+ave_score: 5.418468825519085
+5.418468825519085
+ave_score: 52.05555409193039
+52.05555409193039
+ave_score: 28.82155403494835
+28.82155403494835
+ave_score: 42.95257329940796
+42.95257329940796
+ave_score: 5.861837696284056
+5.861837696284056
+ave_score: 41.85605198144913
+41.85605198144913
+ave_score: 28.67259681224823
+28.67259681224823
+Per_curr_iteration_best_candidate:   An astronauts riding a horse a photo
+Result_candidate:   An astronauts riding a horse Result_score:  67.14985370635986
+Current Iteration:  6
+Base Candidate:   An astronauts riding a horse
+Base Score:  67.14985370635986
+['sub' 'del' 'del' 'add' 'swap' 'del' 'sub' 'del' 'swap' 'del']
+ A group of astronauts riding a horse
+  riding a horse
+  riding a horse
+ An astronauts riding a horse a photo
+ riding a horse An astronauts
+  riding a horse
+ An astronauts A person rides a horse
+  riding a horse
+ riding a horse An astronauts
+  riding a horse
+ave_score: 27.942629158496857
+27.942629158496857
+ave_score: 7.91988130658865
+7.91988130658865
+ave_score: 7.5159745290875435
+7.5159745290875435
+ave_score: 68.67876350879669
+68.67876350879669
+ave_score: 14.123819582164288
+14.123819582164288
+ave_score: 10.82071140408516
+10.82071140408516
+ave_score: 35.25913432240486
+35.25913432240486
+ave_score: 8.534695394337177
+8.534695394337177
+ave_score: 20.708655938506126
+20.708655938506126
+ave_score: 5.080064572393894
+5.080064572393894
+Per_curr_iteration_best_candidate:   An astronauts riding a horse a photo
+Notice! Prev tracker:  ['a photo']
+Notice! New tracker:  []
+Result_candidate:   An astronauts riding a horse a photo Result_score:  68.67876350879669
+Current Iteration:  7
+Base Candidate:   An astronauts riding a horse a photo
+Base Score:  68.67876350879669
+['del' 'sub' 'sub' 'sub' 'del' 'sub' 'del' 'swap' 'sub' 'sub']
+ An astronauts riding  a photo
+ An astronauts You are riding a horse a photo
+ An astronauts riding a horse There is a photo
+ An group of humans riding a horse a photo
+  riding a horse a photo
+ An astronauts riding a horse There is a photo
+ An astronauts riding  a photo
+ An astronauts riding a photo a horse
+ An astronauts riding a horse a photo
+ An astronauts You are riding a horse a photo
+ave_score: 12.91077733039856
+12.91077733039856
+ave_score: 44.27922070026398
+44.27922070026398
+ave_score: 39.5538866519928
+39.5538866519928
+ave_score: 4.20016385614872
+4.20016385614872
+ave_score: 10.745129734277725
+10.745129734277725
+ave_score: 36.884576082229614
+36.884576082229614
+ave_score: 22.31251448392868
+22.31251448392868
+ave_score: 41.10099710524082
+41.10099710524082
+ave_score: 49.14703071117401
+49.14703071117401
+ave_score: 43.35550665855408
+43.35550665855408
+Per_curr_iteration_best_candidate:   An astronauts riding a horse a photo
+Result_candidate:   An astronauts riding a horse a photo Result_score:  68.67876350879669
+Current Iteration:  8
+Base Candidate:   An astronauts riding a horse a photo
+Base Score:  68.67876350879669
+['sub' 'swap' 'sub' 'del' 'del' 'sub' 'swap' 'sub' 'swap' 'sub']
+ There are astronauts riding a horse a photo
+ riding An astronauts a horse a photo
+ An astronauts riding A horse is outside a photo
+ An astronauts riding a horse 
+ An astronauts  a horse a photo
+ A group of astronauts riding a horse a photo
+ An astronauts riding a photo a horse
+ They are astronauts riding a horse a photo
+ An astronauts a horse riding a photo
+ An astronauts riding a horse a photo
+ave_score: 22.488373331725597
+22.488373331725597
+ave_score: 19.364579394459724
+19.364579394459724
+ave_score: 27.607499808073044
+27.607499808073044
+ave_score: 52.612726390361786
+52.612726390361786
+ave_score: 23.460790142416954
+23.460790142416954
+ave_score: 11.538414657115936
+11.538414657115936
+ave_score: 58.05686414241791
+58.05686414241791
+ave_score: 20.74519842863083
+20.74519842863083
+ave_score: 28.403586894273758
+28.403586894273758
+ave_score: 53.76142859458923
+53.76142859458923
+Per_curr_iteration_best_candidate:   An astronauts riding a photo a horse
+Result_candidate:   An astronauts riding a horse a photo Result_score:  68.67876350879669
+Current Iteration:  9
+Base Candidate:   An astronauts riding a horse a photo
+Base Score:  68.67876350879669
+['swap' 'swap' 'del' 'sub' 'sub' 'sub' 'swap' 'swap' 'del' 'sub']
+ An astronauts a photo a horse riding
+ An astronauts riding a photo a horse
+ An astronauts  a horse a photo
+ An astronauts riding There is a horse a photo
+ An astronauts riding a horse A photo
+ An astronauts riding a horse A photo is taken
+ An astronauts a horse riding a photo
+ An astronauts riding a photo a horse
+ An astronauts riding  a photo
+ An astronauts riding There is a horse a photo
+ave_score: 40.92387333512306
+40.92387333512306
+ave_score: 22.09785245358944
+22.09785245358944
+ave_score: 36.60034239292145
+36.60034239292145
+ave_score: 39.41760957241058
+39.41760957241058
+ave_score: 67.21633076667786
+67.21633076667786
+ave_score: 44.210486114025116
+44.210486114025116
+ave_score: 27.19721607863903
+27.19721607863903
+ave_score: 44.567419588565826
+44.567419588565826
+ave_score: 11.208979785442352
+11.208979785442352
+ave_score: 11.99440136551857
+11.99440136551857
+Per_curr_iteration_best_candidate:   An astronauts riding a horse A photo
+Result_candidate:   An astronauts riding a horse a photo Result_score:  68.67876350879669
+Current Iteration:  10
+Base Candidate:   An astronauts riding a horse a photo
+Base Score:  68.67876350879669
+['swap' 'swap' 'sub' 'del' 'swap' 'sub' 'swap' 'sub' 'sub' 'swap']
+ An astronauts a photo a horse riding
+ riding An astronauts a horse a photo
+ A group of people riding a horse a photo
+ An astronauts riding  a photo
+ a photo riding a horse An astronauts
+ An astronauts The person is riding a horse a photo
+ riding An astronauts a horse a photo
+ An astronomer riding a horse a photo
+ An astronauts The rider is riding a horse a photo
+ An astronauts riding a photo a horse
+ave_score: 42.51917153596878
+42.51917153596878
+ave_score: 41.967373341321945
+41.967373341321945
+ave_score: 5.091677233576775
+5.091677233576775
+ave_score: 24.04889017343521
+24.04889017343521
+ave_score: 32.124004513025284
+32.124004513025284
+ave_score: 35.67088395357132
+35.67088395357132
+ave_score: 26.285232603549957
+26.285232603549957
+ave_score: 5.277450755238533
+5.277450755238533
+ave_score: 30.84120601415634
+30.84120601415634
+ave_score: 54.894134402275085
+54.894134402275085
+Per_curr_iteration_best_candidate:   An astronauts riding a photo a horse
+Result_candidate:   An astronauts riding a horse a photo Result_score:  68.67876350879669

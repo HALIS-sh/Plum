@@ -1,0 +1,25 @@
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["bos_token_id"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["eos_token_id"]` will be overriden.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.52it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.36it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.56it/s]
+Traceback (most recent call last):
+  File "/home/wenhesun/Plum/pic_score_main.py", line 75, in <module>
+    main(args)
+  File "/home/wenhesun/Plum/pic_score_main.py", line 20, in main
+    trainer.train(args, instruction, chosen_task_name="pic_score")
+TypeError: train() got multiple values for argument 'chosen_task_name'

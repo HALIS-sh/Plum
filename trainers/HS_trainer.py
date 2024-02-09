@@ -15,6 +15,7 @@ import heapq
 from transformers import AutoProcessor, AutoModel
 from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 from PIL import Image
+import openai
 
 class HS_trainer(SimpleTrainer):
 
@@ -65,7 +66,7 @@ class HS_trainer(SimpleTrainer):
     def containenglish(self, str0):
         return bool(re.search('[a-z A-Z]', str0))
 
-    def mutated(self, base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration):
+    def mutated(self, base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args):
 
         deleted = {}
         added = {}
@@ -93,6 +94,7 @@ class HS_trainer(SimpleTrainer):
             for edit in edits:
                 if isinstance(edit, str): 
                     # print("Base Candidate: ", base_candidate)
+                    print("phrase_lookup: ", phrase_lookup)
                     candidate, indices = self.perform_edit(edit, base_candidate, phrase_lookup, delete_tracker)
                     empty = not self.containenglish(candidate)
                     if not empty:
@@ -127,8 +129,58 @@ class HS_trainer(SimpleTrainer):
 
         return candidates, deleted, added 
     
-    def gpt_adjuster(self, sentence, current_iteration):
-        raise NotImplementedError("Subclasses must implement call_child_method")
+    # def gpt_adjuster(self, sentence, current_iteration):
+    #     raise NotImplementedError("Subclasses must implement call_child_method")
+    def gpt_adjuster(self, sentence):
+        api_keys = ['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', 
+                    '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',
+                    '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', 
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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'] 
+        proxy = {
+            'http': 'http://localhost:7890',
+            'https': 'http://localhost:7890'
+        }
+        # 设置代理
+        openai.proxy = proxy  
+        # Define the prompt
+        prompt = f"Slightly adjust the following sentence: '{sentence}'"
+        # Generate text using the completions API
+        for key in api_keys:
+            try:
+                # 设置当前API key
+                openai.api_key = key              
+                # 调用API
+                response = openai.Completion.create(
+                    engine='gpt-3.5-turbo-instruct',
+                    prompt=prompt,
+                    max_tokens=50,
+                    temperature=0.7,
+                    n=1,
+                    stop=None,
+                    timeout=100
+                )               
+                # 如果成功，从响应中提取改写的句子并返回
+                adjusted_sentence = response.choices[0].text.strip()
+                return adjusted_sentence
+            
+            except Exception as e:
+                # 如果调用失败，打印错误信息并继续尝试下一个API key
+                # print(f"Error with API key {key}: {e}")
+                continue
+        
+        # 如果所有API keys都尝试失败，返回错误信息
+        return "Failed to rephrase the sentence using all available API keys."
+
 
     def generate_candidate(self, ks, HMCR, PAR, edit_opertions_small, use_add, delete_tracker, edit_operations, args, current_iteration):
     
@@ -141,6 +193,7 @@ class HS_trainer(SimpleTrainer):
             phrases_pun = self.get_phrase_lookup_pun(w, args)
             w_phrases = list(phrases_pun.values())
             L = len(w_phrases)
+            print("w_phrases: ", w_phrases)
             start = math.ceil(j/ks*L)
             end = math.ceil((j+1)/ks*L) - 1
             if(start!=end):
@@ -148,42 +201,75 @@ class HS_trainer(SimpleTrainer):
             else:
                 w_segement = [w_phrases[start]]
             w_segement_words = []
-            print(w_segement)
             for phrase in w_segement:   
                 w_segement_words = w_segement_words + self.word_tokenize(phrase)
             w_segement = self.detokenize(w_segement_words)
-
+            print("w_segement: ", w_segement)
             if HMCR >= np.random.random():
                 if PAR >= np.random.random():
-                    try:
-                        if bool(args.use_LLM):
-                            candidate = self.gpt_adjuster(w_segement, current_iteration)
+                    # try:
+                    #     if args.use_LLM:
+                    #         print("w_segement1: ", w_segement)
+                    #         if len(w_segement) > 0: 
+                    #             candidate = self.gpt_adjuster(w_segement)
+                    #         else:
+                    #             phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                    #             candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                    #     else:
+                    #         phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                    #         candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                    #     w_segement = candidate
+                    #     # print(w_segement)
+                    # except:
+                    #     print('Error occurs (parser) and skip this mutation 1')
+                    #     continue
+                    if args.use_LLM:
+                        # print("w_segement1: ", w_segement)
+                        if len(w_segement) > 0: 
+                            candidate = self.gpt_adjuster(w_segement)
                         else:
-                            phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                            candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
-                        w_segement = candidate
-                        # print(w_segement)
-                    except:
-                        print('Error occurs (parser) and skip this mutation 1')
-                        continue
+                            candidate = self.gpt_adjuster(self.result_candidate)
+                    else:
+                        phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                        print("w_segement0: ", w_segement)
+                        print("phrase_lookup0: ", phrase_lookup)
+                        candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                    w_segement = candidate
                 deleted = {}
                 added = {}
                    
             else:
                 deleted = {}
                 added = {}
-                try:
-                    if bool(args.use_LLM):
-                        candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration)
+                # try:
+                #     if args.use_LLM:
+                #         print("w_segement: ", w_segement)
+                #         candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                #         print("candidates: ", candidates)
+                #     else:
+                #         phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                #         candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                #     w_segement = candidates[0] # multipule edit operations can be implemented if necessary
+                #     # print(w_segement)
+                # except:
+                #     print('Error occurs (parser) and skip this mutation 2')
+                #     continue
+                phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                print("w_segement1: ", w_segement)
+                print("phrase_lookup1: ", phrase_lookup)
+                if args.use_LLM:
+                    # print("w_segement2: ", w_segement)                   
+                    if len(w_segement) > 0: 
+                        candidate, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                        w_segement = candidate
                     else:
-                        phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                        candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration)
+                        candidate, deleted, added = self.mutated(self.result_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                        w_segement = candidate
+                    # print("candidates: ", candidates)
+                else:
+                    candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
                     w_segement = candidates[0] # multipule edit operations can be implemented if necessary
-                    # print(w_segement)
-                except:
-                    print('Error occurs (parser) and skip this mutation 2')
-                    continue
-            w_m.append(w_segement)
+        w_m.append(w_segement)
         for segement in w_m:
             w_m_words.extend(self.word_tokenize(segement))
         w_m = self.detokenize(w_m_words)
@@ -192,7 +278,7 @@ class HS_trainer(SimpleTrainer):
 
     def train(self, instruction, chosen_task_name, args):
         
-        ks = 1
+        ks = 5
         HMCR = 0.4
         PAR = 0.5
         edit_opertions_small = 'sub'
@@ -260,8 +346,12 @@ class HS_trainer(SimpleTrainer):
                 if not added_list == []:
                     added_candidate[w_m] = added_list
                 
-            self.update_result(self.W_candidates_m, self.W_scores_m)
-            
+            update_best_or_not = self.update_result(self.W_candidates_m, self.W_scores_m)
+            if args.task_type == "text2iamge":
+                if update_best_or_not:
+                    best_idx = np.argmax(self.W_scores_m)
+                    self.update_best_picture(best_idx+1)
+
             if self.patience_counter > args.patience:
                 print('Ran out of patience')
                 # meta_file.write('Ran out of patience \n')

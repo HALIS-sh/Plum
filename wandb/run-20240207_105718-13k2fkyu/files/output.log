@@ -1,0 +1,570 @@
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["bos_token_id"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["eos_token_id"]` will be overriden.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.62it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.34it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Original Candidate:	  a photo of an astronaut riding a horse on mars
+Original Score:	  50.0
+Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Score:  50.0
+['del']
+['sub']
+Error occurs (parser) and skip this mutation
+Error occurs (parser) and skip this mutation
+Candidate:  photo of an astronaut riding A horse is in motion on mars
+Some weights of PegasusForConditionalGeneration were not initialized from the model checkpoint at /home/wenhesun/.cache/huggingface/hub/models--tuner007--pegasus_paraphrase and are newly initialized: ['model.encoder.embed_positions.weight', 'model.decoder.embed_positions.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `1.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.48it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  54.06934916973114
+Error occurs (parser) and skip this mutation
+['swap']
+Error occurs (parser) and skip this mutation
+Candidate:  a photo of an astronaut riding a horse on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  3.49it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  68.19434762001038
+['del']
+['swap']
+Error occurs (parser) and skip this mutation
+Error occurs (parser) and skip this mutation
+Candidate:  photo of an astronaut riding on mars a horse
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.11it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+Candidate Score:  57.515910267829895
+['swap']
+Error occurs (parser) and skip this mutation
+['swap']
+Error occurs (parser) and skip this mutation
+Error occurs (parser) and skip this mutation
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.56it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  73.81850183010101
+['swap']
+Error occurs (parser) and skip this mutation
+['del']
+Error occurs (parser) and skip this mutation
+['sub']
+Error occurs (parser) and skip this mutation
+Candidate:  a photo of an astronaut riding on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.08it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+Candidate Score:  39.19103592634201
+['sub']
+Error occurs (parser) and skip this mutation
+['swap']
+Error occurs (parser) and skip this mutation
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.66it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  28.9438858628273
+['del']
+Error occurs (parser) and skip this mutation
+['del']
+['swap']
+Error occurs (parser) and skip this mutation
+Candidate:  a The photo was taken an astronaut riding a horse on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.49it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.49it/s]
+Candidate Score:  41.02651625871658
+['del']
+['sub']
+Error occurs (parser) and skip this mutation
+['sub']
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.97it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  44.860103726387024
+['del']
+['sub']
+Error occurs (parser) and skip this mutation
+['swap']
+Error occurs (parser) and skip this mutation
+['swap']
+Error occurs (parser) and skip this mutation
+Candidate:  photo a horse an astronaut riding of on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.37it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate Score:  63.061338663101196
+['del']
+Error occurs (parser) and skip this mutation
+['sub']
+Error occurs (parser) and skip this mutation
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.55it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  69.51716542243958
+Top N Candidates of Current Iteration:  ['a photo of an astronaut a horse riding on mars', 'a photo of an astronaut riding a horse on mars', 'a photo of an astronaut riding a horse on mars', 'photo a horse an astronaut riding of on mars', 'photo of an astronaut riding on mars a horse', 'photo of an astronaut riding A horse is in motion on mars', 'a photo of an astronaut riding a horse on mars', 'a of an astronaut riding A horse is outside on mars', 'a The photo was taken an astronaut riding a horse on mars', 'a photo of an astronaut riding on mars']
+Result Candidate:  a photo of an astronaut a horse riding on mars
+Result Score:  73.81850183010101
+Base Candidate:  a photo of an astronaut a horse riding on mars
+Base Score:  73.81850183010101
+['add']
+Error occurs (parser) and skip this mutation
+['add']
+['del']
+Note: The mutated candidate is an empty string, and it is deleted.
+['swap']
+Error occurs (parser) and skip this mutation
+Candidate:  a photo a horse a horse of an astronaut riding a horse on mars is outside on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.52it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate Score:  57.42340087890625
+['sub']
+['add']
+['swap']
+Error occurs (parser) and skip this mutation
+['swap']
+Error occurs (parser) and skip this mutation
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.57it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  39.876776188611984
+Error occurs (parser) and skip this mutation
+Candidate:  photo of an astronaut riding a horse on mars on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.14it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate Score:  67.62851178646088
+['swap']
+Error occurs (parser) and skip this mutation
+['add']
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.77it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  7.18538835644722
+['del']
+Note: The mutated candidate is an empty string, and it is deleted.
+['del']
+Note: The mutated candidate is an empty string, and it is deleted.
+['add']
+['sub']
+Error occurs (parser) and skip this mutation
+['sub']
+Candidate:  a horse photo riding is in motion on mars on There is a person named Mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.83it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  24.122799932956696
+['del']
+Error occurs (parser) and skip this mutation
+['del']
+['add']
+Candidate:  a photo of an astronaut riding on mars is In motion a horse
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.59it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+Candidate Score:  77.17848718166351
+['add']
+['sub']
+['swap']
+['del']
+Error occurs (parser) and skip this mutation
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.67it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  26.83648318052292
+['swap']
+Error occurs (parser) and skip this mutation
+['del']
+['del']
+Error occurs (parser) and skip this mutation
+Candidate:  A photo of something of an astronaut riding a horse is outside on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.91it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate Score:  48.920294642448425
+['del']
+Error occurs (parser) and skip this mutation
+['sub']
+['del']
+['swap']
+Error occurs (parser) and skip this mutation
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.41it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Candidate Score:  83.92139971256256
+['swap']
+['sub']
+Error occurs (parser) and skip this mutation
+['swap']
+Error occurs (parser) and skip this mutation
+Error occurs (parser) and skip this mutation
+Candidate:  photo of an astronaut riding on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.59it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...:   0%|                                                                                                                 | 0/6 [00:00<?, ?it/s]
+Candidate Score:  26.691827923059464
+Top N Candidates of Current Iteration:  ['photo of an astronaut riding On mars a horse is', 'a photo of an astronaut riding on mars is In motion a horse', 'a photo of an astronaut a horse riding on mars', 'a photo of an astronaut riding a horse on mars', 'a photo of an astronaut riding a horse on mars', 'photo of an astronaut riding a horse on mars on mars', 'photo a horse an astronaut riding of on mars', 'photo of an astronaut riding on mars a horse', 'a photo a horse a horse of an astronaut riding a horse on mars is outside on mars', 'photo of an astronaut riding A horse is in motion on mars']
+Notice! Prev tracker:  ['a horse', 'in motion on mars']
+Notice! New tracker:  ['in motion on mars']
+Result Candidate:  photo of an astronaut riding On mars a horse is
+Result Score:  83.92139971256256
+Base Candidate:  photo of an astronaut riding On mars a horse is
+Base Score:  83.92139971256256
+['sub']
+['sub']
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.23it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+
+
+
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌     | 48/50 [00:13<00:00,  3.50it/s]
+Candidate Score:  51.16387903690338
+['del']
+Note: The mutated candidate is an empty string, and it is deleted.
+['swap']
+['del']
+Error occurs (parser) and skip this mutation
+['sub']
+Error occurs (parser) and skip this mutation
+['del']
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.43it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.54it/s]
+
+
+
+
+ 64%|██████████████████████████████████████████████████████████████████████████████████████▍                                                | 32/50 [00:09<00:05,  3.55it/s]
+Traceback (most recent call last):
+  File "/home/wenhesun/Plum/pic_score_main.py", line 76, in <module>
+    main(args)
+  File "/home/wenhesun/Plum/pic_score_main.py", line 20, in main
+    trainer.train(instruction, chosen_task_name="pic_score", args = args)
+  File "/home/wenhesun/Plum/trainers/HS_trainer.py", line 235, in train
+    w_m_score = self.score(w_m, c+1, args=args)
+  File "/home/wenhesun/Plum/trainers/Pic_HS_trainer.py", line 141, in score
+    image = sd_pipe(prompt).images[0]
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion.py", line 1002, in __call__
+    noise_pred = self.unet(
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/diffusers/models/unet_2d_condition.py", line 1188, in forward
+    sample = upsample_block(
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/diffusers/models/unet_2d_blocks.py", line 2471, in forward
+    hidden_states = resnet(hidden_states, temb, scale=scale)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/diffusers/models/resnet.py", line 196, in forward
+    hidden_states = self.nonlinearity(hidden_states)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/modules/activation.py", line 391, in forward
+    return F.silu(input, inplace=self.inplace)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/functional.py", line 2048, in silu
+    return torch._C._nn.silu(input)
+KeyboardInterrupt

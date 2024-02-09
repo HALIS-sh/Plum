@@ -1,0 +1,133 @@
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["id2label"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["bos_token_id"]` will be overriden.
+`text_config_dict` is provided which will be used to initialize `CLIPTextConfig`. The value `text_config["eos_token_id"]` will be overriden.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00,  6.04it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.37it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.56it/s]
+Original Candidate:	  a photo of an astronaut riding a horse on mars
+Original Score:	  50.0
+Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Score:  50.0
+w_segement1:  ['a photo']
+['swap']
+w_segement3:  photo a
+w_segement1:  []
+['swap']
+Error occurs (parser) and skip this mutation
+w_segement1:  ['of an astronaut riding a horse on mars']
+['swap']
+w_segement3:  an astronaut of riding a horse on mars
+w_segement1:  []
+w_segement3:
+w_segement1:  []
+['sub']
+Error occurs (parser) and skip this mutation
+Candidate:  photo a an astronaut of riding a horse on mars
+Some weights of PegasusForConditionalGeneration were not initialized from the model checkpoint at /home/wenhesun/.cache/huggingface/hub/models--tuner007--pegasus_paraphrase and are newly initialized: ['model.decoder.embed_positions.weight', 'model.encoder.embed_positions.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  5.51it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate Score:  51.88877731561661
+w_segement1:  ['a photo']
+w_segement3:  a photo
+w_segement1:  []
+Error occurs (parser) and skip this mutation
+w_segement1:  ['of an astronaut riding a horse on mars']
+['swap']
+w_segement3:  of a horse riding an astronaut on mars
+w_segement1:  []
+['swap']
+Error occurs (parser) and skip this mutation
+w_segement1:  []
+['sub']
+Error occurs (parser) and skip this mutation
+Candidate:  a photo of a horse riding an astronaut on mars
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:02<00:00,  2.61it/s]
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:14<00:00,  3.55it/s]
+Candidate Score:  48.66762012243271
+w_segement1:  ['a photo']
+['sub']
+w_segement3:  There is a photo
+w_segement1:  []
+['sub']
+Error occurs (parser) and skip this mutation
+w_segement1:  ['of an astronaut riding a horse on mars']
+['del']
+w_segement3:   an astronaut riding a horse on mars
+w_segement1:  []
+['sub']
+Error occurs (parser) and skip this mutation
+w_segement1:  []
+w_segement3:
+Candidate:  There is a photo an astronaut riding a horse on mars
+/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:389: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `1.5` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:01<00:00,  4.75it/s]
+ 24%|████████████████████████████████▍                                                                                                      | 12/50 [00:03<00:10,  3.69it/s]
+Traceback (most recent call last):
+  File "/home/wenhesun/Plum/pic_score_main.py", line 76, in <module>
+    main(args)
+  File "/home/wenhesun/Plum/pic_score_main.py", line 20, in main
+    trainer.train(instruction, chosen_task_name="pic_score", args = args)
+  File "/home/wenhesun/Plum/trainers/HS_trainer.py", line 263, in train
+    w_m_score = self.score(w_m, c+1, args=args)
+  File "/home/wenhesun/Plum/trainers/Pic_HS_trainer.py", line 141, in score
+    image = sd_pipe(prompt).images[0]
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion.py", line 1002, in __call__
+    noise_pred = self.unet(
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/diffusers/models/unet_2d_condition.py", line 1112, in forward
+    sample, res_samples = downsample_block(
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/diffusers/models/unet_2d_blocks.py", line 1160, in forward
+    hidden_states = attn(
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wenhesun/anaconda3/envs/stable-diffusion/lib/python3.9/site-packages/diffusers/models/transformer_2d.py", line 328, in forward
+    if not self.use_linear_projection:
+KeyboardInterrupt

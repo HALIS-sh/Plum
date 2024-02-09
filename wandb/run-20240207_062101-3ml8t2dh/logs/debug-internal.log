@@ -1,0 +1,193 @@
+2024-02-07 06:21:02,062 INFO    MainThread:1059364 [internal.py:wandb_internal():90] W&B internal server running at pid: 1059364, started at: 2024-02-07 06:21:02.062218
+2024-02-07 06:21:02,064 INFO    WriterThread:1059364 [datastore.py:open_for_write():75] open: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/run-3ml8t2dh.wandb
+2024-02-07 06:21:02,067 DEBUG   SenderThread:1059364 [sender.py:send():236] send: header
+2024-02-07 06:21:02,067 DEBUG   SenderThread:1059364 [sender.py:send():236] send: run
+2024-02-07 06:21:05,409 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: check_version
+2024-02-07 06:21:05,413 INFO    SenderThread:1059364 [dir_watcher.py:__init__():216] watching files in: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files
+2024-02-07 06:21:05,414 INFO    SenderThread:1059364 [sender.py:_start_run_threads():815] run started: 3ml8t2dh with start time 1707286861
+2024-02-07 06:21:05,414 DEBUG   SenderThread:1059364 [sender.py:send():236] send: summary
+2024-02-07 06:21:05,414 INFO    SenderThread:1059364 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2024-02-07 06:21:05,414 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: check_version
+2024-02-07 06:21:06,416 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_created():269] file/dir created: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/wandb-summary.json
+2024-02-07 06:21:07,226 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: run_start
+2024-02-07 06:21:07,258 DEBUG   HandlerThread:1059364 [meta.py:__init__():35] meta init
+2024-02-07 06:21:07,258 DEBUG   HandlerThread:1059364 [meta.py:__init__():49] meta init done
+2024-02-07 06:21:07,258 DEBUG   HandlerThread:1059364 [meta.py:probe():209] probe
+2024-02-07 06:21:07,271 DEBUG   HandlerThread:1059364 [meta.py:_setup_git():199] setup git
+2024-02-07 06:21:07,288 DEBUG   HandlerThread:1059364 [meta.py:_setup_git():206] setup git done
+2024-02-07 06:21:07,289 DEBUG   HandlerThread:1059364 [meta.py:_save_pip():53] save pip
+2024-02-07 06:21:07,289 DEBUG   HandlerThread:1059364 [meta.py:_save_pip():67] save pip done
+2024-02-07 06:21:07,289 DEBUG   HandlerThread:1059364 [meta.py:_save_conda():74] save conda
+2024-02-07 06:21:07,417 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_created():269] file/dir created: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/conda-environment.yaml
+2024-02-07 06:21:07,417 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_created():269] file/dir created: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/requirements.txt
+2024-02-07 06:21:08,918 DEBUG   HandlerThread:1059364 [meta.py:_save_conda():84] save conda done
+2024-02-07 06:21:08,919 DEBUG   HandlerThread:1059364 [meta.py:probe():247] probe done
+2024-02-07 06:21:08,957 DEBUG   SenderThread:1059364 [sender.py:send():236] send: files
+2024-02-07 06:21:08,957 INFO    SenderThread:1059364 [sender.py:_save_file():952] saving file wandb-metadata.json with policy now
+2024-02-07 06:21:08,964 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: stop_status
+2024-02-07 06:21:08,964 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: stop_status
+2024-02-07 06:21:09,418 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/conda-environment.yaml
+2024-02-07 06:21:09,418 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_created():269] file/dir created: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/wandb-metadata.json
+2024-02-07 06:21:09,419 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_created():269] file/dir created: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:09,676 DEBUG   SenderThread:1059364 [sender.py:send():236] send: telemetry
+2024-02-07 06:21:09,677 DEBUG   SenderThread:1059364 [sender.py:send():236] send: config
+2024-02-07 06:21:09,792 ERROR   Thread-11 :1059364 [internal_api.py:upload_file():1694] upload_file exception https://storage.googleapis.com/wandb-production.appspot.com/wenhesun576/evolutional-prompt/3ml8t2dh/wandb-metadata.json?Expires=1707373269&GoogleAccessId=gorilla-files-url-signer-man%40wandb-production.iam.gserviceaccount.com&Signature=iVFAwoVoIVglu0ZVHsU1YYKInlPL43%2BVgdmtTOo0SXajyY02dLVLWwSiAXooGQGxSURXH0CTPSmBtuOMQOLclOrnLjIDIbVSQlbUV0O%2Bv%2BKYNFQLXZnnZOvtiaf%2Fs6j53jb%2BKW1hCZ3g3lhQ%2Bc0Fz7U%2FibJFgcS3fzbdXgfyf2FsMSOdTSu16VbENJqlR6gJlbHIXWE5XHWIfvhmkNM0PEo%2B%2BVBdyWeQqdNJLII3MRGNW5YNhQaPSMdjshQAiCMuWqOIM1n3XvwYcnAWHPWWI8eHpbbNZ6a4oLQjfrya6QvC614icaFomkDhgUkUjcgr6exKdZmxsGP9LwR5lZ5mJg%3D%3D: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2024-02-07 06:21:09,793 ERROR   Thread-11 :1059364 [internal_api.py:upload_file():1696] upload_file request headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '1003'}
+2024-02-07 06:21:09,793 ERROR   Thread-11 :1059364 [internal_api.py:upload_file():1698] upload_file response body: 
+2024-02-07 06:21:11,448 INFO    Thread-11 :1059364 [upload_job.py:push():138] Uploaded file /tmp/tmptc2hh4xvwandb/f40tdaqn-wandb-metadata.json
+2024-02-07 06:21:15,421 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:17,422 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:19,422 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:21,423 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:23,424 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:24,678 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: stop_status
+2024-02-07 06:21:24,679 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: stop_status
+2024-02-07 06:21:25,425 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:27,426 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:29,427 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:31,427 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:33,428 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:35,429 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/config.yaml
+2024-02-07 06:21:35,429 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:37,430 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:38,660 DEBUG   SenderThread:1059364 [sender.py:send():236] send: stats
+2024-02-07 06:21:39,431 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:40,377 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: stop_status
+2024-02-07 06:21:40,377 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: stop_status
+2024-02-07 06:21:41,432 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:43,433 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:45,433 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:46,698 DEBUG   SenderThread:1059364 [sender.py:send():236] send: telemetry
+2024-02-07 06:21:47,434 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:49,167 DEBUG   SenderThread:1059364 [sender.py:send():236] send: exit
+2024-02-07 06:21:49,167 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:49,167 INFO    SenderThread:1059364 [sender.py:send_exit():372] handling exit code: 1
+2024-02-07 06:21:49,168 INFO    SenderThread:1059364 [sender.py:send_exit():374] handling runtime: 41
+2024-02-07 06:21:49,168 INFO    SenderThread:1059364 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2024-02-07 06:21:49,168 INFO    SenderThread:1059364 [sender.py:send_exit():380] send defer
+2024-02-07 06:21:49,169 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:49,169 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:49,169 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 0
+2024-02-07 06:21:49,170 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:49,170 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 0
+2024-02-07 06:21:49,170 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 1
+2024-02-07 06:21:49,170 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:49,170 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 1
+2024-02-07 06:21:49,435 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/wandb-summary.json
+2024-02-07 06:21:49,435 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:49,895 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:49,896 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:49,896 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 1
+2024-02-07 06:21:49,896 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 2
+2024-02-07 06:21:49,897 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:49,897 DEBUG   SenderThread:1059364 [sender.py:send():236] send: stats
+2024-02-07 06:21:49,897 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:49,898 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 2
+2024-02-07 06:21:49,898 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:49,898 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 2
+2024-02-07 06:21:49,898 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 3
+2024-02-07 06:21:49,899 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:49,899 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 3
+2024-02-07 06:21:49,899 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:49,899 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 3
+2024-02-07 06:21:49,899 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 4
+2024-02-07 06:21:49,900 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:49,900 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 4
+2024-02-07 06:21:49,900 DEBUG   SenderThread:1059364 [sender.py:send():236] send: summary
+2024-02-07 06:21:49,900 INFO    SenderThread:1059364 [sender.py:_save_file():952] saving file wandb-summary.json with policy end
+2024-02-07 06:21:49,901 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:49,901 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 4
+2024-02-07 06:21:49,901 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 5
+2024-02-07 06:21:49,901 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:49,901 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 5
+2024-02-07 06:21:49,901 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:49,901 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 5
+2024-02-07 06:21:49,999 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:50,435 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/wandb-summary.json
+2024-02-07 06:21:50,630 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 6
+2024-02-07 06:21:50,630 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:50,630 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:50,631 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 6
+2024-02-07 06:21:50,631 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:50,631 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 6
+2024-02-07 06:21:50,631 INFO    SenderThread:1059364 [dir_watcher.py:finish():353] shutting down directory watcher
+2024-02-07 06:21:50,731 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:51,436 INFO    Thread-7  :1059364 [dir_watcher.py:_on_file_modified():286] file/dir modified: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/config.yaml
+2024-02-07 06:21:51,436 INFO    SenderThread:1059364 [dir_watcher.py:finish():383] scan: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files
+2024-02-07 06:21:51,437 INFO    SenderThread:1059364 [dir_watcher.py:finish():397] scan save: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/wandb-summary.json wandb-summary.json
+2024-02-07 06:21:51,437 INFO    SenderThread:1059364 [dir_watcher.py:finish():397] scan save: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log output.log
+2024-02-07 06:21:51,437 INFO    SenderThread:1059364 [dir_watcher.py:finish():397] scan save: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/config.yaml config.yaml
+2024-02-07 06:21:51,438 INFO    SenderThread:1059364 [dir_watcher.py:finish():397] scan save: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/requirements.txt requirements.txt
+2024-02-07 06:21:51,438 INFO    SenderThread:1059364 [dir_watcher.py:finish():397] scan save: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/conda-environment.yaml conda-environment.yaml
+2024-02-07 06:21:51,438 INFO    SenderThread:1059364 [dir_watcher.py:finish():397] scan save: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/wandb-metadata.json wandb-metadata.json
+2024-02-07 06:21:51,441 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 7
+2024-02-07 06:21:51,442 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:51,447 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:51,447 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 7
+2024-02-07 06:21:51,447 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:51,448 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 7
+2024-02-07 06:21:51,448 INFO    SenderThread:1059364 [file_pusher.py:finish():171] shutting down file pusher
+2024-02-07 06:21:51,549 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:51,549 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:51,650 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:51,651 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:51,752 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:51,753 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:51,854 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:51,854 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:51,956 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:51,956 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,058 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,058 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,159 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,160 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,262 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,263 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,364 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,364 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,466 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,466 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,567 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,568 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,669 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,670 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,702 INFO    Thread-14 :1059364 [upload_job.py:push():138] Uploaded file /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/config.yaml
+2024-02-07 06:21:52,703 INFO    Thread-12 :1059364 [upload_job.py:push():138] Uploaded file /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/wandb-summary.json
+2024-02-07 06:21:52,707 INFO    Thread-13 :1059364 [upload_job.py:push():138] Uploaded file /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/output.log
+2024-02-07 06:21:52,729 INFO    Thread-15 :1059364 [upload_job.py:push():138] Uploaded file /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/requirements.txt
+2024-02-07 06:21:52,767 INFO    Thread-16 :1059364 [upload_job.py:push():138] Uploaded file /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/files/conda-environment.yaml
+2024-02-07 06:21:52,771 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,771 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,873 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:52,873 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:52,968 INFO    Thread-6  :1059364 [sender.py:transition_state():393] send defer: 8
+2024-02-07 06:21:52,968 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:52,969 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 8
+2024-02-07 06:21:52,969 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:52,969 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 8
+2024-02-07 06:21:52,975 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:53,209 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 9
+2024-02-07 06:21:53,209 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:53,210 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:53,210 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 9
+2024-02-07 06:21:53,210 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:53,210 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 9
+2024-02-07 06:21:53,210 INFO    SenderThread:1059364 [sender.py:transition_state():393] send defer: 10
+2024-02-07 06:21:53,210 DEBUG   SenderThread:1059364 [sender.py:send():236] send: final
+2024-02-07 06:21:53,210 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: defer
+2024-02-07 06:21:53,211 DEBUG   SenderThread:1059364 [sender.py:send():236] send: footer
+2024-02-07 06:21:53,211 INFO    HandlerThread:1059364 [handler.py:handle_request_defer():163] handle defer: 10
+2024-02-07 06:21:53,211 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: defer
+2024-02-07 06:21:53,211 INFO    SenderThread:1059364 [sender.py:send_request_defer():389] handle sender defer: 10
+2024-02-07 06:21:53,310 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: poll_exit
+2024-02-07 06:21:53,311 DEBUG   SenderThread:1059364 [sender.py:send_request():250] send_request: poll_exit
+2024-02-07 06:21:53,311 INFO    SenderThread:1059364 [file_pusher.py:join():176] waiting for file pusher
+2024-02-07 06:21:54,684 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: sampled_history
+2024-02-07 06:21:54,685 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: get_summary
+2024-02-07 06:21:54,686 DEBUG   HandlerThread:1059364 [handler.py:handle_request():140] handle_request: shutdown
+2024-02-07 06:21:54,686 INFO    HandlerThread:1059364 [handler.py:finish():806] shutting down handler
+2024-02-07 06:21:55,211 INFO    WriterThread:1059364 [datastore.py:close():279] close: /home/wenhesun/Plum/wandb/run-20240207_062101-3ml8t2dh/run-3ml8t2dh.wandb
+2024-02-07 06:21:55,583 INFO    SenderThread:1059364 [sender.py:finish():1114] shutting down sender
+2024-02-07 06:21:55,583 INFO    SenderThread:1059364 [file_pusher.py:finish():171] shutting down file pusher
+2024-02-07 06:21:55,583 INFO    SenderThread:1059364 [file_pusher.py:join():176] waiting for file pusher
+2024-02-07 06:21:55,587 INFO    MainThread:1059364 [internal.py:handle_exit():80] Internal process exited
