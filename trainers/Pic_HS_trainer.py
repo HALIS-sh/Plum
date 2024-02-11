@@ -47,19 +47,22 @@ class Pic_HS_trainer(HS_trainer.HS_trainer):
         self.model = AutoModel.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--yuvalkirstain--PickScore_v1").eval().to(self.device)
         
     # prepare prompt_0 and base_prompt_pics
-    def initialize_prompt_0(self):
+    def initialize_prompt_0(self, args):
         # Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
         sd_pipe = StableDiffusionPipeline.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--stabilityai--stable-diffusion-2-1/snapshots/5cae40e6a2745ae2b01ad92ae5043f95f23644d6", torch_dtype=torch.float16)
         sd_pipe.scheduler = DPMSolverMultistepScheduler.from_config(sd_pipe.scheduler.config)
         sd_pipe = sd_pipe.to("cuda")
         pic_count = 1
-        self.original_candidate = "Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape. This emotional journey begins with the gentle warmth of the sun breaking through clouds, symbolizing the initial spark of attraction. As the relationship deepens, the weather transitions into a vibrant rainbow after a refreshing rain, representing the beauty and diversity of emotions experienced. Eventually, the scene settles into a calm, golden sunset, reflecting the comfort and serenity of enduring love."
+        # self.original_candidate = "Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape"
+        self.original_candidate = args.original_candidate
         self.original_score = 0.0
         self.result_candidate = self.original_candidate
         self.result_score = self.original_score
-        for pic_count in range(1,3):
+        folder_name = args.meta_pic_dir
+        k = args.pics_number
+        for pic_count in range(1,k+1):
             image = sd_pipe(self.original_candidate).images[0]
-            file_name = "prompt_{}_images_{}.png".format(0, pic_count)
+            file_name = "{}/prompt_{}_images_{}.png".format(folder_name, 0 , pic_count)
             image.save(file_name)
             pic_count = pic_count + 1
 
@@ -108,11 +111,12 @@ class Pic_HS_trainer(HS_trainer.HS_trainer):
         # prompt_count = 1
         pic_count = 1
         prompt = candidate
-        k = 2
+        folder_name = args.meta_pic_dir
+        k = args.pics_number
         # # generate the pics of prompt_n
         for pic_count in range(1, k + 1):
             image = sd_pipe(prompt).images[0]
-            file_name = "prompt_{}_images_{}.png".format(prompt_count, pic_count)
+            file_name = "{}/prompt_{}_images_{}.png".format(folder_name,prompt_count, pic_count)
             image.save(file_name)
             pic_count = pic_count + 1
 
@@ -122,8 +126,8 @@ class Pic_HS_trainer(HS_trainer.HS_trainer):
 
         # calculate the average score of prompt_n
         for pic_count in range(1, k + 1):
-            file_name_0 = "prompt_{}_images_{}.png".format(0, pic_count)
-            file_name_n = "prompt_{}_images_{}.png".format(prompt_count, pic_count)
+            file_name_0 = "{}/prompt_{}_images_{}.png".format(folder_name, 0, pic_count)
+            file_name_n = "{}/prompt_{}_images_{}.png".format(folder_name, prompt_count, pic_count)
             pil_images = [Image.open(file_name_0), Image.open(file_name_n)]
             score = score + (self.calc_probs(self.original_candidate, pil_images)[1]*100)
         ave_score = score/float(k)

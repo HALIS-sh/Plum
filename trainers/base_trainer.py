@@ -366,13 +366,14 @@ class SimpleTrainer(TrainerBase):
                     add_best_or_not = True
         return add_best_or_not
     
-    def update_best_picture(self, best_index):
+    def update_best_picture(self, best_index, args):
         pic_count = 1
         k = 2
+        folder_name = args.meta_pic_dir
         for pic_count in range(1, k + 1):
-            file_name = "prompt_{}_images_{}.png".format(best_index, pic_count)
+            file_name = "{}/prompt_{}_images_{}.png".format(folder_name, best_index, pic_count)
             best_pic = Image.open(file_name)
-            file_name_1 = "best_images_{}.png".format(pic_count)
+            file_name_1 = "{}/best_images_{}.png".format(folder_name, pic_count)
             best_pic.save(file_name_1)
         
 

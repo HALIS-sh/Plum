@@ -42,22 +42,24 @@ class Pic_HC_trainer(HC_trainer.HC_trainer):
         self.model = AutoModel.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--yuvalkirstain--PickScore_v1").eval().to(self.device)
         
     # prepare prompt_0 and base_prompt_pics
-    def initialize_prompt_0(self):
+    def initialize_prompt_0(self, args):
         # Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
         sd_pipe = StableDiffusionPipeline.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--stabilityai--stable-diffusion-2-1/snapshots/5cae40e6a2745ae2b01ad92ae5043f95f23644d6", torch_dtype=torch.float16)
         sd_pipe.scheduler = DPMSolverMultistepScheduler.from_config(sd_pipe.scheduler.config)
         sd_pipe = sd_pipe.to("cuda")
-        self.original_candidate = "Show the boundary between night and day."
+        # self.original_candidate = "Show the boundary between night and day."
+        self.original_candidate = args.original_candidate
         self.original_score = 50.0
         self.result_candidate = self.original_candidate
         self.result_score = self.original_score
         pic_count = 1
-        k = 2
-        # for pic_count in range(1, k + 1):
-        #     image = sd_pipe(self.original_candidate).images[0]
-        #     file_name = "prompt_{}_images_{}.png".format(0, pic_count)
-        #     image.save(file_name)
-        #     pic_count = pic_count + 1
+        folder_name = args.meta_pic_dir
+        k = args.pics_number
+        for pic_count in range(1,k+1):
+            image = sd_pipe(self.original_candidate).images[0]
+            file_name = "{}/prompt_{}_images_{}.png".format(folder_name, 0 , pic_count)
+            image.save(file_name)
+            pic_count = pic_count + 1
 
     def calc_probs(self, prompt, images):
         
@@ -97,7 +99,7 @@ class Pic_HC_trainer(HC_trainer.HC_trainer):
         return probs.cpu().tolist()
 
 
-    def score(self, candidate, prompt_count=0, split='train', write=False, args=None):
+    def score(self, candidate, prompt_count, split='train', write=False, args=None):
 
         # Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
         sd_pipe = StableDiffusionPipeline.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--stabilityai--stable-diffusion-2-1/snapshots/5cae40e6a2745ae2b01ad92ae5043f95f23644d6", torch_dtype=torch.float16)
@@ -106,11 +108,12 @@ class Pic_HC_trainer(HC_trainer.HC_trainer):
         # prompt_count = 1
         pic_count = 1
         prompt = candidate
-        k = 2
+        folder_name = args.meta_pic_dir
+        k = args.pics_number
         # # generate the pics of prompt_n
         for pic_count in range(1, k + 1):
             image = sd_pipe(prompt).images[0]
-            file_name = "prompt_{}_images_{}.png".format(prompt_count, pic_count)
+            file_name = "{}/prompt_{}_images_{}.png".format(folder_name,prompt_count, pic_count)
             image.save(file_name)
             pic_count = pic_count + 1
 
@@ -120,8 +123,8 @@ class Pic_HC_trainer(HC_trainer.HC_trainer):
 
         # calculate the average score of prompt_n
         for pic_count in range(1, k + 1):
-            file_name_0 = "prompt_{}_images_{}.png".format(0, pic_count)
-            file_name_n = "prompt_{}_images_{}.png".format(prompt_count, pic_count)
+            file_name_0 = "{}/prompt_{}_images_{}.png".format(folder_name, 0, pic_count)
+            file_name_n = "{}/prompt_{}_images_{}.png".format(folder_name, prompt_count, pic_count)
             pil_images = [Image.open(file_name_0), Image.open(file_name_n)]
             score = score + (self.calc_probs(self.original_candidate, pil_images)[1]*100)
         ave_score = score/float(k)

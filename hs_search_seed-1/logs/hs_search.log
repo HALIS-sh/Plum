@@ -1,0 +1,84 @@
+Original Candidate:	  Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Original Score:	  50.0
+
+====================Current Iteration:  1
+Base Candidate:  Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Base Score:  50.0
+['swap']
+['del']
+Candidate:  Illustrate love sensation of falling in the as if it a series of weather patterns across an expansive
+Candidate Score:  40.902672708034515
+Candidate:  Illustrate the sensation of falling in love as if it a series of weather patterns unfolding across an expansive
+Candidate Score:  36.1871212720871
+['del']
+Candidate:  Illustrate the sensation of falling in It is love as if it a series of patterns unfolding across an expansive
+Candidate Score:  32.334183156490326
+['sub']
+Candidate:  Illustrate the sensation of falling in love as if It's it a series of weather patterns unfolding Across the country an expansive
+Candidate Score:  52.82841771841049
+['sub']
+['del']
+Candidate:  Illustrate the sensation of falling in love as if It's something a series of weather unfolding across an expansive
+Candidate Score:  44.9014812707901
+['sub']
+Candidate:  It isIllustrate the sensation of falling in love as if it a series of weather patterns unfolding across an expansive
+Candidate Score:  44.17946636676788
+Candidate:  Illustrate the It was a sensation of falling in love as if it a series of weather patterns It's unfolding across an expansive
+Candidate Score:  42.582061886787415
+Candidate:  Illustrate the sensation of falling in love as if it a series That's about it weather patterns unfolding across an expansive
+Candidate Score:  42.97638535499573
+['sub']
+Candidate:  Illustrate the sensation of falling in love as if It's it a series of The weather patterns unfolding across an expansive
+Candidate Score:  50.531867146492004
+['sub']
+Candidate:  Illustrate the It's sensation of falling in love as if it a series of weather patterns unfolding It is across It is an expansive
+Candidate Score:  34.251025319099426
+Top N Candidates of Current Iteration:  ["Illustrate the sensation of falling in love as if It's it a series of weather patterns unfolding Across the country an expansive", "Illustrate the sensation of falling in love as if It's it a series of The weather patterns unfolding across an expansive", 'Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape', "Illustrate the sensation of falling in love as if It's something a series of weather unfolding across an expansive", 'It isIllustrate the sensation of falling in love as if it a series of weather patterns unfolding across an expansive', "Illustrate the sensation of falling in love as if it a series That's about it weather patterns unfolding across an expansive", "Illustrate the It was a sensation of falling in love as if it a series of weather patterns It's unfolding across an expansive", 'Illustrate love sensation of falling in the as if it a series of weather patterns across an expansive', 'Illustrate the sensation of falling in love as if it a series of weather patterns unfolding across an expansive', "Illustrate the It's sensation of falling in love as if it a series of weather patterns unfolding It is across It is an expansive"]
+Result Candidate:  Illustrate the sensation of falling in love as if It's it a series of weather patterns unfolding Across the country an expansive
+Result Score:  52.82841771841049
+====================Current Iteration:  2
+Base Candidate:  Illustrate the sensation of falling in love as if It's it a series of weather patterns unfolding Across the country an expansive
+Base Score:  52.82841771841049
+['del']
+['add']
+Candidate:  Illustrate the sensation of falling in love as It it a series of The weather patterns unfolding unfolding across an
+Candidate Score:  34.8338708281517
+Candidate:  Illustrate the sensation of falling In, in love as if it series of weather patterns unfolding It is across It is an
+Candidate Score:  34.79577451944351
+Candidate:  Illustrate the It was a sensation of The falls are falling in love as a series of weather patterns unfolding Across the country an
+Candidate Score:  53.15133333206177
+['sub']
+Candidate:  Illustrate the It's sensation of falling in love as if it it It is a series of weather patterns unfolding It is across It is an
+Candidate Score:  43.66561025381088
+['del']
+['sub']
+Candidate:  Illustrate sensation of falling in love as if it a series of weather patterns unfolding across an
+Candidate Score:  37.71718740463257
+['add']
+['sub']
+Candidate:  Illustrate the sensation of unfolding falling in love as if It's it a series of weather patterns unfolding across an
+Candidate Score:  39.39174711704254
+['swap']
+Candidate:  Illustrate the sensation of falling in love as if It a series unfolding weather patterns of across an
+Candidate Score:  40.866248309612274
+['del']
+Candidate:  Illustrate the sensation of falling in love as if it a series of The weather patterns unfolding across
+Candidate Score:  35.40309816598892
+['swap']
+Candidate:  Illustrate falling sensation of love in the as it a series of weather The patterns are there unfolding across an
+Candidate Score:  41.69609695672989
+['sub']
+Candidate:  Illustrate It's the same thing sensation of falling in love as if a The series of weather patterns unfolding Across the country an
+Candidate Score:  24.40853714942932
+Top N Candidates of Current Iteration:  ['Illustrate the It was a sensation of The falls are falling in love as a series of weather patterns unfolding Across the country an', "Illustrate the sensation of falling in love as if It's it a series of weather patterns unfolding Across the country an expansive", "Illustrate the sensation of falling in love as if It's it a series of The weather patterns unfolding across an expansive", 'Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape', "Illustrate the sensation of falling in love as if It's something a series of weather unfolding across an expansive", 'It isIllustrate the sensation of falling in love as if it a series of weather patterns unfolding across an expansive', "Illustrate the It's sensation of falling in love as if it it It is a series of weather patterns unfolding It is across It is an", "Illustrate the sensation of falling in love as if it a series That's about it weather patterns unfolding across an expansive", "Illustrate the It was a sensation of falling in love as if it a series of weather patterns It's unfolding across an expansive", 'Illustrate falling sensation of love in the as it a series of weather The patterns are there unfolding across an']
+Result Candidate:  Illustrate the It was a sensation of The falls are falling in love as a series of weather patterns unfolding Across the country an
+Result Score:  53.15133333206177
+====================Current Iteration:  3
+Base Candidate:  Illustrate the It was a sensation of The falls are falling in love as a series of weather patterns unfolding Across the country an
+Base Score:  53.15133333206177
+['del']
+['add']
+Candidate:  Illustrate the sensation falling in love as if it series That's about it weather patterns patterns unfolding across an
+Candidate Score:  32.32564777135849
+['del']
+Candidate:  Illustrate falling sensation of love in the as it series of The patterns are there unfolding across

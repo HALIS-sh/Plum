@@ -94,7 +94,7 @@ class HS_trainer(SimpleTrainer):
             for edit in edits:
                 if isinstance(edit, str): 
                     # print("Base Candidate: ", base_candidate)
-                    print("phrase_lookup: ", phrase_lookup)
+                    # print("phrase_lookup: ", phrase_lookup)
                     candidate, indices = self.perform_edit(edit, base_candidate, phrase_lookup, delete_tracker)
                     empty = not self.containenglish(candidate)
                     if not empty:
@@ -193,9 +193,11 @@ class HS_trainer(SimpleTrainer):
             phrases_pun = self.get_phrase_lookup_pun(w, args)
             w_phrases = list(phrases_pun.values())
             L = len(w_phrases)
-            print("w_phrases: ", w_phrases)
+            # print("w_phrases: ", w_phrases)
             start = math.ceil(j/ks*L)
             end = math.ceil((j+1)/ks*L) - 1
+            # print("start: ", start)
+            # print("end: ", end)
             if(start!=end):
                 w_segement = w_phrases[start:end]
             else:
@@ -204,7 +206,7 @@ class HS_trainer(SimpleTrainer):
             for phrase in w_segement:   
                 w_segement_words = w_segement_words + self.word_tokenize(phrase)
             w_segement = self.detokenize(w_segement_words)
-            print("w_segement: ", w_segement)
+            # print("w_segement: ", w_segement)
             if HMCR >= np.random.random():
                 if PAR >= np.random.random():
                     # try:
@@ -227,12 +229,13 @@ class HS_trainer(SimpleTrainer):
                         # print("w_segement1: ", w_segement)
                         if len(w_segement) > 0: 
                             candidate = self.gpt_adjuster(w_segement)
+                            # print("type of candidate0: ", type(candidate))
                         else:
                             candidate = self.gpt_adjuster(self.result_candidate)
                     else:
                         phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                        print("w_segement0: ", w_segement)
-                        print("phrase_lookup0: ", phrase_lookup)
+                        # print("w_segement0: ", w_segement)
+                        # print("phrase_lookup0: ", phrase_lookup)
                         candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
                     w_segement = candidate
                 deleted = {}
@@ -255,12 +258,13 @@ class HS_trainer(SimpleTrainer):
                 #     print('Error occurs (parser) and skip this mutation 2')
                 #     continue
                 phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                print("w_segement1: ", w_segement)
-                print("phrase_lookup1: ", phrase_lookup)
+                # print("w_segement1: ", w_segement)
+                # print("phrase_lookup1: ", phrase_lookup)
                 if args.use_LLM:
                     # print("w_segement2: ", w_segement)                   
                     if len(w_segement) > 0: 
                         candidate, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                        # print("type of candidate1: ", type(candidate))
                         w_segement = candidate
                     else:
                         candidate, deleted, added = self.mutated(self.result_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args)
@@ -269,7 +273,7 @@ class HS_trainer(SimpleTrainer):
                 else:
                     candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
                     w_segement = candidates[0] # multipule edit operations can be implemented if necessary
-        w_m.append(w_segement)
+            w_m.append(w_segement)
         for segement in w_m:
             w_m_words.extend(self.word_tokenize(segement))
         w_m = self.detokenize(w_m_words)
@@ -278,7 +282,7 @@ class HS_trainer(SimpleTrainer):
 
     def train(self, instruction, chosen_task_name, args):
         
-        ks = 5
+        ks = 2
         HMCR = 0.4
         PAR = 0.5
         edit_opertions_small = 'sub'
@@ -311,7 +315,7 @@ class HS_trainer(SimpleTrainer):
             
         while current_iteration < self.maxiter:
             current_iteration += 1
-            print("Current Iteration: ", current_iteration)
+            print("====================Current Iteration: ", current_iteration)
             #Base_candidate after battled in the tournament
             base_candidate = self.result_candidate
             base_score = self.result_score
@@ -347,10 +351,10 @@ class HS_trainer(SimpleTrainer):
                     added_candidate[w_m] = added_list
                 
             update_best_or_not = self.update_result(self.W_candidates_m, self.W_scores_m)
-            if args.task_type == "text2iamge":
+            if args.task_type == "text2image":
                 if update_best_or_not:
                     best_idx = np.argmax(self.W_scores_m)
-                    self.update_best_picture(best_idx+1)
+                    self.update_best_picture(best_idx+1, args)
 
             if self.patience_counter > args.patience:
                 print('Ran out of patience')

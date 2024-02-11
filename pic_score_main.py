@@ -4,6 +4,7 @@ from trainers import Pic_HC_trainer, Pic_GA_trainer, Pic_HS_trainer, Pic_HC_LLM_
 import wandb
 
 def main(args):
+
     num_compose = args.num_compose
     num_candidates = args.num_candidates
     train_seed = args.train_seed
@@ -12,12 +13,17 @@ def main(args):
     data_seed = args.data_seed
     task_type = args.task_type
 
-    # trainer = Pic_HC_trainer.Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
-    # trainer = Pic_GA_trainer.Pic_GA_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates)
-    trainer = Pic_HS_trainer.Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
-    # trainer = Pic_HC_LLM_trainer.Pic_HC_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
-    # trainer = Pic_HS_LLM_trainer.Pic_HS_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
-    trainer.initialize_prompt_0()
+    if args.algorithm == "hc":
+        trainer = Pic_HC_trainer.Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
+    elif args.algorithm == "ga": 
+        trainer = Pic_GA_trainer.Pic_GA_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates)
+    elif args.algorithm == "hs":
+        trainer = Pic_HS_trainer.Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
+    elif args.algorithm == "hc_llm":
+        trainer = Pic_HC_LLM_trainer.Pic_HC_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
+    elif args.algorithm == "hs_llm":
+        trainer = Pic_HS_LLM_trainer.Pic_HS_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type)
+    trainer.initialize_prompt_0(args)
     instruction = trainer.original_candidate
     trainer.train(instruction, chosen_task_name="pic_score", args = args)
     # trainer.test_gpt_rephraser(args)
@@ -41,6 +47,7 @@ if __name__ == "__main__":
     parser.add_argument('--write-preds', action='store_true', default=False, help='Store predictions in a .json file')
     parser.add_argument('--data-dir', default='./natural-instructions-2.6/tasks/', help='Path to the dataset')
     parser.add_argument('--meta-dir', default='logs/', help='Path to store metadata of search')
+    parser.add_argument('--meta-pic-dir', default='pics/', help='Path to store metadata of search')
     parser.add_argument('--meta-name', default='search.txt', help='Path to the file that stores metadata of search')
     parser.add_argument("--output-dir", type=str, default="", help="output directory")
     parser.add_argument("--model-dir", type=str, default="", help="load model from this directory for eval-only mode")
@@ -66,8 +73,10 @@ if __name__ == "__main__":
     parser.add_argument("opts", default=None, nargs=argparse.REMAINDER, help="modify config options using the command-line")
     parser.add_argument('--budget', default=1000, type=int, help='number of the budget of api calls for searching')
     parser.add_argument('--api-idx', type=int, default=0)
+    parser.add_argument('--pics_number', default=2, type=int, help='number of pictures used to calculate the score')
     parser.add_argument('--task_type', default="text2image", help='task type')
     parser.add_argument('--use_LLM', type=int, default=0, help='use LLM to generate prompt')
+    parser.add_argument('--original_candidate', type=str, help='original candidate')
     args = parser.parse_args()
     
     # # Initialize wandb

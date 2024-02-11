@@ -1,0 +1,260 @@
+Original Candidate:	  Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Original Score:	  50.0
+
+====================Current Iteration: 1
+Base Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Base Score: 50.0
+['del' 'swap' 'swap' 'del' 'del' 'swap' 'del' 'sub' 'sub' 'sub']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 63.92158269882202
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 47.42743372917175
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 58.00829827785492
+Candidate: Show the sensation of falling in love as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 43.755218386650085
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns in the landscape
+Ave_Score: 55.09274899959564
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns
+Ave_Score: 47.044625878334045
+Per_curr_iteration_best_candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Per_curr_iteration_best_score: 63.92158269882202
+Result_candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Result_score: 63.92158269882202
+====================Current Iteration: 2
+Base Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Base Score: 63.92158269882202
+['sub' 'sub' 'del' 'swap' 'del' 'del' 'swap' 'swap' 'swap' 'del']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+['swap' 'del' 'del' 'sub' 'sub' 'del' 'swap' 'sub' 'del' 'sub']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 49.24561083316803
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 61.938777565956116
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 51.64500176906586
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 56.688424944877625
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns in the sky
+Ave_Score: 58.832886815071106
+Candidate: Illustrate the sensation of falling in love, as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 58.104655146598816
+Per_curr_iteration_best_candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Per_curr_iteration_best_score: 61.938777565956116
+====================Current Iteration: 3
+Base Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Base Score: 63.92158269882202
+['swap' 'sub' 'sub' 'del' 'del' 'sub' 'swap' 'del' 'del' 'del']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+['sub' 'sub' 'del' 'swap' 'sub' 'del' 'sub' 'sub' 'del' 'swap']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns in the sky
+Ave_Score: 58.69458317756653
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding
+Ave_Score: 48.263855278491974
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 48.11020642518997
+Candidate: Illustrate the sensation of falling in love, as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 62.92616426944733
+Candidate: Illustrate the sensation of falling in love, as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 61.21515333652496
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 55.99203109741211
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 45.35478949546814
+Per_curr_iteration_best_candidate: Illustrate the sensation of falling in love, as if it were a series of weather patterns unfolding across the landscape
+Per_curr_iteration_best_score: 62.92616426944733
+====================Current Iteration: 4
+Base Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Base Score: 63.92158269882202
+['swap' 'sub' 'del' 'del' 'del' 'sub' 'sub' 'sub' 'sub' 'sub']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 52.53670513629913
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 59.797221422195435
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns in the landscape
+Ave_Score: 54.78013902902603
+Candidate: Show the sensation of falling in love as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 41.93695783615112
+Candidate: Show the sensation of falling in love as if it were a series of weather patterns
+Ave_Score: 53.320348262786865
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 56.303806602954865
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns in the sky
+Ave_Score: 52.28123813867569
+Per_curr_iteration_best_candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across the landscape
+Per_curr_iteration_best_score: 59.797221422195435
+====================Current Iteration: 5
+Base Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Base Score: 63.92158269882202
+['swap' 'swap' 'sub' 'swap' 'del' 'del' 'sub' 'swap' 'sub' 'swap']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 55.383993685245514
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 63.24307322502136
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 49.411410093307495
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 50.753651559352875
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 66.26684665679932
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 47.08795249462128
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across the landscape
+Ave_Score: 59.64100360870361
+Candidate: Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
+Ave_Score: 52.472637593746185
+Per_curr_iteration_best_candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Per_curr_iteration_best_score: 66.26684665679932
+Result_candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Result_score: 66.26684665679932
+====================Current Iteration: 6
+Base Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Base Score: 66.26684665679932
+['sub' 'del' 'sub' 'swap' 'sub' 'del' 'del' 'swap' 'del' 'del']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+['sub' 'swap' 'swap' 'swap' 'swap' 'swap' 'sub' 'sub' 'del' 'sub']
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Illustrate the feeling of falling in love as if it were a bunch of weather patterns
+Ave_Score: 57.3838472366333
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 67.32511222362518
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 57.08287060260773
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 53.506359457969666
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 60.566942393779755
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 66.23789370059967
+Candidate: Illustrate the idea of falling in love as if it were a series of weather patterns
+Ave_Score: 63.7855663895607
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 70.66534459590912
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 71.42555713653564
+Per_curr_iteration_best_candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Per_curr_iteration_best_score: 71.42555713653564
+Result_candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Result_score: 71.42555713653564
+====================Current Iteration: 7
+Base Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Base Score: 71.42555713653564
+['swap' 'sub' 'swap' 'sub' 'del' 'del' 'swap' 'sub' 'sub' 'sub']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 60.505127906799316
+Candidate: As if it were a series of weather patterns, show the feelings of falling in love
+Ave_Score: 49.55980032682419
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 66.59525334835052
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 64.07390236854553
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 66.37590825557709
+Candidate: If youIllustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 56.42014145851135
+Candidate: Show the feelings of falling in love as if they were a series of weather patterns
+Ave_Score: 44.3937748670578
+Candidate: Illustrate the feelings of falling in love as if they were weather patterns
+Ave_Score: 68.56628656387329
+Per_curr_iteration_best_candidate: Illustrate the feelings of falling in love as if they were weather patterns
+Per_curr_iteration_best_score: 68.56628656387329
+====================Current Iteration: 8
+Base Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Base Score: 71.42555713653564
+['swap' 'sub' 'swap' 'sub' 'swap' 'del' 'sub' 'swap' 'sub' 'del']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+['del' 'sub' 'swap' 'sub' 'del' 'del' 'del' 'del' 'sub' 'sub']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Show the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 35.53495854139328
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 67.4178034067154
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 62.64415979385376
+Candidate: Show the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 40.89153707027435
+Candidate: Show the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 49.22279864549637
+Per_curr_iteration_best_candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Per_curr_iteration_best_score: 67.4178034067154
+====================Current Iteration: 9
+Base Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Base Score: 71.42555713653564
+['del' 'sub' 'swap' 'sub' 'swap' 'del' 'del' 'swap' 'del' 'sub']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather events
+Ave_Score: 62.114736437797546
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 65.21424651145935
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 68.17051470279694
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 55.31144738197327
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 54.36613857746124
+Candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Ave_Score: 52.124449610710144
+Per_curr_iteration_best_candidate: Illustrate the feeling of falling in love as if it were a series of weather patterns
+Per_curr_iteration_best_score: 68.17051470279694
+====================Current Iteration: 10
+Base Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Base Score: 71.42555713653564
+['sub' 'del' 'swap' 'sub' 'sub' 'swap' 'del' 'del' 'sub' 'sub']
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Note: The mutated candidate is an empty string, and it is deleted.
+Candidate: Show the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 51.69447511434555
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 66.74347817897797
+Candidate: Show the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 44.81879621744156
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 61.19210720062256
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 64.75639194250107
+Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Ave_Score: 57.277533411979675
+Candidate: Show the feelings of falling in love as if they were a series of weather patterns
+Ave_Score: 41.222840547561646
+Per_curr_iteration_best_candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Per_curr_iteration_best_score: 66.74347817897797
+Final_Result Candidate: Illustrate the feelings of falling in love as if it were a series of weather patterns
+Final_Result Score: 71.42555713653564

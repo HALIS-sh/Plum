@@ -162,7 +162,7 @@ class HC_trainer(SimpleTrainer):
             
         while current_iteration < self.maxiter:
             current_iteration += 1
-            print("Current Iteration:", current_iteration)
+            print("====================Current Iteration:", current_iteration)
             #Base_candidate after battled in the tournament
             base_candidate = self.result_candidate
             base_score = self.result_score
@@ -210,7 +210,7 @@ class HC_trainer(SimpleTrainer):
                 self.W_candidates.append(best_candidate)
                 self.W_scores.append(best_score)
                 if args.task_type == "text2image":
-                    self.update_best_picture(best_index+1)
+                    self.update_best_picture(best_index+1, args)
                 if not args.use_LLM:
                     if self.result_candidate in added.keys():
                         print('Notice! Prev tracker: ', delete_tracker)

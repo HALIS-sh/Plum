@@ -61,7 +61,12 @@ class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
                     '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',
                     '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',
                     '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',
-                    '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'] 
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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'] 
         proxy = {
             'http': 'http://localhost:7890',
             'https': 'http://localhost:7890'
@@ -69,7 +74,7 @@ class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
         # 设置代理
         openai.proxy = proxy  
         # 定义提示
-        prompt = f"Rephrase and refine the following sentence: '{sentence}'"       
+        prompt = f"Generate a random sentence piece with similar structures as: '{sentence}'"       
         for key in api_keys:
             try:
                 # 设置当前API key
@@ -111,7 +116,12 @@ class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
                     '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',
                     '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',
                     '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',
-                    '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'] 
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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'] 
         proxy = {
             'http': 'http://localhost:7890',
             'https': 'http://localhost:7890'
@@ -119,7 +129,7 @@ class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
         # 设置代理
         openai.proxy = proxy  
         # Define the prompt
-        prompt = f"Slightly adjust the following sentence: '{sentence}'"
+        prompt = f"Slightly adjust the following sentence piece: '{sentence}'"
         # Generate text using the completions API
         for key in api_keys:
             try:

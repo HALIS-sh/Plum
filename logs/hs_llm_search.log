@@ -1,54 +1,75 @@
-Original Candidate:	  a photo of an astronaut riding a horse on mars
+Original Candidate:	  Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
 Original Score:	  50.0
 
 Current Iteration:  1
-Base Candidate:  a photo of an astronaut riding a horse on mars
+Base Candidate:  Illustrate the sensation of falling in love as if it were a series of weather patterns unfolding across an expansive landscape
 Base Score:  50.0
-['a photo']
-Running LLM mutation
-Error occurs (parser) and skip this mutation 2
-Candidate:  
-Candidate Score:  1.0551683604717255
-['a photo']
-Candidate:  a photo
-Candidate Score:  0.6373393116518855
-['a photo']
-Candidate:  a photo
-Candidate Score:  1.4739631675183773
-['a photo']
-Candidate:  a photo
-Candidate Score:  1.8505345098674297
-['a photo']
-Candidate:  a A photo
-Candidate Score:  1.0418361285701394
-['a photo']
-Candidate:  a photo
-Candidate Score:  1.8957797437906265
-['a photo']
-Running LLM mutation
-Error occurs (parser) and skip this mutation 2
-Candidate:  
-Candidate Score:  0.9216010570526123
-['a photo']
-Candidate:  a photo
-Candidate Score:  0.956998742185533
-['a photo']
-Running LLM mutation
-Error occurs (parser) and skip this mutation 2
-Candidate:  
-Candidate Score:  3.6909079179167747
-['a photo']
-Running LLM mutation
-Error occurs (parser) and skip this mutation 2
-Candidate:  
-Candidate Score:  1.8937590532004833
-Top N Candidates of Current Iteration:  ['a photo of an astronaut riding a horse on mars', '', 'a photo', '', 'a photo', 'a photo', '', 'a A photo', 'a photo', '']
-Result Candidate:  a photo of an astronaut riding a horse on mars
-Result Score:  50.0
-Current Iteration:  2
-Base Candidate:  a photo of an astronaut riding a horse on mars
-Base Score:  50.0
-['a']
-Running LLM mutation
-Error occurs (parser) and skip this mutation 2
-Candidate:  
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  0
+end:  10
+w_segement:  Illustrate the sensation of falling in love as if it
+w_segement1:  Illustrate the sensation of falling in love as if it
+phrase_lookup1:  {0: 'Illustrate', 1: 'the', 2: 'sensation', 3: 'of', 4: 'falling', 5: 'in', 6: 'love', 7: 'as', 8: 'if', 9: 'it'}
+type of candidate1:  <class 'str'>
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  11
+end:  20
+w_segement:  a series of weather patterns unfolding across an expansive
+w_segement1:  a series of weather patterns unfolding across an expansive
+phrase_lookup1:  {0: 'a', 1: 'series', 2: 'of', 3: 'weather', 4: 'patterns', 5: 'unfolding', 6: 'across', 7: 'an', 8: 'expansive'}
+type of candidate1:  <class 'str'>
+Candidate:  Failed to rephrase the sentence using all available API keys . Failed to rephrase the sentence using all available API keys.
+Candidate Score:  13.635486364364624
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  0
+end:  10
+w_segement:  Illustrate the sensation of falling in love as if it
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  11
+end:  20
+w_segement:  a series of weather patterns unfolding across an expansive
+Candidate:  Illustrate the sensation of falling in love as if it a series of weather patterns unfolding across an expansive
+Candidate Score:  45.56921869516373
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  0
+end:  10
+w_segement:  Illustrate the sensation of falling in love as if it
+w_segement1:  Illustrate the sensation of falling in love as if it
+phrase_lookup1:  {0: 'Illustrate', 1: 'the', 2: 'sensation', 3: 'of', 4: 'falling', 5: 'in', 6: 'love', 7: 'as', 8: 'if', 9: 'it'}
+type of candidate1:  <class 'str'>
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  11
+end:  20
+w_segement:  a series of weather patterns unfolding across an expansive
+type of candidate0:  <class 'str'>
+Candidate:  Failed to rephrase the sentence using all available API keys . Failed to rephrase the sentence using all available API keys.
+Candidate Score:  7.409976050257683
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  0
+end:  10
+w_segement:  Illustrate the sensation of falling in love as if it
+w_segement1:  Illustrate the sensation of falling in love as if it
+phrase_lookup1:  {0: 'Illustrate', 1: 'the', 2: 'sensation', 3: 'of', 4: 'falling', 5: 'in', 6: 'love', 7: 'as', 8: 'if', 9: 'it'}
+type of candidate1:  <class 'str'>
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  11
+end:  20
+w_segement:  a series of weather patterns unfolding across an expansive
+w_segement1:  a series of weather patterns unfolding across an expansive
+phrase_lookup1:  {0: 'a', 1: 'series', 2: 'of', 3: 'weather', 4: 'patterns', 5: 'unfolding', 6: 'across', 7: 'an', 8: 'expansive'}
+type of candidate1:  <class 'str'>
+Candidate:  Failed to rephrase the sentence using all available API keys . Failed to rephrase the sentence using all available API keys.
+Candidate Score:  10.028909519314766
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  0
+end:  10
+w_segement:  Illustrate the sensation of falling in love as if it
+w_segement1:  Illustrate the sensation of falling in love as if it
+phrase_lookup1:  {0: 'Illustrate', 1: 'the', 2: 'sensation', 3: 'of', 4: 'falling', 5: 'in', 6: 'love', 7: 'as', 8: 'if', 9: 'it'}
+type of candidate1:  <class 'str'>
+w_phrases:  ['Illustrate', 'the', 'sensation', 'of', 'falling', 'in', 'love', 'as', 'if', 'it', 'were', 'a', 'series', 'of', 'weather', 'patterns', 'unfolding', 'across', 'an', 'expansive', 'landscape']
+start:  11
+end:  20
+w_segement:  a series of weather patterns unfolding across an expansive
+type of candidate0:  <class 'str'>
+Candidate:  Failed to rephrase the sentence using all available API keys . Failed to rephrase the sentence using all available API keys.
