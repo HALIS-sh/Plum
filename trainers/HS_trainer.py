@@ -93,12 +93,9 @@ class HS_trainer(SimpleTrainer):
             candidates = []
             for edit in edits:
                 if isinstance(edit, str): 
-                    # print("Base Candidate: ", base_candidate)
-                    # print("phrase_lookup: ", phrase_lookup)
                     candidate, indices = self.perform_edit(edit, base_candidate, phrase_lookup, delete_tracker)
                     empty = not self.containenglish(candidate)
                     if not empty:
-                        # print(candidate)
                         candidates.append(candidate)
                         if edit  == 'del': deleted[candidate] = [phrase_lookup[indices[0]]]
                         if edit == 'add': 
@@ -114,7 +111,6 @@ class HS_trainer(SimpleTrainer):
                         new_candidate, indices = self.perform_edit(op, old_candidate, phrase_lookup, delete_tracker)
                         empty = not self.containenglish(new_candidate)
                         if not empty:
-                            # print(new_candidate)
                             if op  == 'del':  composed_deletes.append(phrase_lookup[indices[0]])
                             if op == 'add': 
                                 if len(indices): composed_adds.append(indices[0])
@@ -193,11 +189,8 @@ class HS_trainer(SimpleTrainer):
             phrases_pun = self.get_phrase_lookup_pun(w, args)
             w_phrases = list(phrases_pun.values())
             L = len(w_phrases)
-            # print("w_phrases: ", w_phrases)
             start = math.ceil(j/ks*L)
             end = math.ceil((j+1)/ks*L) - 1
-            # print("start: ", start)
-            # print("end: ", end)
             if(start!=end):
                 w_segement = w_phrases[start:end]
             else:
@@ -206,7 +199,6 @@ class HS_trainer(SimpleTrainer):
             for phrase in w_segement:   
                 w_segement_words = w_segement_words + self.word_tokenize(phrase)
             w_segement = self.detokenize(w_segement_words)
-            # print("w_segement: ", w_segement)
             if HMCR >= np.random.random():
                 if PAR >= np.random.random():
                     # try:
@@ -221,21 +213,16 @@ class HS_trainer(SimpleTrainer):
                     #         phrase_lookup = self.get_phrase_lookup(w_segement, args)
                     #         candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
                     #     w_segement = candidate
-                    #     # print(w_segement)
                     # except:
                     #     print('Error occurs (parser) and skip this mutation 1')
                     #     continue
                     if args.use_LLM:
-                        # print("w_segement1: ", w_segement)
                         if len(w_segement) > 0: 
                             candidate = self.gpt_adjuster(w_segement)
-                            # print("type of candidate0: ", type(candidate))
                         else:
                             candidate = self.gpt_adjuster(self.result_candidate)
                     else:
                         phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                        # print("w_segement0: ", w_segement)
-                        # print("phrase_lookup0: ", phrase_lookup)
                         candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
                     w_segement = candidate
                 deleted = {}
@@ -253,23 +240,17 @@ class HS_trainer(SimpleTrainer):
                 #         phrase_lookup = self.get_phrase_lookup(w_segement, args)
                 #         candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
                 #     w_segement = candidates[0] # multipule edit operations can be implemented if necessary
-                #     # print(w_segement)
                 # except:
                 #     print('Error occurs (parser) and skip this mutation 2')
                 #     continue
                 phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                # print("w_segement1: ", w_segement)
-                # print("phrase_lookup1: ", phrase_lookup)
-                if args.use_LLM:
-                    # print("w_segement2: ", w_segement)                   
+                if args.use_LLM:               
                     if len(w_segement) > 0: 
                         candidate, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
-                        # print("type of candidate1: ", type(candidate))
                         w_segement = candidate
                     else:
                         candidate, deleted, added = self.mutated(self.result_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args)
                         w_segement = candidate
-                    # print("candidates: ", candidates)
                 else:
                     candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
                     w_segement = candidates[0] # multipule edit operations can be implemented if necessary
@@ -282,11 +263,11 @@ class HS_trainer(SimpleTrainer):
 
     def train(self, instruction, chosen_task_name, args):
         
-        ks = 2
-        HMCR = 0.4
-        PAR = 0.5
+        ks = args.ks
+        HMCR = args.HMCR
+        PAR = args.PAR
         edit_opertions_small = 'sub'
-        N_H = 10
+        N_H = args.N_H
 
         meta_path = os.path.join(args.meta_dir, args.meta_name)
         # meta_file = open(meta_path, 'w+')

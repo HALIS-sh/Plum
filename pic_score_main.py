@@ -77,6 +77,10 @@ if __name__ == "__main__":
     parser.add_argument('--task_type', default="text2image", help='task type')
     parser.add_argument('--use_LLM', type=int, default=0, help='use LLM to generate prompt')
     parser.add_argument('--original_candidate', type=str, help='original candidate')
+    parser.add_argument('--ks', type=int, default=2, help='key index')
+    parser.add_argument('--HMCR', type=float, default=0.4, help='Harmony Memory Consideration Rate')
+    parser.add_argument('--PAR', type=float, default=0.5, help='Pitch Adjustment Rate')
+    parser.add_argument('--N_H', type=int, default=10, help='Number of Harmony')
     args = parser.parse_args()
     
     # # Initialize wandb
