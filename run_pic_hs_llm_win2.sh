@@ -1,9 +1,9 @@
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=6
 start_seed=0
 end_seed=6
-for ((hs_seed=start_seed; hs_seed<=end_seed; hs_seed++));
+for ((hs_llm_seed_2=start_seed; hs_llm_seed_2<=end_seed; hs_llm_seed_2++));
 do
-    prefix="hs_search_seed-${hs_seed}_prompt-1"
+    prefix="hs_llm_search_seed-${hs_llm_seed_2}_prompt-2"
 
     # 检查文件夹是否存在
     if [ ! -d "$prefix" ]; then
@@ -14,7 +14,7 @@ do
         echo "创建文件夹 $prefix"
 
         python pic_score_main.py \
-            --train-seed ${hs_seed}   \
+            --train-seed ${hs_llm_seed_2}   \
             --num-compose 1   \
             --num-candidates 10   \
             --num-iter 10  \
@@ -23,11 +23,11 @@ do
             --task_type "text2image"  \
             --meta-dir "${prefix}/logs"\
             --meta-pic-dir "${prefix}/pics" \
-            --meta-name "hs_search_seed-${hs_seed}_prompt-1.txt"   \
+            --meta-name "hs_llm_search_seed-${hs_llm_seed_2}_prompt-2.txt"   \
             --level "word" \
-            --use_LLM 0  \
-            --algorithm "hs" \
-            --original_candidate "Draw the picture of Mona Lisa with a smile, and the picture must show her hand clearly."| tee "${prefix}/logs/hs_search.log"
+            --use_LLM 1  \
+            --algorithm "hs_llm" \
+            --original_candidate "Show the boundary between night and day."| tee "${prefix}/logs/hs_llm_search.log"
     else
         echo "文件夹 $prefix 已经存在"
     fi
