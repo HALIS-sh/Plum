@@ -20,8 +20,8 @@ from tenacity import (
 
 class Pic_HC_LLM_trainer(Pic_HC_trainer.Pic_HC_trainer):
 
-    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type):
-        super(Pic_HC_LLM_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type)
+    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type, pic_gen_seed):
+        super(Pic_HC_LLM_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type, pic_gen_seed)
         self.patience_counter = 1
         self.W_candidates = []
         self.W_scores = []
@@ -41,7 +41,8 @@ class Pic_HC_LLM_trainer(Pic_HC_trainer.Pic_HC_trainer):
         # self.sd_model_id = "stabilityai/stable-diffusion-2-1"
         self.processor = AutoProcessor.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--laion--CLIP-ViT-H-14-laion2B-s32B-b79K")
         self.model = AutoModel.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--yuvalkirstain--PickScore_v1").eval().to(self.device)
-        
+        self.generator = torch.Generator(device="cuda")
+        self.generator.manual_seed(pic_gen_seed)
     
 
     @retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(6))
@@ -72,7 +73,7 @@ class Pic_HC_LLM_trainer(Pic_HC_trainer.Pic_HC_trainer):
         # 设置代理
         openai.proxy = proxy  
         # Define the prompt
-        prompt = f"Rephrase and refine the following sentence in more detail : '{sentence}'"
+        prompt = f"Rephrase and refine the following sentence: '{sentence}'"
         # Generate text using the completions API
         for key in api_keys:
             try:

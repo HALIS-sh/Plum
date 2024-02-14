@@ -24,8 +24,8 @@ from tenacity import (
 
 class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
 
-    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type):
-        super(Pic_HS_LLM_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type)
+    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type, pic_gen_seed):
+        super(Pic_HS_LLM_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type, pic_gen_seed)
         self.patience_counter = 1
         self.W_candidates = []
         self.W_scores = []
@@ -45,7 +45,8 @@ class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
         # self.sd_model_id = "stabilityai/stable-diffusion-2-1"
         self.processor = AutoProcessor.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--laion--CLIP-ViT-H-14-laion2B-s32B-b79K")
         self.model = AutoModel.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--yuvalkirstain--PickScore_v1").eval().to(self.device)
-        
+        self.generator = torch.Generator(device="cuda")
+        self.generator.manual_seed(pic_gen_seed)
 
     def gpt_rephraser(self, sentence):
         api_keys = ['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', 
@@ -62,11 +63,32 @@ class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
                     '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',
                     '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',
                     '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',
-                    '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',
                     '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',
                     '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',
                     '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',
-                    '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'] 
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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'] 
         proxy = {
             'http': 'http://localhost:7890',
             'https': 'http://localhost:7890'
@@ -117,11 +139,32 @@ class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
                     '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',
                     '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',
                     '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',
-                    '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',
                     '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',
                     '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',
                     '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',
-                    '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'] 
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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'] 
         proxy = {
             'http': 'http://localhost:7890',
             'https': 'http://localhost:7890'
@@ -129,7 +172,7 @@ class Pic_HS_LLM_trainer(Pic_HS_trainer.Pic_HS_trainer):
         # 设置代理
         openai.proxy = proxy  
         # Define the prompt
-        prompt = f"Slightly adjust the following sentence piece: '{sentence}'"
+        prompt = f"Rephrase and refine the following piece of sentence in more detail: '{sentence}'"
         # Generate text using the completions API
         for key in api_keys:
             try:

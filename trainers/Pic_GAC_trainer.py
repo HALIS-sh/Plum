@@ -1,8 +1,5 @@
 # import
-from trainers import HS_trainer
-import sys 
-sys.path.append("..") 
-from trainers.base_trainer import SimpleTrainer
+from trainers import GAC_trainer
 from supar import Parser
 import numpy as np
 import os, re
@@ -11,21 +8,11 @@ from transformers import AutoProcessor, AutoModel
 import torch
 from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 from PIL import Image
-from pathlib import Path
-import math
-import heapq
-import openai
-from tenacity import (
-    retry,
-    stop_after_attempt,
-    wait_random_exponential,
-)  # for exponential backoff
 
+class Pic_GAC_trainer(GAC_trainer.GAC_trainer):
 
-class Pic_HS_trainer(HS_trainer.HS_trainer):
-
-    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type, pic_gen_seed):
-        super(Pic_HS_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type, pic_gen_seed)
+    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type):
+        super(Pic_GAC_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates,  backbone, task_type)
         self.patience_counter = 1
         self.W_candidates = []
         self.W_scores = []
@@ -43,17 +30,17 @@ class Pic_HS_trainer(HS_trainer.HS_trainer):
         # self.processor_name_or_path = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
         # self.model_pretrained_name_or_path = "yuvalkirstain/PickScore_v1"
         # self.sd_model_id = "stabilityai/stable-diffusion-2-1"
+
         self.processor = AutoProcessor.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--laion--CLIP-ViT-H-14-laion2B-s32B-b79K")
         self.model = AutoModel.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--yuvalkirstain--PickScore_v1").eval().to(self.device)
-        self.generator = torch.Generator(device="cuda")
-        self.generator.manual_seed(pic_gen_seed)
-
+        
     # prepare prompt_0 and base_prompt_pics
     def initialize_prompt_0(self, args):
         # Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
         sd_pipe = StableDiffusionPipeline.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--stabilityai--stable-diffusion-2-1/snapshots/5cae40e6a2745ae2b01ad92ae5043f95f23644d6", torch_dtype=torch.float16)
         sd_pipe.scheduler = DPMSolverMultistepScheduler.from_config(sd_pipe.scheduler.config)
         sd_pipe = sd_pipe.to("cuda")
+        generator = torch.Generator(device="cuda")
         # self.original_candidate = "Show the boundary between night and day."
         self.original_candidate = args.original_candidate
         self.original_score = 50.0
@@ -63,8 +50,9 @@ class Pic_HS_trainer(HS_trainer.HS_trainer):
         folder_name = args.meta_pic_dir
         k = args.pics_number
         pic_gen_seed = args.pic_gen_seed
+        generator.manual_seed(pic_gen_seed)
         for pic_count in range(1,k+1):
-            image = sd_pipe(self.original_candidate, generator=self.generator).images[0]
+            image = sd_pipe(self.original_candidate, generator=generator).images[0]
             file_name = "{}/prompt_{}_images_{}.png".format(folder_name, 0 , pic_count)
             image.save(file_name)
             pic_count = pic_count + 1
@@ -72,6 +60,7 @@ class Pic_HS_trainer(HS_trainer.HS_trainer):
     def calc_probs(self, prompt, images):
         
         # preprocess
+        # max_length = 77 check if this is the right max_length ###############
         image_inputs = self.processor(
             images=images,
             padding=True,
@@ -104,22 +93,24 @@ class Pic_HS_trainer(HS_trainer.HS_trainer):
             probs = torch.softmax(scores, dim=-1)
         
         return probs.cpu().tolist()
-    
+
     def score(self, candidate, prompt_count, split='train', write=False, args=None):
 
         # Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
         sd_pipe = StableDiffusionPipeline.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--stabilityai--stable-diffusion-2-1/snapshots/5cae40e6a2745ae2b01ad92ae5043f95f23644d6", torch_dtype=torch.float16)
         sd_pipe.scheduler = DPMSolverMultistepScheduler.from_config(sd_pipe.scheduler.config)
         sd_pipe = sd_pipe.to("cuda")
+        generator = torch.Generator(device="cuda")
         # prompt_count = 1
         pic_count = 1
         prompt = candidate
         folder_name = args.meta_pic_dir
         k = args.pics_number
         pic_gen_seed = args.pic_gen_seed
+        generator.manual_seed(pic_gen_seed)
         # # generate the pics of prompt_n
         for pic_count in range(1, k + 1):
-            image = sd_pipe(prompt, generator=self.generator).images[0]
+            image = sd_pipe(prompt, generator=generator).images[0]
             file_name = "{}/prompt_{}_images_{}.png".format(folder_name,prompt_count, pic_count)
             image.save(file_name)
             pic_count = pic_count + 1
@@ -139,4 +130,5 @@ class Pic_HS_trainer(HS_trainer.HS_trainer):
         return ave_score
 
 
-            
+
+    

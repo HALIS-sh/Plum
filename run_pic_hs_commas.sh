@@ -18,7 +18,7 @@ while IFS= read -r line; do
     # do
     pic_gen_seed=2
     hs_seed=2
-    prefix="result/line-${line_number}_${prompt_hash}/hs_search_seed-${hs_seed}_picseed--${pic_gen_seed}"
+    prefix="result/line-${line_number}_${prompt_hash}/hs_commas_search_seed-${hs_seed}_picseed-${pic_gen_seed}"
 
     # 检查文件夹是否存在
     if [ ! -d "$prefix" ]; then
@@ -31,7 +31,6 @@ while IFS= read -r line; do
 
         python pic_score_main.py \
             --train-seed ${hs_seed}   \
-            --pic_gen_seed 2  \
             --num-compose 1   \
             --num-candidates 10   \
             --num-iter 10  \
@@ -40,12 +39,12 @@ while IFS= read -r line; do
             --task_type "text2image"  \
             --meta-dir "${prefix}/logs"\
             --meta-pic-dir "${prefix}/pics" \
-            --meta-name "/${prompt_hash}_hs_search_seed-${hs_seed}_picseed--${pic_gen_seed}.txt"   \
+            --meta-name "/${prompt_hash}_hs_commas_search_seed-${hs_seed}_picseed--${pic_gen_seed}.txt"   \
             --level "word" \
-            --use_commas_split 0 \
+            --use_commas_split 1 \
             --use_LLM 0  \
             --algorithm "hs" \
-            --original_candidate "$content"| tee "${prefix}/logs/hs_search.log"
+            --original_candidate "$content"| tee "${prefix}/logs/hs_commas_search.log"
     else
         echo "文件夹 $prefix 已经存在"
     fi

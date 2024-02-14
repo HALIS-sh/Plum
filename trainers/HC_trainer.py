@@ -200,8 +200,9 @@ class HC_trainer(SimpleTrainer):
             print("Per_curr_iteration_best_candidate:", best_candidate)
             print("Per_curr_iteration_best_score:", best_score)
             use_simulated_anneal = args.simulated_anneal
-
+            print("Simulated Anneal:", use_simulated_anneal)
             if use_simulated_anneal:
+
                 add_best_or_not = self.update_result_add(best_score, best_candidate, use_simulated_anneal, current_iteration)
             else:
                 add_best_or_not = self.update_result_add(best_score, best_candidate)

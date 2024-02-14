@@ -141,7 +141,33 @@ class HS_trainer(SimpleTrainer):
                     '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',
                     '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',
                     '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',
-                    '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'] 
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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',
+                    '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'] 
         proxy = {
             'http': 'http://localhost:7890',
             'https': 'http://localhost:7890'
@@ -182,79 +208,128 @@ class HS_trainer(SimpleTrainer):
     
         w_m=[]
         w_m_words = []
-
-        for j in range(ks):
-            idx = np.random.randint(0,len(self.W_candidates))
-            w = self.W_candidates[idx]
-            phrases_pun = self.get_phrase_lookup_pun(w, args)
-            w_phrases = list(phrases_pun.values())
-            L = len(w_phrases)
-            start = math.ceil(j/ks*L)
-            end = math.ceil((j+1)/ks*L) - 1
-            if(start!=end):
-                w_segement = w_phrases[start:end]
-            else:
-                w_segement = [w_phrases[start]]
-            w_segement_words = []
-            for phrase in w_segement:   
-                w_segement_words = w_segement_words + self.word_tokenize(phrase)
-            w_segement = self.detokenize(w_segement_words)
-            if HMCR >= np.random.random():
-                if PAR >= np.random.random():
+        if args.use_commas_split:
+            print("use_commas_split")
+            for j in range (ks):
+                idx = np.random.randint(0,len(self.W_candidates))
+                w = self.W_candidates[idx]
+                parts = w.split(',')
+                L = len(parts)
+                if L < 5:
+                    if L == 1:
+                        parts[0] = parts[0] + ','
+                    parts = parts * 3
+                start = math.ceil(j/ks*L)
+                end = math.ceil((j+1)/ks*L) - 1
+                if(start!=end):
+                    w_segement = parts[start:end]
+                else:
+                    w_segement = [parts[start]]
+                w_segement_words = []
+                for segement in w_segement:
+                    w_segement_words.extend(self.word_tokenize(segement))
+                w_segement = self.detokenize(w_segement_words)
+                if HMCR >= np.random.random():
+                    if PAR >= np.random.random():
+                        if args.use_LLM:
+                            if len(w_segement) > 0: 
+                                candidate = self.gpt_adjuster(w_segement)
+                            else:
+                                candidate = self.gpt_adjuster(self.result_candidate)
+                        else:
+                            phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                            candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                        w_segement = candidate
+                    deleted = {}
+                    added = {}
+                else:
+                    deleted = {}
+                    added = {}
+                    phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                    if args.use_LLM:               
+                        if len(w_segement) > 0: 
+                            candidate, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                            w_segement = candidate
+                        else:
+                            candidate, deleted, added = self.mutated(self.result_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                            w_segement = candidate
+                    else:
+                        candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                        w_segement = candidates[0] # multipule edit operations can be implemented if necessary
+                w_m.append(w_segement + ',')
+        else:
+            for j in range(ks):
+                idx = np.random.randint(0,len(self.W_candidates))
+                w = self.W_candidates[idx]
+                phrases_pun = self.get_phrase_lookup_pun(w, args)
+                w_phrases = list(phrases_pun.values())
+                L = len(w_phrases)
+                start = math.ceil(j/ks*L)
+                end = math.ceil((j+1)/ks*L) - 1
+                if(start!=end):
+                    w_segement = w_phrases[start:end]
+                else:
+                    w_segement = [w_phrases[start]]
+                w_segement_words = []
+                for phrase in w_segement:   
+                    w_segement_words = w_segement_words + self.word_tokenize(phrase)
+                w_segement = self.detokenize(w_segement_words)
+                if HMCR >= np.random.random():
+                    if PAR >= np.random.random():
+                        # try:
+                        #     if args.use_LLM:
+                        #         print("w_segement1: ", w_segement)
+                        #         if len(w_segement) > 0: 
+                        #             candidate = self.gpt_adjuster(w_segement)
+                        #         else:
+                        #             phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                        #             candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                        #     else:
+                        #         phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                        #         candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                        #     w_segement = candidate
+                        # except:
+                        #     print('Error occurs (parser) and skip this mutation 1')
+                        #     continue
+                        if args.use_LLM:
+                            if len(w_segement) > 0: 
+                                candidate = self.gpt_adjuster(w_segement)
+                            else:
+                                candidate = self.gpt_adjuster(self.result_candidate)
+                        else:
+                            phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                            candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                        w_segement = candidate
+                    deleted = {}
+                    added = {}
+                    
+                else:
+                    deleted = {}
+                    added = {}
                     # try:
                     #     if args.use_LLM:
-                    #         print("w_segement1: ", w_segement)
-                    #         if len(w_segement) > 0: 
-                    #             candidate = self.gpt_adjuster(w_segement)
-                    #         else:
-                    #             phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                    #             candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
+                    #         print("w_segement: ", w_segement)
+                    #         candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                    #         print("candidates: ", candidates)
                     #     else:
                     #         phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                    #         candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
-                    #     w_segement = candidate
+                    #         candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                    #     w_segement = candidates[0] # multipule edit operations can be implemented if necessary
                     # except:
-                    #     print('Error occurs (parser) and skip this mutation 1')
+                    #     print('Error occurs (parser) and skip this mutation 2')
                     #     continue
-                    if args.use_LLM:
+                    phrase_lookup = self.get_phrase_lookup(w_segement, args)
+                    if args.use_LLM:               
                         if len(w_segement) > 0: 
-                            candidate = self.gpt_adjuster(w_segement)
+                            candidate, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                            w_segement = candidate
                         else:
-                            candidate = self.gpt_adjuster(self.result_candidate)
+                            candidate, deleted, added = self.mutated(self.result_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                            w_segement = candidate
                     else:
-                        phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                        candidate, _ = self.perform_edit(edit_opertions_small, w_segement, phrase_lookup, delete_tracker)
-                    w_segement = candidate
-                deleted = {}
-                added = {}
-                   
-            else:
-                deleted = {}
-                added = {}
-                # try:
-                #     if args.use_LLM:
-                #         print("w_segement: ", w_segement)
-                #         candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
-                #         print("candidates: ", candidates)
-                #     else:
-                #         phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                #         candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
-                #     w_segement = candidates[0] # multipule edit operations can be implemented if necessary
-                # except:
-                #     print('Error occurs (parser) and skip this mutation 2')
-                #     continue
-                phrase_lookup = self.get_phrase_lookup(w_segement, args)
-                if args.use_LLM:               
-                    if len(w_segement) > 0: 
-                        candidate, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
-                        w_segement = candidate
-                    else:
-                        candidate, deleted, added = self.mutated(self.result_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args)
-                        w_segement = candidate
-                else:
-                    candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
-                    w_segement = candidates[0] # multipule edit operations can be implemented if necessary
-            w_m.append(w_segement)
+                        candidates, deleted, added = self.mutated(w_segement, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                        w_segement = candidates[0] # multipule edit operations can be implemented if necessary
+                w_m.append(w_segement)
         for segement in w_m:
             w_m_words.extend(self.word_tokenize(segement))
         w_m = self.detokenize(w_m_words)

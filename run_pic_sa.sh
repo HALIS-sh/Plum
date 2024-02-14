@@ -1,4 +1,4 @@
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=1
 file_path="test_prompts.txt"
 # 初始化行号变量
 line_number=0
@@ -14,9 +14,9 @@ while IFS= read -r line; do
     prompt_hash=$(echo "${content}" | md5sum | awk '{ print $1 }')
     start_seed=0
     end_seed=3
-    for ((hc_seed=start_seed; hc_seed<=end_seed; hc_seed++));
+    for ((sa_seed=start_seed; sa_seed<=end_seed; sa_seed++));
     do
-        prefix="result/${prompt_hash}/hc_search_seed-${hc_seed}"
+        prefix="result/${prompt_hash}/sa_search_seed-${sa_seed}"
 
         # 检查文件夹是否存在
         if [ ! -d "$prefix" ]; then
@@ -28,8 +28,7 @@ while IFS= read -r line; do
             echo "创建文件夹 $prefix"
 
             python pic_score_main.py \
-                --train-seed ${hc_seed}   \
-                --pic_gen_seed 2  \
+                --train-seed ${sa_seed}   \
                 --num-compose 1   \
                 --num-candidates 10   \
                 --num-iter 10  \
@@ -38,11 +37,12 @@ while IFS= read -r line; do
                 --task_type "text2image"  \
                 --meta-dir "${prefix}/logs"\
                 --meta-pic-dir "${prefix}/pics" \
-                --meta-name "${prompt_hash}_hc_search_seed-${hc_seed}.txt"   \
+                --meta-name "${prompt_hash}_sa_search_seed-${sa_seed}.txt"   \
                 --level "word" \
                 --use_LLM 0  \
                 --algorithm "hc" \
-                --original_candidate "$content"| tee "${prefix}/logs/hc_search.log"
+                --simulated-anneal \
+                --original_candidate "$content"| tee "${prefix}/logs/sa_search.log"
         else
             echo "文件夹 $prefix 已经存在"
         fi
