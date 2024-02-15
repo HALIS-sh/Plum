@@ -6,15 +6,16 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 from supar import Parser
 import string
 import random
-#import utils.nat_inst_gpt3 as gpt3
-#import utils.nat_inst_gpt2 as gpt2
-#from utils.expanded_encode_instruction import *
+from utils.expanded_encode_instruction import *
 from sklearn.metrics import balanced_accuracy_score
 import json
 import os
 from scipy.stats import entropy
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 import pickle
+from PIL import Image
+
+
 
 class TrainerBase:
     
@@ -43,7 +44,11 @@ class TrainerBase:
             self.patience_counter = 1
             self.result_candidate = best_candidate
             self.result_score = best_score
-        else: self.patience_counter += 1
+            return True
+        else: 
+            self.patience_counter += 1
+            return False
+
 
     @property
     def is_run_out_of_patience(self):
@@ -63,14 +68,17 @@ class SimpleTrainer(TrainerBase):
 
     """A simple class based on GrIPS."""
 
-    def __init__(self, maxiter, patience, train_seed, data_seed, num_compose, num_candidates):
+    def __init__(self, maxiter, patience, train_seed, data_seed, num_compose, num_candidates, args, backbone = "", task_type="text2text"):
         super(SimpleTrainer, self).__init__(maxiter, patience, train_seed, data_seed, num_compose, num_candidates)
-        # if backbone == "gpt3":
-        #     self.run = gpt3.run
-        #     self.get_prediction = gpt3.get_prediction
-        # if backbone == "gpt2":
-        #     self.run = gpt2.run
-        #     self.get_prediction = gpt2.get_prediction
+        if task_type == 'text2text':
+            import utils.nat_inst_gpt3 as gpt3
+            import utils.nat_inst_gpt2 as gpt2
+            if backbone == "gpt3":
+                self.run = gpt3.run
+                self.get_prediction = gpt3.get_prediction
+            if backbone == "gpt2":
+                self.run = gpt2.run
+                self.get_prediction = gpt2.get_prediction
         self.patience_counter = 1
         self.W_candidates = []
         self.W_scores = []
@@ -254,7 +262,7 @@ class SimpleTrainer(TrainerBase):
 
         else: raise ValueError()
 
-    def score(self, candidate, split='train', write=False, args=None):
+    def score(self, candidate, prompt_count=0, split='train', write=False, args=None):
         task_labels = args.task_labels
         label_probs, calibrated_label_probs , raw_acc_count , raw_cal_acc_count , answer_list, index_list, _ = self.run(mode=args.mode, batch_size=args.batch_size, num_shots=args.num_shots, chosen_task_name=args.chosen_task_name, num_samples=args.num_samples, data_seed=args.data_seed, override_prompts=True, function = self.custom_instruction_prompt, split=split, modified={'Definition': candidate}, task_labels=task_labels, if_calibrate = False, args=args)
         preds = self.get_prediction(label_probs, task_labels)
@@ -324,11 +332,15 @@ class SimpleTrainer(TrainerBase):
         return phrase_lookup
 
 
-    def init_population(self, instruction, args):  
-        self.original_candidate = self.detokenize(self.word_tokenize(instruction))
-        assert self.word_tokenize(self.original_candidate) == self.word_tokenize(instruction)
-        # original_candidate = base_candidate
-        self.original_score = self.score(self.original_candidate, args=args)
+    def init_population(self, instruction, args):
+        if args.task_type == 'text2text':  
+            self.original_candidate = self.detokenize(self.word_tokenize(instruction))
+            assert self.word_tokenize(self.original_candidate) == self.word_tokenize(instruction)
+            # original_candidate = base_candidate
+            self.original_score = self.score(self.original_candidate, args=args)
+        elif args.task_type == 'text2image':
+            self.original_candidate = instruction
+            self.original_score = 50.0
         self.W_candidates.append(self.original_candidate) # W_candidate <-- original_candidate
         self.W_scores.append(self.original_score)  # W_scores <-- original_score
         self.result_candidate = self.original_candidate # result_candidate <-- base candidate
@@ -353,6 +365,18 @@ class SimpleTrainer(TrainerBase):
                     self.result_score = best_score
                     add_best_or_not = True
         return add_best_or_not
+    
+    def update_best_picture(self, best_index, args):
+        pic_count = 1
+        k = 2
+        folder_name = args.meta_pic_dir
+        for pic_count in range(1, k + 1):
+            file_name = "{}/prompt_{}_images_{}.png".format(folder_name, best_index, pic_count)
+            best_pic = Image.open(file_name)
+            file_name_1 = "{}/best_images_{}.png".format(folder_name, pic_count)
+            best_pic.save(file_name_1)
+        
+
     
     
 

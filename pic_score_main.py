@@ -1,21 +1,100 @@
 import argparse
 import json
-from trainers import Pic_HC_trainer, Pic_GA_trainer, Pic_HS_trainer
+from trainers import Pic_HC_trainer, Pic_GA_trainer, Pic_HS_trainer, Pic_HC_LLM_trainer, Pic_HS_LLM_trainer
 import wandb
+from utils import setup_logger, set_random_seed, collect_env_info
+from config import get_cfg_default
+import os
+import torch
+
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8"
+
+torch.backends.cudnn.benchmark = False
+# torch.use_deterministic_algorithms(True)
+
+def reset_cfg(cfg, args):
+    if args.output_dir:
+        cfg.OUTPUT_DIR = args.output_dir
+
+    if args.meta_dir:
+        cfg.META_DIR = args.meta_dir
+
+    if args.resume:
+        cfg.RESUME = args.resume
+
+    if args.data_seed >= 0:
+        cfg.DATA_SEED = args.data_seed
+
+    if args.train_seed >= 0:
+        cfg.TRAIN_SEED = args.train_seed
+
+def extend_cfg(cfg):
+    """
+    Add new config variables.
+
+    E.g.
+        from yacs.config import CfgNode as CN
+        cfg.TRAINER.MY_MODEL = CN()
+        cfg.TRAINER.MY_MODEL.PARAM_A = 1.
+        cfg.TRAINER.MY_MODEL.PARAM_B = 0.5
+        cfg.TRAINER.MY_MODEL.PARAM_C = False
+    """
+    from yacs.config import CfgNode as CN
+
+    cfg.TRAINER.GA = CN()
+    cfg.TRAINER.GA.PREC = "fp16"  # fp16, fp32, amp
+
+    cfg.DATASET.SUBSAMPLE_CLASSES = "all"  # all, base or new
+
+def setup_cfg(args):
+    cfg = get_cfg_default()
+    extend_cfg(cfg)
+
+    # 1. From the dataset config file
+    if args.dataset_config_file:
+        cfg.merge_from_file(args.dataset_config_file)
+
+    # 2. From the method config file
+    if args.config_file:
+        cfg.merge_from_file(args.config_file)
+
+    # 3. From input arguments
+    reset_cfg(cfg, args)
+
+    # 4. From optional input arguments
+    cfg.merge_from_list(args.opts)
+
+    cfg.freeze()
+
+    return cfg
 
 def main(args):
+    cfg = setup_cfg(args)
+    print("Setting fixed data_seed: {}, train_seed: {}".format(cfg.DATA_SEED, cfg.TRAIN_SEED))
+    set_random_seed(cfg.DATA_SEED, cfg.TRAIN_SEED)
     num_compose = args.num_compose
     num_candidates = args.num_candidates
     train_seed = args.train_seed
     patience = args.patience
     num_steps = args.num_iter
     data_seed = args.data_seed
+    task_type = args.task_type
+    pic_gen_seed = args.pic_gen_seed
 
-    # trainer = Pic_HC_trainer.Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates)
-    # trainer = Pic_GA_trainer.Pic_GA_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates)
-    trainer = Pic_HS_trainer.Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates)
-    trainer.initialize_prompt_0()
-    trainer.train(args)
+    if args.algorithm == "hc":
+        trainer = Pic_HC_trainer.Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+    elif args.algorithm == "ga": 
+        trainer = Pic_GA_trainer.Pic_GA_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+    elif args.algorithm == "hs":
+        trainer = Pic_HS_trainer.Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+    elif args.algorithm == "hc_llm":
+        trainer = Pic_HC_LLM_trainer.Pic_HC_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+    elif args.algorithm == "hs_llm":
+        trainer = Pic_HS_LLM_trainer.Pic_HS_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+    trainer.initialize_prompt_0(args)
+    instruction = trainer.original_candidate
+    trainer.train(instruction, chosen_task_name="pic_score", args = args)
+    # trainer.test_gpt_rephraser(args)
 
 
 if __name__ == "__main__":
@@ -36,6 +115,7 @@ if __name__ == "__main__":
     parser.add_argument('--write-preds', action='store_true', default=False, help='Store predictions in a .json file')
     parser.add_argument('--data-dir', default='./natural-instructions-2.6/tasks/', help='Path to the dataset')
     parser.add_argument('--meta-dir', default='logs/', help='Path to store metadata of search')
+    parser.add_argument('--meta-pic-dir', default='pics/', help='Path to store metadata of search')
     parser.add_argument('--meta-name', default='search.txt', help='Path to the file that stores metadata of search')
     parser.add_argument("--output-dir", type=str, default="", help="output directory")
     parser.add_argument("--model-dir", type=str, default="", help="load model from this directory for eval-only mode")
@@ -61,9 +141,19 @@ if __name__ == "__main__":
     parser.add_argument("opts", default=None, nargs=argparse.REMAINDER, help="modify config options using the command-line")
     parser.add_argument('--budget', default=1000, type=int, help='number of the budget of api calls for searching')
     parser.add_argument('--api-idx', type=int, default=0)
+    parser.add_argument('--pics_number', default=2, type=int, help='number of pictures used to calculate the score')
+    parser.add_argument('--task_type', default="text2image", help='task type')
+    parser.add_argument('--use_LLM', type=int, default=0, help='use LLM to generate prompt')
+    parser.add_argument('--use_commas_split', type=int, default=0, help='use commas to split the prompt')
+    parser.add_argument('--original_candidate', type=str, help='original candidate')
+    parser.add_argument('--pic_gen_seed', type=int, default=2, help='seed for generating pictures')
+    parser.add_argument('--ks', type=int, default=2, help='key index')
+    parser.add_argument('--HMCR', type=float, default=0.4, help='Harmony Memory Consideration Rate')
+    parser.add_argument('--PAR', type=float, default=0.5, help='Pitch Adjustment Rate')
+    parser.add_argument('--N_H', type=int, default=10, help='Number of Harmony')
     args = parser.parse_args()
     
-    # Initialize wandb
+    # # Initialize wandb
     wandb.login(key="88bd7de7f3b87f2354afdc42c30ae6cacba5ff0b")
     wandb.init(project=args.project_name, name=args.meta_name)
     wandb.config.update(args)
