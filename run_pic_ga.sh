@@ -18,7 +18,7 @@ while IFS= read -r line; do
     # do
     pic_gen_seed=2
     ga_seed=2
-    prefix="result/prompt-${line_number}_${prompt_hash}/ga_search_seed-${ga_seed}_picseed--${pic_gen_seed}"
+    prefix="result/prompt-${line_number}_${prompt_hash}/ga_search_seed-${ga_seed}_picseed-${pic_gen_seed}"
 
     # 检查文件夹是否存在
     if [ ! -d "$prefix" ]; then

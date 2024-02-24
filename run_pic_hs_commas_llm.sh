@@ -19,7 +19,7 @@ while IFS= read -r line; do
         # do
         pic_gen_seed=2
         hs_seed=2
-        prefix="result/prompt-${line_number}_${prompt_hash}/hs_commas_llm_search_seed-${hs_seed}_picseed--${pic_gen_seed}"
+        prefix="result/prompt-${line_number}_${prompt_hash}/hs_commas_llm_search_seed-${hs_seed}_picseed-${pic_gen_seed}"
 
         # 检查文件夹是否存在
         if [ ! -d "$prefix" ]; then
@@ -41,7 +41,7 @@ while IFS= read -r line; do
                 --task_type "text2image"  \
                 --meta-dir "${prefix}/logs"\
                 --meta-pic-dir "${prefix}/pics" \
-                --meta-name "/${prompt_hash}_hs_commas_llm_search_seed-${hs_seed}_picseed--${pic_gen_seed}.txt"   \
+                --meta-name "/${prompt_hash}_hs_commas_llm_search_seed-${hs_seed}_picseed-${pic_gen_seed}.txt"   \
                 --level "word" \
                 --use_commas_split 1 \
                 --use_LLM 1  \
