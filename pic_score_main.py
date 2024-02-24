@@ -1,6 +1,6 @@
 import argparse
 import json
-from trainers import Pic_HC_trainer, Pic_GA_trainer, Pic_HS_trainer, Pic_HC_LLM_trainer, Pic_HS_LLM_trainer
+from trainers import Pic_HC_trainer, Pic_GA_trainer,Pic_GAC_trainer, Pic_HS_trainer, Pic_HC_LLM_trainer, Pic_HS_LLM_trainer
 import wandb
 from utils import setup_logger, set_random_seed, collect_env_info
 from config import get_cfg_default
@@ -85,6 +85,8 @@ def main(args):
         trainer = Pic_HC_trainer.Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
     elif args.algorithm == "ga": 
         trainer = Pic_GA_trainer.Pic_GA_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+    elif args.algorithm == "gac":
+        trainer = Pic_GAC_trainer.Pic_GAC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
     elif args.algorithm == "hs":
         trainer = Pic_HS_trainer.Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
     elif args.algorithm == "hc_llm":
