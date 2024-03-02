@@ -1,8 +1,6 @@
 from trainers.base_trainer import SimpleTrainer
 import numpy as np
 import os, re
-import json
-import torch
 import wandb
 from supar import Parser
 import sys 
@@ -11,9 +9,7 @@ import random
 from pathlib import Path
 import utils.nat_inst_gpt3 as gpt3
 import utils.nat_inst_gpt2 as gpt2
-from transformers import AutoProcessor, AutoModel
-from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
-from PIL import Image
+from abc import abstractmethod
 
 
 class HC_trainer(SimpleTrainer):
@@ -64,7 +60,7 @@ class HC_trainer(SimpleTrainer):
     def containenglish(self, str0):
         return bool(re.search('[a-z A-Z]', str0))
 
-    def mutated(self, base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration):
+    def mutated(self, base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args):
 
         deleted = {}
         added = {}
@@ -131,7 +127,6 @@ class HC_trainer(SimpleTrainer):
 
         return candidates, scores, deleted, added 
 
-
     def train(self, instruction, chosen_task_name, args):
 
         meta_path = os.path.join(args.meta_dir, args.meta_name)
@@ -186,9 +181,20 @@ class HC_trainer(SimpleTrainer):
                 self.result_candidate = self.W_candidates[-1]
                 continue
             if args.use_LLM:
-                candidates, scores, deleted, added = self.mutated(base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration)  
+                deleted = {}
+                added = {}
+                candidates = []
+                scores = []
+                for i in range(0, args.num_candidates):
+                    candidate = self.mutated(base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args)
+                    candidates.append(candidate)
+                    i += 1
+                for c, candidate in enumerate(candidates):
+                    scores.append(self.score(candidate, c+1, args=args))
+                    print("Candidate: ", candidate)
+                    print("Ave_Score: ", scores[-1])
             else:
-                candidates, scores, deleted, added = self.mutated(base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args, current_iteration)
+                candidates, scores, deleted, added = self.mutated(base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args)
             best_index = 0
             if args.task_type == "text2text":
                 best_score, best_candidate = self.choose_best(candidates, scores)

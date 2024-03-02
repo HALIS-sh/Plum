@@ -12,8 +12,8 @@ from pathlib import Path
 
 class GA_trainer(SimpleTrainer):
 
-    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, num_tournaments, backbone):
-        super(GA_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone)
+    def __init__(self, maxiter, patience, train_seed, seed, num_compose, num_candidates, num_tournaments, backbone, task_type):
+        super(GA_trainer, self).__init__(maxiter, patience, train_seed, seed, num_compose, num_candidates, backbone, task_type)
         self.num_tournaments = num_tournaments
         self.patience_counter = 1
         self.W_candidates = []
@@ -119,7 +119,8 @@ class GA_trainer(SimpleTrainer):
         scores = []
         for c, candidate in enumerate(candidates):
             scores.append(self.score(candidate, c+1, args=args))
-            print(scores[-1])
+            print("Candidate:", candidate)
+            print("Ave_Score:", scores[-1])
 
         return candidates, scores, deleted, added  
 
@@ -244,51 +245,54 @@ class GA_trainer(SimpleTrainer):
                 print('Ran out of patience')
                 meta_file.write('Ran out of patience \n')
                 break
-            elif count >= args.budget:
-                print('Ran out of budget')
-                break
-            else: 
-                continue
+            # elif count >= args.budget:
+            #     print('Ran out of budget')
+            #     break
+            # else: 
+            #     continue
 
         wandb.log({"result_score": self.result_score})
-        
-        if args.backbone == "gpt3":
-            count = gpt3.complete_gpt3.count
-        
-        if args.backbone == "gpt2":
-            count = gpt2.complete_gpt2.count
-        
-        print('APICalls for search:\t', count)
+        print('Final_Result Candidate:', self.result_candidate)
+        print('Final_Result Score:', self.result_score)
 
-        wandb.log({"apicalls_search": count})
-        meta_file.write('\n')
-        searched_score = self.test(self.result_candidate, args)
+        if args.task_type == "text2text":
+            if args.backbone == "gpt3":
+                count = gpt3.complete_gpt3.count
+            
+            if args.backbone == "gpt2":
+                count = gpt2.complete_gpt2.count
+            
+            print('APICalls for search:\t', count)
 
-        meta_file.write('Testing .... \n')
-        if args.print_orig:
-            print('Task:\t', chosen_task_name)
-            print('Original Instruction:\t', self.original_candidate)
-            orig_score = self.score(self.original_candidate, 'test', args=args)
-            print('Original Accuracy:\t', str(orig_score))
-            meta_file.write('Original Accuracy:\t'+ str(orig_score)+ '\n')
+            wandb.log({"apicalls_search": count})
+            meta_file.write('\n')
+            searched_score = self.test(self.result_candidate, args)
 
-        if self.result_candidate == self.original_candidate: 
-            print('No viable candidate found!')
-            meta_file.write('No viable candidate found!\n')
+            meta_file.write('Testing .... \n')
+            if args.print_orig:
+                print('Task:\t', chosen_task_name)
+                print('Original Instruction:\t', self.original_candidate)
+                orig_score = self.score(self.original_candidate, 'test', args=args)
+                print('Original Accuracy:\t', str(orig_score))
+                meta_file.write('Original Accuracy:\t'+ str(orig_score)+ '\n')
+
+            if self.result_candidate == self.original_candidate: 
+                print('No viable candidate found!')
+                meta_file.write('No viable candidate found!\n')
+                print('APICalls:\t', count)
+                meta_file.write('APICalls:\t'+ str(count) + '\n')
+                wandb.log({"Original Accuracy": orig_score})
+                exit()
+
+            wandb.log({"searched_accuracy": searched_score})
+            wandb.log({"apicalls_total": count})
+
+            print('Accuracy after search:\t', str(searched_score))
+            print('Instruction after search:\t', self.result_candidate)
+            meta_file.write('Instruction after search:\t'+ self.result_candidate+ '\n')
+            meta_file.write('Accuracy after search:\t'+ str(searched_score)+ '\n')
             print('APICalls:\t', count)
             meta_file.write('APICalls:\t'+ str(count) + '\n')
-            wandb.log({"Original Accuracy": orig_score})
-            exit()
-
-        wandb.log({"searched_accuracy": searched_score})
-        wandb.log({"apicalls_total": count})
-
-        print('Accuracy after search:\t', str(searched_score))
-        print('Instruction after search:\t', self.result_candidate)
-        meta_file.write('Instruction after search:\t'+ self.result_candidate+ '\n')
-        meta_file.write('Accuracy after search:\t'+ str(searched_score)+ '\n')
-        print('APICalls:\t', count)
-        meta_file.write('APICalls:\t'+ str(count) + '\n')
 
         wandb.save(meta_path)
 

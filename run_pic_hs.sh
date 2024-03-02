@@ -18,12 +18,12 @@ while IFS= read -r line; do
     # do
     pic_gen_seed=2
     hs_seed=2
-    prefix="result/line-${line_number}_${prompt_hash}/hs_search_seed-${hs_seed}_picseed--${pic_gen_seed}"
+    prefix="result/prompt-${line_number}_${prompt_hash}/hs_search_seed-${hs_seed}_picseed-${pic_gen_seed}"
 
     # 检查文件夹是否存在
     if [ ! -d "$prefix" ]; then
         # 如果文件夹不存在，则创建它
-        mkdir "result/line-${line_number}_${prompt_hash}"
+        mkdir "result/prompt-${line_number}_${prompt_hash}"
         mkdir "$prefix"
         mkdir "${prefix}/logs"
         mkdir "${prefix}/pics"
@@ -31,7 +31,7 @@ while IFS= read -r line; do
 
         python pic_score_main.py \
             --train-seed ${hs_seed}   \
-            --pic_gen_seed 2  \
+            --pic_gen_seed ${pic_gen_seed}  \
             --num-compose 1   \
             --num-candidates 10   \
             --num-iter 10  \
@@ -40,7 +40,7 @@ while IFS= read -r line; do
             --task_type "text2image"  \
             --meta-dir "${prefix}/logs"\
             --meta-pic-dir "${prefix}/pics" \
-            --meta-name "/${prompt_hash}_hs_search_seed-${hs_seed}_picseed--${pic_gen_seed}.txt"   \
+            --meta-name "/${prompt_hash}_hs_search_seed-${hs_seed}_picseed-${pic_gen_seed}.txt"   \
             --level "word" \
             --use_commas_split 0 \
             --use_LLM 0  \

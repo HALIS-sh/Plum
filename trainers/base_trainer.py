@@ -14,6 +14,7 @@ from scipy.stats import entropy
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 import pickle
 from PIL import Image
+from abc import abstractmethod
 
 
 
@@ -68,7 +69,7 @@ class SimpleTrainer(TrainerBase):
 
     """A simple class based on GrIPS."""
 
-    def __init__(self, maxiter, patience, train_seed, data_seed, num_compose, num_candidates, args, backbone = "", task_type="text2text"):
+    def __init__(self, maxiter, patience, train_seed, data_seed, num_compose, num_candidates, backbone = "", task_type="text2text"):
         super(SimpleTrainer, self).__init__(maxiter, patience, train_seed, data_seed, num_compose, num_candidates)
         if task_type == 'text2text':
             import utils.nat_inst_gpt3 as gpt3
@@ -149,8 +150,8 @@ class SimpleTrainer(TrainerBase):
         if 'sub' in edit_operations:
             para_model_name = 'tuner007/pegasus_paraphrase'
             torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
-            self.para_tokenizer = PegasusTokenizer.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--tuner007--pegasus_paraphrase")
-            self.para_model = PegasusForConditionalGeneration.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--tuner007--pegasus_paraphrase").to(torch_device).eval()
+            self.para_tokenizer = PegasusTokenizer.from_pretrained(para_model_name)
+            self.para_model = PegasusForConditionalGeneration.from_pretrained(para_model_name).to(torch_device).eval()
 
     def get_response(self, input_text, num_return_sequences, num_beams):
         torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -368,7 +369,7 @@ class SimpleTrainer(TrainerBase):
     
     def update_best_picture(self, best_index, args):
         pic_count = 1
-        k = 2
+        k = args.pics_number
         folder_name = args.meta_pic_dir
         for pic_count in range(1, k + 1):
             file_name = "{}/prompt_{}_images_{}.png".format(folder_name, best_index, pic_count)
@@ -376,7 +377,9 @@ class SimpleTrainer(TrainerBase):
             file_name_1 = "{}/best_images_{}.png".format(folder_name, pic_count)
             best_pic.save(file_name_1)
         
-
+    @abstractmethod
+    def mutated(self, base_candidate, phrase_lookup, use_add, delete_tracker, edit_operations, args):
+        pass
     
     
 

@@ -1,9 +1,16 @@
 import argparse
 import json
-from trainers import Pic_HC_trainer, Pic_GA_trainer, Pic_HS_trainer, Pic_HC_LLM_trainer, Pic_HS_LLM_trainer
+from trainers import HC_trainer, HS_trainer, GA_trainer, GAC_trainer, Pic_trainer, Pic_LLM_trainer
 import wandb
 from utils import setup_logger, set_random_seed, collect_env_info
 from config import get_cfg_default
+import os
+import torch
+
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8"
+
+torch.backends.cudnn.benchmark = False
+# torch.use_deterministic_algorithms(True)
 
 def reset_cfg(cfg, args):
     if args.output_dir:
@@ -67,6 +74,7 @@ def main(args):
     set_random_seed(cfg.DATA_SEED, cfg.TRAIN_SEED)
     num_compose = args.num_compose
     num_candidates = args.num_candidates
+    num_tournaments=args.tournament_selection
     train_seed = args.train_seed
     patience = args.patience
     num_steps = args.num_iter
@@ -75,15 +83,31 @@ def main(args):
     pic_gen_seed = args.pic_gen_seed
 
     if args.algorithm == "hc":
-        trainer = Pic_HC_trainer.Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+        Pic_HC_trainer = type('Pic_HC_trainer', (Pic_trainer.Pic_trainer, HC_trainer.HC_trainer), {
+            'dynamic_method': lambda self: print("Dynamic method")
+        })
+        trainer = Pic_HC_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, num_tournaments, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
     elif args.algorithm == "ga": 
-        trainer = Pic_GA_trainer.Pic_GA_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+        Pic_GA_trainer = type('Pic_GA_trainer', (Pic_trainer.Pic_trainer, GA_trainer.GA_trainer), {
+            'dynamic_method': lambda self: print("Dynamic method")
+        })
+        trainer = Pic_GA_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, num_tournaments, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
     elif args.algorithm == "hs":
-        trainer = Pic_HS_trainer.Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+        Pic_HS_trainer = type('Pic_HS_trainer', (Pic_trainer.Pic_trainer, HS_trainer.HS_trainer), {
+            'dynamic_method': lambda self: print("Dynamic method")
+        })
+        trainer = Pic_HS_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, num_tournaments, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
     elif args.algorithm == "hc_llm":
-        trainer = Pic_HC_LLM_trainer.Pic_HC_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+        Pic_HC_LLM_trainer = type('Pic_HC_LLM_trainer', (Pic_trainer.Pic_trainer, HC_trainer.HC_trainer, Pic_LLM_trainer.Pic_LLMMixin), {
+            'dynamic_method': lambda self: print("Dynamic method")
+        })
+        trainer = Pic_HC_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, num_tournaments, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
     elif args.algorithm == "hs_llm":
-        trainer = Pic_HS_LLM_trainer.Pic_HS_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+        Pic_HS_LLM_trainer = type('Pic_HS_LLM_trainer', (Pic_trainer.Pic_trainer, HS_trainer.HS_trainer, Pic_LLM_trainer.Pic_LLMMixin), {
+            'dynamic_method': lambda self: print("Dynamic method")
+        })
+        trainer = Pic_HS_LLM_trainer(num_steps, patience, train_seed, data_seed, num_compose, num_candidates, num_tournaments, backbone="", task_type=task_type, pic_gen_seed=pic_gen_seed)
+    
     trainer.initialize_prompt_0(args)
     instruction = trainer.original_candidate
     trainer.train(instruction, chosen_task_name="pic_score", args = args)
@@ -147,7 +171,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     # # Initialize wandb
-    wandb.login(key="88bd7de7f3b87f2354afdc42c30ae6cacba5ff0b")
+    wandb.login(key='xxxxxxx-xxxxx-xxxx-xxxxx') # replace your own wandb key if there are multiple wandb accounts in your server
     wandb.init(project=args.project_name, name=args.meta_name)
     wandb.config.update(args)
 
