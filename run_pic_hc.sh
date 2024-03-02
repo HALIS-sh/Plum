@@ -1,34 +1,32 @@
+# Set CUDA_VISIBLE_DEVICES to 0
 # export CUDA_VISIBLE_DEVICES=0
 file_path="test_prompts.txt"
-# 初始化行号变量
+# Initialize line number variable
 line_number=0
-# 使用while循环按行读取文本文件
+# Read the text file line by line using a while loop
 while IFS= read -r line; do
-    # 递增行号
+    # Increment the line number
     ((line_number++))
-     # 在此处对读取到的内容进行处理或存储到变量中
+    # Process or store the content read
     content="$line"
-    # 在此处输出行号和读取到的内容，用于调试
-    echo "读取到的行号： $line_number"
-    echo "读取到的内容： $content"
+    # Output the line number and content read for debugging
+    echo "Line Number: $line_number"
+    echo "Content Read: $content"
+    # Calculate the MD5 hash of the content
     prompt_hash=$(echo "${content}" | md5sum | awk '{ print $1 }')
-    # start_seed=0
-    # end_seed=3
-    # for ((hc_seed=start_seed; hc_seed<=end_seed; hc_seed++));
-    # do
+    # HC search seed and picture generation seed
     pic_gen_seed=2
     hc_seed=2
     prefix="result/prompt-${line_number}_${prompt_hash}/hc_search_seed-${hc_seed}_picseed-${pic_gen_seed}"
-
-    # 检查文件夹是否存在
+    # Check if the folder does not exist
     if [ ! -d "$prefix" ]; then
-        # 如果文件夹不存在，则创建它
-        mkdir "result/prompt-${line_number}_${prompt_hash}"
-        mkdir "$prefix"
-        mkdir "${prefix}/logs"
-        mkdir "${prefix}/pics"
-        echo "创建文件夹 $prefix"
-
+        # If the folder does not exist, create it
+        mkdir -p "result/prompt-${line_number}_${prompt_hash}"
+        mkdir -p "$prefix"
+        mkdir -p "${prefix}/logs"
+        mkdir -p "${prefix}/pics"
+        echo "Created folder $prefix"
+        # Run the Python script with specified parameters and save the output to a log file
         python pic_score_main.py \
             --train-seed ${hc_seed}   \
             --pic_gen_seed ${pic_gen_seed}  \
@@ -46,7 +44,6 @@ while IFS= read -r line; do
             --algorithm "hc" \
             --original_candidate "$content"| tee "${prefix}/logs/hc_search.log"
     else
-        echo "文件夹 $prefix 已经存在"
+        echo "Folder $prefix already exists"
     fi
-    
 done < "$file_path"
