@@ -35,7 +35,8 @@ class Pic_trainer(SimpleTrainer):
     # prepare prompt_0 and base_prompt_pics
     def initialize_prompt_0(self, args):
         # Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
-        sd_pipe = StableDiffusionPipeline.from_pretrained("xxxxxxxxxx", torch_dtype=torch.float16)
+        model_id = "stabilityai/stable-diffusion-2-1"
+        sd_pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
         sd_pipe.scheduler = DPMSolverMultistepScheduler.from_config(sd_pipe.scheduler.config)
         sd_pipe = sd_pipe.to("cuda")
         # self.original_candidate = "Show the boundary between night and day."
