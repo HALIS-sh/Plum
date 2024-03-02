@@ -18,8 +18,7 @@ class Pic_LLMMixin(SimpleTrainer):
     
     def get_api_key(self):
         # api-key file-path
-        file_path = '/home/wenhesun/Plum_Final/api-key.txt'
-        output_file_path = '/home/wenhesun/Plum_Final/get_api-key.txt'
+        file_path = 'xxx/api-key.txt'
         # list which is used to restored the result
         matched_strings = []
 
