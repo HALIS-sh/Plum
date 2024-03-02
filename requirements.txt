@@ -1,0 +1,16 @@
+diffusers==0.25.0
+nltk==3.6.2
+numpy==1.21.1
+openai==0.11.0
+Pillow==9.0.1
+Pillow==10.2.0
+scikit_learn==1.0.2
+scipy==1.7.0
+six==1.16.0
+supar==1.1.2
+tenacity==8.2.3
+torch==1.12.1+cu113
+torch==2.1.2
+tqdm==4.62.3
+transformers==4.36.0
+yacs==0.1.8
