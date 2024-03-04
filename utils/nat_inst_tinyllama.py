@@ -10,8 +10,8 @@ from sklearn.metrics import f1_score as F1
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Loading the tokenizer and model from Hugging Face's model hub.
-tokenizer = AutoTokenizer.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--TinyLlama--TinyLlama-1.1B-intermediate-step-1431k-3T")
-model = AutoModelForCausalLM.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--TinyLlama--TinyLlama-1.1B-intermediate-step-1431k-3T")
+tokenizer = AutoTokenizer.from_pretrained("TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T")
+model = AutoModelForCausalLM.from_pretrained("TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T")
 
 # Extra define 
 null_words = ["N/A", "", "[MASK]"]

@@ -19,8 +19,8 @@ all_calibrated_preds = []
 all_answers = []
 
 # initialize tokenizer and model from pretrained GPT2 model
-tokenizer = GPT2Tokenizer.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--gpt2/snapshots/11c5a3d5811f50298f278a704980280950aedb10")
-model = GPT2LMHeadModel.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--gpt2-xl")
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+model = GPT2LMHeadModel.from_pretrained('gpt2-xl')
 
 
 model.eval().cuda()

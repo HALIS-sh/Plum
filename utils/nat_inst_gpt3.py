@@ -42,8 +42,8 @@ NUM_API_KEYS = len(API_KEY_LIST)
 def setup_gpt2(model_name='gpt2-xl'):
     global model
     global tokenizer
-    tokenizer = GPT2Tokenizer.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--gpt2/snapshots/11c5a3d5811f50298f278a704980280950aedb10")
-    model = GPT2LMHeadModel.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--gpt2-xl") 
+    tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+    model = GPT2LMHeadModel.from_pretrained('gpt2-xl')
     model.eval().cuda()
     tokenizer.padding_side = "left"
     tokenizer.pad_token = tokenizer.eos_token
