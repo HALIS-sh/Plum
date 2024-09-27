@@ -4,7 +4,7 @@ import random
 import math
 import pdb
 from transformers import GPT2Tokenizer
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+tokenizer = GPT2Tokenizer.from_pretrained("/home/wenhesun/.cache/huggingface/hub/models--gpt2/snapshots/11c5a3d5811f50298f278a704980280950aedb10")
 
 def lowercase_list(lst):
     return [l.lower() for l in lst]

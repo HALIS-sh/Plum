@@ -2,53 +2,31 @@ import torch
 import numpy as np
 import os
 import json
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
 from utils.expanded_encode_instruction import *
 from copy import deepcopy
 from tqdm import tqdm
 import argparse
 from sklearn.metrics import f1_score as F1
-import openai, time
-import sys
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# Extra definitioin 
+# Loading the tokenizer and model from Hugging Face's model hub.
+tokenizer = AutoTokenizer.from_pretrained("TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T")
+model = AutoModelForCausalLM.from_pretrained("TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T")
+
+# Extra define 
 null_words = ["N/A", "", "[MASK]"]
 num_top_tokens = 100
 num_gen_tokens = 1
 all_regular_preds = []
 all_calibrated_preds = []
 all_answers = []
-global gpt3_model_name
-global key
 
-key = 0
-# initialize tokenizer and model from pretrained GPT2 model
-tokenizer = None 
-model = None 
+
+model.eval().cuda()
+tokenizer.padding_side = "left"
+tokenizer.pad_token = tokenizer.eos_token
+model.config.pad_token_id = model.config.eos_token_id
 num_seeds = 5
-
-
-BARD_TOKEN_LIST = [ 
-    'bard-token-1',
-    'bard-token-2',
-    ]
-
-API_KEY_LIST = [
-            'openai-api-key-1',
-            'openai-api-key-2',
-    ]
-NUM_API_KEYS = len(API_KEY_LIST)
-
-def setup_gpt2(model_name='gpt2-xl'):
-    global model
-    global tokenizer
-    tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-    model = GPT2LMHeadModel.from_pretrained('gpt2-xl')
-    model.eval().cuda()
-    tokenizer.padding_side = "left"
-    tokenizer.pad_token = tokenizer.eos_token
-    model.config.pad_token_id = model.config.eos_token_id
-    return
 
 def create_batches(test_instances, test_labels=[], batch_size=2):
     test_sentence_batches = []
@@ -78,12 +56,6 @@ def token_task_labels(labels):
         token_list.append(tokenizer.encode(l, return_tensors='pt'))
     return token_list
 
-def setup_gpt3(file='./openai_key.txt'):
-    # get OpenAI access key
-    with open(file, 'r') as f:
-        key_code = f.readline().strip()
-        openai.api_key = key_code
-     
 def counter(func):
     def wrapper(*args, **kwargs):
         wrapper.count = wrapper.count + 1
@@ -94,39 +66,6 @@ def counter(func):
     return wrapper
 
 @counter
-def complete_gpt3(prompt, max_tokens, model_name, temp=0.0, num_log_probs=None, echo=False, n=None, stop=None, step=None, api_idx=0):
-    # call GPT-3 API until result is provided and then return it
-    response = None
-    received = False
-    
-    api_pool = {
-        "0":API_KEY_LIST[0:],
-    }
-    
-    api_list = api_pool[str(api_idx)]
-    openai.api_key = api_list[random.randint(0, len(api_list) - 1)]
-
-    while not received:
-        try:
-            if '3.5' in model_name:
-                response = openai.ChatCompletion.create(model = model_name, messages=prompt, max_tokens=max_tokens, temperature=temp)
-            else:
-                response = openai.Completion.create(engine=model_name, prompt=prompt, max_tokens=max_tokens, temperature=temp,
-                                                    logprobs=num_log_probs, echo=echo, stop=stop)
-            received = True
-        except:
-            error = sys.exc_info()[0]
-            if error == openai.error.InvalidRequestError: # something is wrong: e.g. prompt too long
-                print(f"InvalidRequestError\nPrompt passed in:\n\n{prompt}\n\n")
-                assert False
-
-            print("API error:", sys.exc_info())
-            print("API key:", openai.api_key)
-            key_index = random.randint(0, len(api_list) - 1)
-            openai.api_key = api_list[key_index]
-    return response
-
-
 def complete_gpt2(prompt, l=10, model_name='gpt2-xl', num_log_probs=None, echo=False):
     ''' This function runs GPT-2 locally but places the outputs into an json that looks just like the one
      provided by the OpenAI API. '''
@@ -218,41 +157,13 @@ def complete_gpt2(prompt, l=10, model_name='gpt2-xl', num_log_probs=None, echo=F
     del total_sequences
     return return_json
 
-def complete(prompt, max_tokens, model_name='text-ada-001', temp=0, num_log_probs=None, echo=False, n=None, stop=None, step=None, api_idx=0): 
-    """complete the prompt using a language model. Change default model name to run different engines on the OpenAI API."""
-    assert max_tokens >= 0
-    assert temp >= 0
-    if 'gpt2' in model_name: 
-        assert n == None 
-        assert temp == 0 
-        setup_gpt2(model_name)
-        return complete_gpt2(prompt, max_tokens=max_tokens, model_name=model_name, num_log_probs=num_log_probs, echo=echo)
-    else:
-        if key == 1: setup_gpt3('./alternate_1_openai_key.txt')
-        elif key == 2: setup_gpt3('./alternate_2_openai_key.txt')
-        else: setup_gpt3()
-        return complete_gpt3(prompt, max_tokens=max_tokens, model_name=model_name, num_log_probs=num_log_probs, echo=echo, n=n, stop=stop, temp=temp, step=step, api_idx=api_idx)
-
-# def complete(prompt, l, model_name='babbage-instruct-beta', temp=0, num_log_probs=None, echo=False, n=None): 
-#     """complete the prompt using a language model. Change default model name to run different engines on the OpenAI API."""
-#     assert l >= 0
-#     assert temp >= 0
-#     if 'gpt2' in model_name: 
-#         assert n == None 
-#         assert temp == 0 
-#         setup_gpt2(model_name)
-#         return complete_gpt2(prompt, l=l, model_name=model_name, num_log_probs=num_log_probs, echo=echo)
-#     else:
-#         return complete_gpt3(prompt, max_tokens=l, model_name=model_name, num_log_probs=num_log_probs, echo=echo, n=n)
-
-
 def get_not_found_prob(prompt, label):
     prompt = prompt + label # space already in label
-    label_ans = complete(prompt, max_tokens=0, num_log_probs=1, echo=True, api_idx=args.api_idx)['choices'][0]
+    label_ans = complete_gpt2(prompt, l=0, num_log_probs=1, echo=True)['choices'][0]
     return np.exp(label_ans['logprobs']['token_logprobs'][-1])
 
 
-def get_regular_label_probs(response, batch, labels, if_null=False, args=None):
+def get_regular_label_probs(response, batch, labels, if_null=False):
     # check if in top tokens
     assert len(response['choices']) == len(batch)
     label_probs = torch.zeros([len(response['choices']), 1, len(labels)])
@@ -273,7 +184,7 @@ def get_regular_label_probs(response, batch, labels, if_null=False, args=None):
             all_additional_prompts.append(missing_prompt)
         additional_prompt_batches, position_lookup = create_batches(all_additional_prompts,all_missing_positions, batch_size=len(batch[0]))
         for m, missing_batch in enumerate(additional_prompt_batches):
-            missing_response = complete(missing_batch, max_tokens=0, num_log_probs=1, echo=True, model_name=args.model_name, api_idx=args.api_idx)
+            missing_response = complete_gpt2(missing_batch, l=0, num_log_probs=1, echo=True)
             for idx, missing_ans in enumerate(missing_response['choices']):
                 which_sentence, which_label = position_lookup[m][idx]
                 label_probs[which_sentence,:,which_label] = np.exp(missing_ans['logprobs']['token_logprobs'][-1])
@@ -283,17 +194,16 @@ def get_regular_label_probs(response, batch, labels, if_null=False, args=None):
     label_probs = label_probs/torch.sum(label_probs, dim=2, keepdim=True)
     return label_probs 
 
-def get_null_label_probs(null_batch, labels, args=None):
+def get_null_label_probs(null_batch, labels):
     null_label_probs = torch.zeros([len(null_batch), 1, len(labels)])
     for l, label in enumerate(labels):
         label_batch = [prompt + label for prompt in null_batch]
-        label_response = complete(label_batch, max_tokens=0, num_log_probs=1, echo=True, model_name=args.model_name, api_idx=args.api_idx)
+        label_response = complete_gpt2(label_batch, l=0, num_log_probs=1, echo=True)
         for a, ans in enumerate(label_response['choices']):
             null_label_probs[a,:,l] = np.exp(ans['logprobs']['token_logprobs'][-1])
     return null_label_probs
 
 def get_prediction(label_probs, labels):
-    
     pred_ids = torch.flatten(torch.argmax(label_probs, dim=2))
     preds = []
     for i in range(label_probs.shape[0]):
@@ -308,10 +218,8 @@ def evaluate_preds(batch_preds, batch_labels):
 def run(mode, batch_size, num_shots, chosen_task_name, num_samples, data_seed=0, logit_only=False, override_prompts=False, function=None, split=None, task_labels = [], modified = {}, if_calibrate = True, args=None):
     regular_accuracy_count = 0
     calibrated_accuracy_count = 0
-    if not override_prompts: 
-        prompt_list, answer_list, index_list = construct_instruction_prompt(mode=mode, task_name=chosen_task_name, num_shots=num_shots, num_test_instances=num_samples, data_seed=data_seed, args=args)
-    else: 
-        prompt_list, answer_list, index_list = function(mode=mode, task_name=chosen_task_name, num_shots=num_shots, num_test_instances=num_samples, data_seed=data_seed, split=split, modified=modified, args=args)
+    if not override_prompts: prompt_list, answer_list, index_list = construct_instruction_prompt(mode=mode, task_name=chosen_task_name, num_shots=num_shots, num_test_instances=num_samples, data_seed=data_seed, args=args)
+    else: prompt_list, answer_list, index_list = function(mode=mode, task_name=chosen_task_name, num_shots=num_shots, num_test_instances=num_samples, data_seed=data_seed, split=split, modified=modified, args=args)
     prompt_batches, batch_test_labels = create_batches(prompt_list, answer_list, batch_size)
     if len(task_labels) == 0: task_labels = list(set(answer_list))
     task_labels = [" " + label for label in task_labels]
@@ -335,13 +243,15 @@ def run(mode, batch_size, num_shots, chosen_task_name, num_samples, data_seed=0,
                 null_word_batches.append(temp_prompt_batches[j][i])
             null_prompt_batches.append(null_word_batches)
     
+
     all_batches = prompt_batches
     all_null_batches = null_prompt_batches
     
     for j in tqdm(range(len(all_batches))):
         batch = all_batches[j]
-        responses = complete(batch, max_tokens=num_gen_tokens, num_log_probs=num_top_tokens, model_name=args.model_name, api_idx=args.api_idx)
-        label_probs = get_regular_label_probs(responses, batch, task_labels, if_null = logit_only, args=args)
+        
+        responses = complete_gpt2(batch, l=num_gen_tokens, num_log_probs=num_top_tokens)
+        label_probs = get_regular_label_probs(responses, batch, task_labels, if_null = logit_only)
         all_label_probs.append(label_probs)
         if logit_only: label_probs = label_probs/torch.sum(label_probs, dim=2, keepdim=True)
 
@@ -350,12 +260,12 @@ def run(mode, batch_size, num_shots, chosen_task_name, num_samples, data_seed=0,
         regular_accuracy_count += np.sum(evaluate_preds(regular_preds, batch_test_labels[j]))
         all_regular_preds.extend([p.strip(" ") for p in regular_preds])
 
-# perform calibration, omitted in search as it is expensive.
+# perform calibration
         if if_calibrate:
             null_batches = all_null_batches[j]
             null_probs_list = []
             for null_batch in null_batches:
-                null_probs = get_null_label_probs(null_batch, task_labels, args=args)
+                null_probs = get_null_label_probs(null_batch, task_labels)
                 null_probs_list.append(null_probs)
 
 
@@ -371,7 +281,6 @@ def run(mode, batch_size, num_shots, chosen_task_name, num_samples, data_seed=0,
 
             calibrated_accuracy_count += np.sum(evaluate_preds(calibrated_preds, batch_test_labels[j]))
             all_calibrated_preds.extend([p.strip(" ") for p in calibrated_preds])
-        
         all_answers.extend(batch_test_labels[j])
     
         del batch, responses, regular_preds
@@ -388,17 +297,14 @@ if __name__ == "__main__":
     parser.add_argument('--batch-size', default=4, type=int, help='Type in the batch-size')
     parser.add_argument('--task-idx', default=0, type=int, help='Type in the batch-size')
     parser.add_argument('--data-seed', default=0, type=int, help='Type in the batch-size')
-    parser.add_argument('--model-name', default="curie", help='Type name of gpt-3 model')
     parser.add_argument('--save-preds', action='store_true')
     args = parser.parse_args()
 
     batch_size = args.batch_size
     num_shots = args.num_shots
     mode = args.mode
-    gpt3_model_name = args.model_name
-    key = 0
 
-    classification_task_ids = ['019', '021', '022', '050', '069', '137', '139', '195']
+    classification_task_ids = ['019', '021', '022', '050', '069', '137', '139','195']
     data_base_path = "data/ExpandedNaturalInstructions/"
     file_map = {f.split("_")[0]:f for f in os.listdir(data_base_path)}
     assert args.task_idx >= 0 and args.task_idx < len(classification_task_ids), "Invalid task index entered."
@@ -411,12 +317,18 @@ if __name__ == "__main__":
     if not os.path.exists(dest_path):
         os.makedirs(dest_path)
 
-    label_probs, calibrated_probs, regular_accuracy_count, calibrated_accuracy_count, answer_list, index_list, task_labels = run(mode=mode, batch_size=batch_size, num_shots=num_shots, chosen_task_name=chosen_task_name, num_samples=num_samples, data_seed=args.data_seed, if_calibrate = False, args=args)
+    label_probs, calibrated_probs, regular_accuracy_count, calibrated_accuracy_count, answer_list, index_list, task_labels = run(mode=mode, batch_size=batch_size, num_shots=num_shots, chosen_task_name=chosen_task_name, num_samples=num_samples, data_seed=args.data_seed)
     print("Regular Accuracy:\t", np.round(100*regular_accuracy_count/len(answer_list), 2))
+    print("Calibrated Accuracy:\t", np.round(100*calibrated_accuracy_count/len(answer_list), 2))
+    max_label = max(set(answer_list), key=answer_list.count)
+    print("Majority Baseline Accuracy:\t", np.round(100*answer_list.count(max_label)/len(answer_list),2))
+    assert len(all_regular_preds) == len(all_calibrated_preds)
     assert len(all_regular_preds) == len(answer_list)
     assert all_answers == answer_list
     del all_answers
     print("Regular F1:\t", np.round(100*F1(answer_list, all_regular_preds, average='macro'), 2))
+    print("Calibrated F1:\t", np.round(100*F1(answer_list, all_calibrated_preds, average='macro'), 2))
+    print("Majority Baseline F1:\t", np.round(100*F1(answer_list, [max_label]*len(answer_list), average='macro'), 2))
     if args.save_preds:
         results_lookup = [{'file':'regular_predictions.txt', 'list':all_regular_preds}, {'file':'calibrated_predictions.txt', 'list':all_calibrated_preds}, {'file':'ground_truths.txt', 'list':answer_list}]
         for r in results_lookup:
